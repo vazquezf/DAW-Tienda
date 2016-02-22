@@ -17,9 +17,9 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Nombre: Javier Vazquez Fernandez
     > Correo URJC: ja.vazquezf@alumnos.urjc.es 
     > Cuenta en GitHub: vazquezf
-    > Nombre:
-    > Correo URJC:
-    > Cuenta en GitHub:
+    > Nombre: Ignacio De Lucas Noguero
+    > Correo URJC: I.delucasn@alumnos.urjc.es
+    > Cuenta en GitHub: igna91
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
 ## Link GitHub: ##
