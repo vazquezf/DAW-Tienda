@@ -14,11 +14,13 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Nombre: Daniel Jimeno Sáez
     > Correo URJC: d.jimeno@alumnos.urjc.es
     > Cuenta en GitHub: danijimeno
-    > Nombre:
-    > Correo URJC:
-    > Cuenta en GitHub:
+    > Nombre: Javier Vazquez Fernandez
+    > Correo URJC: ja.vazquezf@alumnos.urjc.es 
+    > Cuenta en GitHub: vazquezf
     > Nombre:
     > Correo URJC:
     > Cuenta en GitHub:
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
+## Link GitHub: ##
+https://github.com/vazquezf/DAW-Tienda/
