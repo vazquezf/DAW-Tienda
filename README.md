@@ -4,22 +4,26 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 ##  Nombre y descripción entidades: ##
     > 1-Página principal: Donde se podán ver todos los articulos destacados
     > 2-Vista detallada del producto: Donde se veremos más detalles sobre el producto, asi como precio, valoración, etc.
-    > 3-Registro: Entidad en la que podre registrarme en la pagina para obtener acceso a la parte privada de la web.
+    > 3-Zona de Administración: Vista que tendrá el administrador sobre pedidos y productos.
     > 4-Carrito de la compra: Opción que permitira al usuario realizar sus comprar más fácilmente.
-    > 5-Buscador: Para realizar la busqueda solo de ese tipo de producto que queramos.
+    > 5-Buscador: Para realizar busquedas.
 ## Integrantes: ##
     > Nombre: Alejandro Pinto Fernandez
     > Correo URJC: a.pinto@alumnos.urjc.es
     > Cuenta en GitHub: AlejandroPinto
+    >
     > Nombre: Daniel Jimeno Sáez
     > Correo URJC: d.jimeno@alumnos.urjc.es
     > Cuenta en GitHub: danijimeno
+    >
     > Nombre: Javier Vazquez Fernandez
     > Correo URJC: ja.vazquezf@alumnos.urjc.es 
     > Cuenta en GitHub: vazquezf
+    >
     > Nombre: Ignacio De Lucas Noguero
-    > Correo URJC: I.delucasn@alumnos.urjc.es
+    > Correo URJC: i.delucasn@alumnos.urjc.es
     > Cuenta en GitHub: igna91
+    >
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
 ## Link GitHub: ##
