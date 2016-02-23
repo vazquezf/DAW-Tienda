@@ -2,11 +2,11 @@
 ## Descripción de la web: ##
 La temática de la web será la de una tienda on-line estilo PcComponentes donde existira una parte publica donde los clientes y demás usuarios podran ver los productos existentes y una segunda parte privada donde el admin deberá entrar usando su "usuario"" y contraseña para ver sus compras, favoritos, etc.
 ##  Nombre y descripción entidades: ##
-    > 1-Página principal: Donde se podán ver todos los articulos destacados
-    > 2-Vista detallada del producto: Donde se veremos más detalles sobre el producto, asi como precio, valoración, etc.
-    > 3-Zona de Administración: Vista que tendrá el administrador sobre pedidos y productos.
+    > 1-Producto:
+    > 2-Comentarios:
+    > 3-Usuario: Información del usuario.
     > 4-Carrito de la compra: Opción que permitira al usuario realizar sus comprar más fácilmente.
-    > 5-Buscador: Para realizar busquedas.
+    > 5-Noticias: Donde el admin o usuarios podran publicar diversa información, inculado a redes sociales.
 ## Integrantes: ##
     > Nombre: Alejandro Pinto Fernandez
     > Correo URJC: a.pinto@alumnos.urjc.es
