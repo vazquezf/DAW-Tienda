@@ -1,7 +1,7 @@
 body {}
 
-header {
-    width: 10px;
+nav {
+    width: 90%
 }
 
 #Destacados {
@@ -13,7 +13,7 @@ header {
 #Articulos article {
     border-width: 2px;
     border-style: inset;
-    margin: 1px;
+    margin: 2px;
 }
 
 #Articulos h5 {
