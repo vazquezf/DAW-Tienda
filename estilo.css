@@ -1,0 +1,41 @@
+
+.cabecera{}
+.Cuerpo{
+    
+}
+.menus-bucador-loggin{
+    margin: auto;
+}
+.carousel img{
+    margin: auto;
+}
+
+.row.articulos{
+    border-color: #eee;
+}
+
+.row.articulos > article{
+    
+}
+
+
+.vdivide [class*='separ']:not(:last-child):after{
+    background: #eee;
+    width: 1px;
+    content: "";
+    display:block;
+    position: absolute;
+    height: 30px;
+    bottom: 11px;
+    right: 0;
+}
+.cabecera .search{
+    width: 150px;
+}
+
+.cabecera form{
+    margin-left: auto;
+    border-width: 0px;
+    
+    
+}
