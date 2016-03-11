@@ -18,14 +18,14 @@
         <div class="jumbotron">
             <div class="row imagenes-cabecera ">
                 
-                <div class="col-md-2 logotipo ">
+                <div class="col-md-1 logotipo col-xs-2  col-md-offset-1">
                     <img src="Imagenes/Logotipo.png" class="img-responsive" alt=""></div>
-                <div  class="logotipo-texto col-md-4 col-md-offset-2"><img src="Imagenes/urjccomponentes.png" class="img-responsive"></div>
-                <div class="logotipo col-md-2 col-md-offset-2 logotipo" ><img src="Imagenes/Logotipo.png" class="img-responsive" alt="">
+                <div  class="logotipo-texto col-md-2 col-md-offset-3 col-xs-6"><img src="Imagenes/urjccomponentes.png" class="img-responsive"></div>
+                <div class="logotipo col-md-1 col-md-offset-3 logotipo " ><img src="Imagenes/Logotipo.png" class="img-responsive" alt="">
                 </div>
             </div>
             <div class="row menus-bucador-loggin">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <nav class="navbar navbar-default">
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,18 +55,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-                <div class="col-md-4">
-                    <!-- Buscador y login -->
-                    <nav class="navbar navbar-default vdivide login-buscador ">
-                        <div class="container-fluid form-inline">
-                            <div class="navbar-header list-inline">
-                                <ul class="nav navbar-nav ">
+                                <ul class="nav navbar-nav navbar-right login-buscador vdivide">
                                     <li>
                                         <form class="navbar-form  " role="search">
                                             <div class="form-group ">
@@ -77,7 +66,8 @@
                                     </li>
                                     <li class="separ"><a href=""><span class="glyphicon glyphicon-user"> Identificarse</span></a>
                                     </li>
-                                    <li class="separ"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                                    <li class="separ"><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -86,8 +76,24 @@
             </div>
         </div>
     </div>
-    <!-- Carousel -->
+    <!----------------------------------------------- Pestañas emergentes ------------------------------------------>
+    <div>
+        
+        
+    </div>
+    <!------------------------------------------------ Cuerpo ----------------------------------------------------->
     <div class="Cuerpo container" >
+        <div class="container nav-inline" id="ofertas">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <h3>La tienda de tecnología online </h3>
+                </div>
+                <div class="col-md-8 col-sm-6 " id="barra-ofertas">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!------------------------------- Carousel ---------------------------------------------------->
         <div class="row">
         <div id="carousel-principal" class="carousel slide col-md-12" data-ride="carousel" data-interval="4000">
             <ol class="carousel-indicators">
@@ -117,8 +123,19 @@
             </a>
             </div>
         </div>
-        <!--     ARTICULOS              -->
+         <!---------------------------------FIN Carousel ---------------------------------------------------->
+        <!-----------------------------------    ARTICULOS    ------------------------------------------->
         <section class="articulos">
+            <div class="container nav-inline" >
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h3>Ofertas de la semana..<span class="label label-info">¡aprovechalas al máximo!</span></h3>
+                </div>
+                <div class="col-md-6 col-sm-4 " id="barra-ofertas">
+                    <span></span>
+                </div>
+            </div>
+        </div>
             <article class="col-md-3 col-sm-4 col-xs-6">
                 <div class="thumbnail">
                     <img class="img-responsive" src="Imagenes/item-1.jpg">
@@ -216,6 +233,11 @@
                 </div>
             </article>
         </section>
+        <!--------------------------------  FIN  ARTICULOS    ------------------------------------------->
     </div>
+    <!------------------------------------------------FIN Cuerpo -------------------------------------------------->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e30aa2b94e0728"></script>
+
+
     </body>
 </html>

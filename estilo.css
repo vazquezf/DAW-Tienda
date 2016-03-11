@@ -1,32 +1,34 @@
 body{
-    background-color:inherit;
-}
-.cabecera{}
-.Cuerpo{
+    
     
 }
+/* ---------  Banner ------------ */
+.cabecera{
+}
+.Cuerpo{
+    background-color: transparent;
+    box-shadow: 0px 20px 40px #eee;
+    }
+
 .menus-bucador-loggin{
     margin: auto;
 }
-.carousel img{
-    margin: auto;
-}
-.logotipo{
-    height: 255px;
-}
+
 
 .row.imagenes-cabecera{
     margin-top: -10px;
-    
 }
 .jumbotron{
-    background-color: darkslategray;   
+    background-color: black; 
+    margin-bottom: 0px;
+    
 }
 .cabecera .navbar{
     
-   background-color:transparent;
-    border-left-width: inherit;
-    border-right-width: inherit;
+   background-color:darkgrey;
+    border-width: inherit;
+    
+    
     border-radius: 0;
     
     
@@ -37,8 +39,8 @@ body{
     content: "";
     display:block;
     position: absolute;
-    height: 30px;
-    bottom: 11px;
+    height: 34px;
+    bottom: 8px;
     right: 0;
 }
 .cabecera .search{
@@ -54,11 +56,25 @@ body{
     box-shadow:  5px 7px 50px black;
     padding-bottom: 0px;
 }
+/* carousel Cuerpo */
+.carousel img{
+    margin: auto;
+}
 
 @media (min-width: 100px) and (max-width: 986px) { 
     .cabecera .logotipo {
         display: none;
 }
+    .jumbotron{
+        padding-bottom: 20px;
+    }
+    
+    .logotipo-texto{
+        
+        margin-left: 25%;
+    }
+
+    
     .login-buscador form,li{
         display: inline-flex;
     }
@@ -69,4 +85,14 @@ body{
     .login-buscador form button{
         height: 35px;
     }
+    
+}
+
+#barra-ofertas,#articulos-titulo{
+    background-image: url(Imagenes/linea.png);
+    background-repeat: repeat-y;
+    height: 15px;
+    margin-top: 28px;
+    margin-left:  -40px;
+    
 }
