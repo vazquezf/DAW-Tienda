@@ -59,7 +59,14 @@ body{
     .cabecera .logotipo {
         display: none;
 }
-    .cabecera .jumbotron{
-    box-shadow: 50px 50px 50px black;
-}
+    .login-buscador form,li{
+        display: inline-flex;
+    }
+    .login-buscador form input{
+        margin-right: 10px;
+    }
+    
+    .login-buscador form button{
+        height: 35px;
+    }
 }
