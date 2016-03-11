@@ -1,5 +1,6 @@
 body {
-    margin-left: 5px;
+    padding-left: 5px;
+    background-color: azure;
 }
 
 nav {
@@ -8,6 +9,30 @@ nav {
 
 #head-body {
     margin-bottom: 10px;
+}
+
+#Articulos article {
+    border-width: 2px;
+    border-style: inset;
+    margin: 2px;
+    background-color: white;
+}
+
+#Articulos h5 {
+    margin: auto
+}
+
+footer ul li a {
+    color: black;
+}
+
+.jumbotron p {
+    border-width: 0.3px;
+    border-top-style: groove;
+    margin-right: 2%;
+    margin-left: 2%;
+    font-style: italic;
+    font-size: 1em;
 }
 
 @media (max-width: 765px) {
@@ -37,6 +62,13 @@ nav {
         margin: auto;
         margin-right: 40%;
     }
+    .jumbotron {
+        margin-top: 10px;
+        margin-left: 15%;
+        margin-right: 30%;
+        padding: inherit;
+        padding-top: 10px;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1500px) {
@@ -44,6 +76,13 @@ nav {
         width: 50%;
         margin-right: 10%;
         margin-left: 10%;
+    }
+    .jumbotron {
+        margin-top: 10px;
+        margin-left: 10%;
+        margin-right: 30%;
+        padding: inherit;
+        padding-top: 10px;
     }
 }
 
@@ -53,6 +92,13 @@ nav {
         margin-right: 10%;
         margin-left: 10%;
     }
+    .jumbotron {
+        margin-top: 10px;
+        margin-left: 5%;
+        margin-right: 30%;
+        padding: inherit;
+        padding-top: 10px;
+    }
 }
 
 @media (min-width: 400px) and (max-width: 700px) {
@@ -60,6 +106,12 @@ nav {
         width: 80%;
         margin-right: 10%;
         margin-left: 10%;
+    }
+    footer .container {
+        display: none;
+    }
+    .jumbotron p {
+        border-top-style: none;
     }
 }
 
@@ -69,14 +121,10 @@ nav {
         margin: inherit;
         margin-right: 10%;
     }
-}
-
-#Articulos article {
-    border-width: 2px;
-    border-style: inset;
-    margin: 2px;
-}
-
-#Articulos h5 {
-    margin: auto
+    footer .container {
+        display: none;
+    }
+    .jumbotron p {
+        border-style: none;
+    }
 }
