@@ -1,0 +1,238 @@
+body{
+    
+    
+}
+/* ---------  Banner ------------ */
+.cabecera{
+}
+
+
+
+.banner-fijo{
+    font-size: 1em;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+   
+}
+
+.banner-fijo  {
+    text-align: right;
+}
+.Cuerpo{
+    background-color: transparent;
+    
+    }
+.iconos-navegacion-banner span{
+    font-size: 2em;
+    color: #5473a6;
+    
+}
+.iconos-navegacion-banner ul:hover{
+    text-shadow: 1px 2px  3px;
+}
+
+.menus-bucador-loggin{
+    margin-bottom: 0px;
+    padding-right: 0px;
+
+    
+}
+.menus-bucador-loggin .vdivide > li > a ,
+.menus-bucador-loggin  a span {
+    color: aliceblue;
+}
+.menus-bucador-loggin .vdivide > li:hover > a{
+   text-shadow: 1px 2px  3px black; 
+    color: aliceblue;
+}
+
+.menus-bucador-loggin > .navbar{
+    margin-bottom: 0px;
+    
+}
+
+
+/*---------------*/
+.row{
+   margin-right: 0;
+}
+/*---------------*/
+
+.row.imagenes-cabecera{
+    padding-top: 15px;
+}
+.jumbotron{
+    padding-top: 15px;
+    background-color: whitesmoke; 
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    
+    
+}
+.cabecera .navbar{
+    padding-left: 20px;
+   background-color:#5473a6;
+    border-width: inherit;
+    border-radius: 0;
+    
+
+
+}
+
+.vdivide [class*='separ']:not(:last-child):after{
+    background: #eee;
+    width: 1px;
+    content: "";
+    display:block;
+    position: absolute;
+    height: 34px;
+    bottom: 8px;
+    right: 0;
+}
+
+.vdivide.iconos-navegacion-banner  [class*='separ']:not(:last-child):after{
+    height: 100%;
+    bottom: 0px;
+}
+
+.cabecera .search{
+    width: 150px;
+}
+
+.cabecera form{
+    margin-left: auto;
+    border-width: 0px;
+    
+}
+.cabecera .jumbotron{
+    
+    padding-bottom: 0px;
+}
+/* carousel Cuerpo */
+#carousel-principal{
+    background-size: 100%;
+}
+
+
+  .carousel-inner > .item > img {
+      margin: auto;
+      
+      
+
+  }
+/* Información Productos imagenes */
+.thumbnail{
+    padding: 0px;
+    width: 100%;
+
+}
+.pop-imagenes{
+    position: relative;
+    visibility: hidden;
+    width: 100%;
+}
+
+.caption > h3{
+    margin: 0px;
+    
+}
+.pop-imagenes .btn:first-child{
+    width: 40%;
+    border-radius: 0;
+    margin: 0;
+    color: white;
+    background-color: black;
+}
+.pop-imagenes .btn:nth-child(2){
+    width: 60%;
+    border-radius: 0;
+    margin: 0;
+}
+.thumbnail:hover  > .pop-imagenes{
+    visibility: inherit;
+}
+
+.pop-imagenes .btn:first-child:hover{
+    background-color: dimgrey;
+}
+
+.caption > .precio{
+    font-size: 1em;
+    color:white;
+    background-color: #5473a6;
+    padding: 4px;
+}
+.caption > .progress{
+    float: right;
+    width: 60%;
+    cursor: pointer;
+}
+
+@media (min-width: 100px) and (max-width: 986px) { 
+    .cabecera .logotipo {
+        display: none;
+}
+    .jumbotron{
+        padding-bottom: 20px;
+    }
+    
+    .logotipo-texto{
+        margin-top: 15px;
+        
+    }
+
+    
+    .login-buscador form,li{
+        display: inline-flex;
+    }
+    .login-buscador form input{
+        margin-right: 10px;
+    }
+    
+    .login-buscador form button{
+        height: 35px;
+    }
+    
+}
+
+
+/*-------  Footer -----------*/
+
+footer > .jumbotron{
+    background-color: #343434;
+    
+}
+footer > .jumbotron .encabezado{
+    border-bottom: 1px solid #666;
+    
+}
+
+
+footer > .jumbotron .encabezado > div:first-child{
+    border-right: 1px solid #666;
+    
+}
+footer > .jumbotron .encabezado > div:first-child a{
+    padding-left: 4px;    
+}
+
+.informacion{
+    border-bottom: 1px solid #666;
+    margin-bottom: 50px;
+}
+footer > .jumbotron ul li{
+    background-color: transparent;
+    border: 0px;
+    color: dimgrey;
+    padding-left: 0px;
+}
+footer > .jumbotron ul li > a{
+    color: #999;
+}
+
+footer > .jumbotron ul li > a:hover{
+    color: dimgrey;
+    text-decoration: none;
+    text-shadow: 0px 1px 1px black;
+}
