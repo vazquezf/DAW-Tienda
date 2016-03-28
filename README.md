@@ -25,7 +25,7 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Cuenta en GitHub: igna91
     >
 ## Diagrama navegación: ##
-    ![Settings Window](https://github.com/vazquezf/DAW-Tienda/PPaginaPrincipal/Diagrama de navegación/Diagrama.png)
+    ![alt text](https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png "descripcion")
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
 ## Link GitHub: ##
