@@ -29,7 +29,7 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 
 ## Captura de pantalla: ##
 <div>
-    <ul style="list-style:none">
+    <ul style="list-style-type:none">
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Aministracion.png"> </img></li>
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img></li>
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img></li>
