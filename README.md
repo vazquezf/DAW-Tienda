@@ -24,6 +24,8 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Correo URJC: i.delucasn@alumnos.urjc.es
     > Cuenta en GitHub: igna91
     >
+## Diagrama navegación: ##
+    >![ScreenShot](https://github.com/vazquezf/DAW-Tienda/edit/PPaginaPrincipal/Diagrama de navegación/Diagrama.png)
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
 ## Link GitHub: ##
