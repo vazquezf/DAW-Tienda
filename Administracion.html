@@ -11,57 +11,59 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
-    <link href="Style/estilo.css" rel="stylesheet" >
-    <link rel="stylesheet" href="AdminCSS.css" >
+    <link href="Style/estilo.css" rel="stylesheet">
+    <link rel="stylesheet" href="Style/AdminCSS.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
+
 </head>
 
 <body>
-   <div class="cabecera">
-        <div class="nav  navbar-default banner-fijo" >
-                    <div class="col-md-4 col-xs-4">
-                        <strong>URJCComponentes</strong>
-                    </div>
-                    <div class="col-md-6 col-xs-8 navbar-right">
-                        <a><span>icono</span></a>
-                        <a><span>icono2</span></a>
-                        <a><span>icono3</span></a><a><span></span></a>
-                    </div>
-                </div>
+    <div class="cabecera">
+        <div class="nav  navbar-default banner-fijo">
+            <div class="col-md-4 col-xs-4">
+                <strong>URJCComponentes</strong>
+            </div>
+            <div class="col-md-6 col-xs-8 navbar-right">
+                <a><span>icono</span></a>
+                <a><span>icono2</span></a>
+                <a><span>icono3</span></a><a><span></span></a>
+            </div>
+        </div>
         <div class="jumbotron">
             <div class="row">
-                
+
             </div>
             <div class="row imagenes-cabecera ">
-                
+
                 <div class="col-md-1 logotipo col-xs-2 col-sm-2 col-md-offset-1 ">
                     <img src="Imagenes/packman-AZUL.png" class="img-responsive" alt=""></div>
-                <div  class="logotipo-texto col-md-5 col-sm-4  col-xs-6 col-xs-offset-1"><img src="Imagenes/urjccomponentes-azul.png" class="img-responsive"></div>
+                <div class="logotipo-texto col-md-5 col-sm-4  col-xs-6 col-xs-offset-1"><img src="Imagenes/urjccomponentes-azul.png" class="img-responsive"></div>
             </div>
 
         </div>
     </div>
     <!-------------------------------------------- CUERPO -------------------------->
-    <div class="container">
-        <div class="col-md-3 col-sm-3 col-lg-3">
-            <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                <li role="presentation"><a href="#users" data-toggle="collapse">Usuarios</a></li>
-                <li role="presentation"><a href="#products" data-toggle="collapse" data-parent="#head">Productos</a></li>
-                <li role="presentation"><a href="#orders" data-toggle="collapse">Pedidos</a></li>
-            </ul>
-        </div>
+    <div class="Cuerpo ">
+        <!-----------------------------------    ADMINISTRACION    ------------------------------------------->
+        <div class="container">
+            <div class="col-md-3 col-sm-3 col-lg-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active" id="menu"><a>Menu</a></li>
+                    <li role="presentation"><a href="#users" data-toggle="collapse">Usuarios</a></li>
+                    <li role="presentation"><a href="#products" data-toggle="collapse" data-parent="#head">Productos</a></li>
+                    <li role="presentation"><a href="#orders" data-toggle="collapse">Pedidos</a></li>
+                </ul>
+            </div>
 
-        <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
-           <div id="head">
-               <h2>Administración</h2>
-           </div>
-           <div id="users" class="collapse">
-                <h3>Usuarios</h3>
-            
-                <br>
+            <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
+                <div id="head">
+                    <h2>Administración</h2>
+                </div>
+                <div id="users" class="collapse">
+                    <h3>Usuarios</h3>
+
+                    <br>
                     <div class="panel-group">
                         <div class="panel panel-default">
                             <div class="panel-body">
@@ -78,114 +80,174 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            <div id="products" class="collapse">
-                <h3>Productos</h3>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#existingProducts">Productos existentes</a></li>
-                    <li><a data-toggle="tab" href="#addproduct">Añadir producto</a></li>
-                </ul>
+                </div>
+                <div id="products" class="collapse">
+                    <h3>Productos</h3>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#existingProducts">Productos existentes</a></li>
+                        <li><a data-toggle="tab" href="#addproduct">Añadir producto</a></li>
+                    </ul>
 
-                <div class="tab-content">
-                    <div id="existingProducts" class="tab-pane fade in active">
-                        <br>
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Nombre</p>
-                                    <p>Precio</p>
-                                    <p>Cantidad</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                    <div class="tab-content">
+                        <div id="existingProducts" class="tab-pane fade in active">
+                            <br>
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p>Nombre</p>
+                                        <p>Precio</p>
+                                        <p>Cantidad</p>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Nombre</p>
-                                    <p>Precio</p>
-                                    <p>Cantidad</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p>Nombre</p>
+                                        <p>Precio</p>
+                                        <p>Cantidad</p>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="addproduct" class="tab-pane fade">
-                        <h3>Nuevo producto</h3>
-                        <br>
-                        <div id="formAddProducto">
-                        <form action="">
-                            <p>
-                                <label>Nombre del producto:</label>
-                                <input type="text" name="name" required="required">
-                            </p>
-                            <label>Descripción:</label>
-                            <p>
-                                <textarea rows="5" cols="100" required="required"></textarea>
-                            </p>
-                            <p>
-                                <label>Precio:</label>
-                                <input type="number" name="price" required="required">
-                            </p>
-                            <p>
-                                <label>Cantidad:</label>
-                                <input type="number" name="quantity" required="required">
-                            </p>
-                            <p>
-                                <label>Categoria:</label>
-                                <select>
-                                    <option value="componentes">Componentes</option>
-                                    <option value="perifericos">Perifericos</option>
-                                    <option value="smartphone">Smartphone</option>
-                                    <option value="portatiles">Portatiles</option>
-                                </select>
-                            </p>
-                            <button class="btn btn-default" type="submit" name="enviar" value="Enviar" id="botonAdmin">Enviar</button>
-                        </form>
+                        <div id="addproduct" class="tab-pane fade">
+                            <h3>Nuevo producto</h3>
+                            <br>
+                            <div id="formAddProducto">
+                                <form action="">
+                                    <p>
+                                        <label>Nombre del producto:</label>
+                                        <input type="text" name="name" required="required">
+                                    </p>
+                                    <label>Descripción:</label>
+                                    <p>
+                                        <textarea rows="5" cols="100" required="required"></textarea>
+                                    </p>
+                                    <p>
+                                        <label>Precio:</label>
+                                        <input type="number" name="price" required="required">
+                                    </p>
+                                    <p>
+                                        <label>Cantidad:</label>
+                                        <input type="number" name="quantity" required="required">
+                                    </p>
+                                    <p>
+                                        <label>Categoria:</label>
+                                        <select>
+                                            <option value="componentes">Componentes</option>
+                                            <option value="perifericos">Perifericos</option>
+                                            <option value="smartphone">Smartphone</option>
+                                            <option value="portatiles">Portatiles</option>
+                                        </select>
+                                    </p>
+                                    <button class="btn btn-default" type="submit" name="enviar" value="Enviar" id="botonAdmin">Enviar</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="orders" class="collapse">
-                <h3>Pedidos</h3>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#pendingsOrders">Pedidos pendientes</a></li>
-                    <li><a data-toggle="tab" href="#preparedOrders">Pedidos preparados</a></li>
-                </ul>
+                <div id="orders" class="collapse">
+                    <h3>Pedidos</h3>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#pendingsOrders">Pedidos pendientes</a></li>
+                        <li><a data-toggle="tab" href="#preparedOrders">Pedidos preparados</a></li>
+                    </ul>
 
-                <div class="tab-content">
-                    <div id="pendingsOrders" class="tab-pane fade in active">
-                        <br>
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Producto 1</p>
-                                    <p>Producto 2</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Marcar como preparado</button>
+                    <div class="tab-content">
+                        <div id="pendingsOrders" class="tab-pane fade in active">
+                            <br>
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p>Producto 1</p>
+                                        <p>Producto 2</p>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Marcar como preparado</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Producto 1</p>
-                                    <p>Producto 2</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin">Marcar como preparado</button>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <p>Producto 1</p>
+                                        <p>Producto 2</p>
+                                        <button class="btn btn-default" type="button" id="botonAdmin">Marcar como preparado</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="preparedOrders" class="tab-pane fade">
-                        <h2></h2>
-                        <br>
+                        <div id="preparedOrders" class="tab-pane fade">
+                            <h2></h2>
+                            <br>
+
+                        </div>
 
                     </div>
-
                 </div>
+
             </div>
-            
         </div>
+        <!--------------------------------  FIN  ADMINISTRACION    ------------------------------------------->
     </div>
+    <!------------------------------------------------FIN Cuerpo -------------------------------------------------->
 
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56e30aa2b94e0728"></script>
+    <!------------------------------------------------Pie de pagina -------------------------------------------------->
+
+    <footer>
+        <div class=jumbotron>
+            <div class="container">
+                <div class="row encabezado">
+                    <div class="col-md-4">
+                        <h3 class="panel-heading"><span class="label">Contactos de GITHUB</span></h3>
+                        <ul div="panel-body list-group">
+                            <li class="list-group-item"><span class="fa fa-github fa-2x"></span><a href="https://github.com/Igna91" target="_blank">Ignacio De Lucas Noguero</a></li>
+                            <li class="list-group-item"><span class="fa fa-github fa-2x"></span><a href="https://github.com/AlejandroPinto" target="_blank">Alejandro Pinto Fernandez</a></li>
+                            <li class="list-group-item "><span class="fa fa-github fa-2x"></span><a href="https://github.com/danijimeno " target="_blank">Daniel Jimeno Saez</a></li>
+                            <li class="list-group-item"><span class="fa fa-github fa-2x"></span><a href="https://github.com/vazquezf" target="_blank">Javier Vazquez Fernandez</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">dsd</div>
+                    <div class="col-md-4">sdsd</div>
+                </div>
+                <div class="row informacion">
+                    <div class="col-md-3">
+                        <h3 class="panel-heading"><span class="label">Información de Compra</span></h3>
+                        <ul div="panel-body list-group">
+                            <li class="list-group-item"><a href="">¿Como comprar?</a></li>
+                            <li class="list-group-item"><a href="">Formas de pago</a></li>
+                            <li class="list-group-item"><a href="">Gastos de envio</a></li>
+                            <li class="list-group-item"><a href="">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="panel-heading"><span class="label">Información</span></h3>
+                        <ul div="panel-body">
+                            <li class="list-group-item"><a href="">Condiciones de Compra</a></li>
+                            <li class="list-group-item"><a href="">Garantias</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="panel-heading"><span class="label">Contactenos</span></h3>
+                        <ul div="panel-body">
+                            <li class="list-group-item"><a href="">Centro de Soporte</a></li>
+                            <li class="list-group-item"><a href="">Aviso Legal</a></li>
+                            <li class="list-group-item"><a href="">Privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="panel-heading"><span class="label">Otros</span></h3>
+                        <ul div=" panel-body list-group">
+                            <li class="list-group-item"><a href="">Fabricantes</a></li>
+                            <li class="list-group-item"><a href="">Opiniones de clientes</a></li>
+                            <li class="list-group-item"><a href="">Últimos Comentarios</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-------------------------    Fin Pie pagina        ----------------------------------------->
 
 </body>
 
