@@ -1,152 +1,149 @@
-body{
-    
-    
-}
+body {}
+
+
 /* ---------  Banner ------------ */
-.cabecera{
-}
 
+.cabecera {}
 
-
-.banner-fijo{
+.banner-fijo {
     font-size: 1em;
     position: fixed;
     z-index: 99;
     width: 100%;
-   
 }
 
-.banner-fijo  {
+.banner-fijo {
     text-align: right;
 }
-.Cuerpo{
+
+.Cuerpo {
     background-color: transparent;
-    
-    }
-.iconos-navegacion-banner span{
+}
+
+.iconos-navegacion-banner span {
     font-size: 2em;
     color: #5473a6;
-    
-}
-.iconos-navegacion-banner li:hover{
-    text-shadow: 1px 2px  3px;
 }
 
-.menus-bucador-loggin{
+.iconos-navegacion-banner li:hover {
+    text-shadow: 1px 2px 3px;
+}
+
+.menus-bucador-loggin {
     margin-bottom: 0px;
     padding-right: 0px;
+}
 
-    
-}
-.menus-bucador-loggin .vdivide > li > a ,
-.menus-bucador-loggin  a span {
-    color: aliceblue;
-}
-.menus-bucador-loggin .vdivide > li:hover > a{
-   text-shadow: 1px 2px  3px black; 
+.menus-bucador-loggin .vdivide > li > a,
+.menus-bucador-loggin a span {
     color: aliceblue;
 }
 
-.menus-bucador-loggin > .navbar{
+.menus-bucador-loggin .vdivide > li:hover > a {
+    text-shadow: 1px 2px 3px black;
+    color: aliceblue;
+}
+
+.menus-bucador-loggin > .navbar {
     margin-bottom: 0px;
-    
 }
 
 
 /*---------------*/
-.row{
-   margin-right: 0;
+
+.row {
+    margin-right: 0;
 }
+
+
 /*---------------*/
 
-.row.imagenes-cabecera{
+.row.imagenes-cabecera {
     padding-top: 15px;
 }
-.jumbotron{
+
+.jumbotron {
     padding-top: 15px;
-    background-color: whitesmoke; 
+    background-color: whitesmoke;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    
-    
 }
-.cabecera .navbar{
+
+.cabecera .navbar {
     padding-left: 20px;
-   background-color:#5473a6;
+    background-color: #5473a6;
     border-width: inherit;
     border-radius: 0;
-    
-
-
 }
 
-.vdivide [class*='separ']:not(:last-child):after{
+.vdivide [class*='separ']:not(:last-child):after {
     background: #eee;
     width: 1px;
     content: "";
-    display:block;
+    display: block;
     position: absolute;
     height: 34px;
     bottom: 8px;
     right: 0;
 }
 
-.vdivide.iconos-navegacion-banner  [class*='separ']:not(:last-child):after{
+.vdivide.iconos-navegacion-banner [class*='separ']:not(:last-child):after {
     height: 100%;
     bottom: 0px;
 }
 
 .affix {
-      top: 19px;
-      width: 100%;
+    top: 19px;
+    width: 100%;
     z-index: 99;
-    
-  }
+}
 
- .affix + .container-fluid {
-      padding-top: 70px;
-  }
+.affix + .container-fluid {
+    padding-top: 70px;
+}
 
-.cabecera .search{
+.cabecera .search {
     width: 150px;
 }
 
-.ruta-navegacion  .breadcrumb{
+.ruta-navegacion .breadcrumb {
     margin-bottom: 2px;
     background-color: transparent;
     border-bottom: 1px solid #eee;
-    
 }
-.cabecera form
-{
+
+.cabecera form {
     margin-left: auto;
     border-width: 0px;
-    
 }
-.cabecera .jumbotron{
-    
+
+.cabecera .jumbotron {
     padding-bottom: 0px;
 }
+
+
 /* carousel Cuerpo */
-#carousel-principal{
+
+#carousel-principal {
     background-size: 100%;
 }
 
-.Cuerpo-central{
+.Cuerpo-central {
     margin-top: 20px;
 }
 
-  .carousel-inner > .item > img {
-      margin: auto;
-      width: 100%;
-      
-      
+.carousel-inner > .item > img {
+    margin: auto;
+    width: 100%;
+}
 
-  }
+
 /* Categorias */
+
 section.Categorias {
     margin-top: 30px;
 }
+
 section.Categorias > div {
     margin-top: 30px;
     border: 1px solid #5473a6;
@@ -156,211 +153,209 @@ section.Categorias > div {
     padding-right: 100px;
 }
 
-section.Categorias > div > .nav
-{
+section.Categorias > div > .nav {
     padding-left: 10%;
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: transparent;
     border-radius: 0px;
 }
-section.Categorias > div > .nav .tree > li a{
+
+section.Categorias > div > .nav .tree > li a {
     padding-top: 2px;
     padding-bottom: 2px;
-    
-    
 }
+
 
 /* Información Productos imagenes */
-.thumbnail{
+
+.thumbnail {
     padding: 0px;
     width: 100%;
-
 }
-.infomacion-articulo-general{
+
+.infomacion-articulo-general {
     margin-top: 20px;
 }
 
-.info-articulo-texto >  div >.titulo-producto{
+.info-articulo-texto > div >.titulo-producto {
     border: 0;
     font-family: serif;
     font-size: 1.6em;
-    
 }
-.info-articulo-texto >  div >.descripcion p{
+
+.info-articulo-texto > div >.descripcion p {
     font-size: 0.8em;
     color: #777;
 }
 
-.info-articulo-texto >  div,
-.info-articulo-texto >  div >.descripcion{
+.info-articulo-texto > div,
+.info-articulo-texto > div >.descripcion {
     padding-bottom: 0px;
 }
-.info-articulo-texto >  div >.descripcion li{
+
+.info-articulo-texto > div >.descripcion li {
     border: 0px;
-    
-    
-}
-.carousel-inner{
-    
 }
 
-.info-articulo .imagenes-minuatura  .span3 > a  img{
-    width: 100%;  
-   
-    
+.carousel-inner {}
+
+.info-articulo .imagenes-minuatura .span3 > a img {
+    width: 100%;
 }
-.info-articulo .imagenes-minuatura .carousel-control{
+
+.info-articulo .imagenes-minuatura .carousel-control {
     width: 6%;
 }
-.info-articulo .imagenes-minuatura .carousel-control span{
+
+.info-articulo .imagenes-minuatura .carousel-control span {
     width: 6%;
 }
-.info-articulo .imagenes-minuatura  .span3{
-    width: 23%;  
-    margin-left:  2px;
+
+.info-articulo .imagenes-minuatura .span3 {
+    width: 23%;
+    margin-left: 2px;
     display: inline-table;
-    
-}
-.info-articulo-texto>  div >.descripcion li:not(:last-child){
-    border-bottom: 2px solid #eee; 
 }
 
-.info-articulo-texto >  div >.descripcion li:last-child{
+.info-articulo-texto> div >.descripcion li:not(:last-child) {
+    border-bottom: 2px solid #eee;
+}
+
+.info-articulo-texto > div >.descripcion li:last-child {
     padding-bottom: 1px;
 }
-.info-articulo-texto >  div >.descripcion form div{
+
+.info-articulo-texto > div >.descripcion form div {
     padding-bottom: 10px;
-    
 }
 
-
-.pop-imagenes{
+.pop-imagenes {
     position: relative;
     visibility: hidden;
     width: 100%;
 }
 
-.caption > h3{
+.caption > h3 {
     margin-top: 0px;
     color: #888;
 }
-.pop-imagenes .btn:first-child{
+
+.pop-imagenes .btn:first-child {
     width: 40%;
     border-radius: 0;
     margin: 0;
     color: white;
     background-color: black;
 }
-.pop-imagenes .btn:nth-child(2){
+
+.pop-imagenes .btn:nth-child(2) {
     width: 60%;
     border-radius: 0;
     margin: 0;
 }
 
-.cortar{
-    width:100%;;
-    padding-left:10px;
-    text-overflow:ellipsis;
-    white-space:nowrap; 
-    overflow:hidden;
+.cortar {
+    width: 100%;
+    ;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
 .cortar:hover {
-
-  white-space: initial;
-  overflow:visible;
-  cursor: pointer;
-
-
+    white-space: initial;
+    overflow: visible;
+    cursor: pointer;
 }
 
-.thumbnail:hover  > .pop-imagenes{
+.thumbnail:hover > .pop-imagenes {
     visibility: inherit;
 }
 
-.pop-imagenes .btn:first-child:hover{
+.pop-imagenes .btn:first-child:hover {
     background-color: dimgrey;
 }
 
-.caption > .precio{
+.caption > .precio {
     font-size: 1em;
-    color:white;
+    color: white;
     background-color: #5473a6;
     padding: 4px;
 }
-.caption > .progress{
+
+.caption > .progress {
     float: right;
     width: 60%;
     cursor: pointer;
 }
 
-
-
-
-
-@media (min-width: 100px) and (max-width: 986px) { 
+@media (min-width: 100px) and (max-width: 986px) {
     .cabecera .logotipo {
         display: none;
-}
-    .jumbotron{
+    }
+    .jumbotron {
         padding-bottom: 20px;
     }
-    
-    .logotipo-texto{
+    .logotipo-texto {
         margin-top: 15px;
-        
     }
-
-    
-    .login-buscador form,li{
+    .login-buscador form,
+    li {
         display: inline-flex;
     }
-    .login-buscador form input{
+    .login-buscador form input {
         margin-right: 10px;
     }
-    
-    .login-buscador form button{
+    .login-buscador form button {
         height: 35px;
     }
-    
+}
+
+
+/*-------  Carrito -----------*/
+
+.CarritoJPG {
+    width: 10%;
 }
 
 
 /*-------  Footer -----------*/
 
-footer > .jumbotron{
+footer > .jumbotron {
     background-color: #343434;
-    
 }
-footer > .jumbotron .encabezado{
+
+footer > .jumbotron .encabezado {
     border-bottom: 1px solid #666;
-    
 }
 
-
-footer > .jumbotron .encabezado > div:first-child{
+footer > .jumbotron .encabezado > div:first-child {
     border-right: 1px solid #666;
-    
-}
-footer > .jumbotron .encabezado > div:first-child a{
-    padding-left: 4px;    
 }
 
-.informacion{
+footer > .jumbotron .encabezado > div:first-child a {
+    padding-left: 4px;
+}
+
+.informacion {
     border-bottom: 1px solid #666;
     margin-bottom: 50px;
 }
-footer > .jumbotron ul li{
+
+footer > .jumbotron ul li {
     background-color: transparent;
     border: 0px;
     color: dimgrey;
     padding-left: 0px;
 }
-footer > .jumbotron ul li > a{
+
+footer > .jumbotron ul li > a {
     color: #999;
 }
 
-footer > .jumbotron ul li > a:hover{
+footer > .jumbotron ul li > a:hover {
     color: dimgrey;
     text-decoration: none;
     text-shadow: 0px 1px 1px black;
