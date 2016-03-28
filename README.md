@@ -25,7 +25,7 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Cuenta en GitHub: igna91
     >
 ## Diagrama navegación: ##
-    
+    [![logo](http://www.patriciogonzalezvivo.com/images/tutoriales/oF-workshop.jpg)](http://www.patriciogonzalezvivo.com)
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
 ## Link GitHub: ##
