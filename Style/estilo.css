@@ -311,6 +311,20 @@ section.Categorias > div > .nav .tree > li a {
     .login-buscador form button {
         height: 35px;
     }
+    
+
+    .Productos-Categoria .container,
+    .Productos-Categoria .panel-body{
+        padding: 0px;
+        
+    }
+    .thumbnail .caption{
+        padding: 10px;
+    }
+    .thumbnail button,
+    .thumbnail a{
+        font-size: 0.8em;
+    }
 }
 
 
