@@ -1,0 +1,29 @@
+h2 {
+    color: #04409f;
+}
+
+#botonAdmin {
+    color: white;
+    background: -webkit-linear-gradient(#71b5f8, #04409f);
+    background: -moz-linear-gradient(#71b5f8, #04409f);
+    background: -o-linear-gradient(#71b5f8, #04409f);
+}
+
+#botonAdmin:hover {
+    color: white;
+    background: -webkit-linear-gradient(#04409f, #71b5f8);
+    background: -moz-linear-gradient(#04409f, #71b5f8);
+    background: -o-linear-gradient(#04409f, #71b5f8);
+}
+
+#head {
+    text-align: center;
+}
+
+#formAddProducto {
+  margin: .4em 0;
+}
+#formAddProducto label {
+  width: 20%;
+  float: left;
+}
