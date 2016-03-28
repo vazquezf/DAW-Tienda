@@ -1,7 +1,6 @@
 # Nombre de la Aplicación: URJComponentes #
 ## Descripción de la web: ##
 La temática de la web será la de una tienda on-line estilo PcComponentes donde existira una parte publica donde los clientes y demás usuarios podran ver los productos existentes y una segunda parte privada donde el admin deberá entrar usando su "usuario"" y contraseña para ver sus compras, favoritos, etc.
-![alt text](https://github.com/vazquezf/DAW-Tienda/PPaginaPrincipal/DAW-Tienda/Diagrama de navegación/Diagrama.png "descripcion")
 ##  Nombre y descripción entidades: ##
     > 1-Producto:
     > 2-Comentarios:
