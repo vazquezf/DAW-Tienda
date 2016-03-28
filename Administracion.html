@@ -15,7 +15,28 @@
     <link rel="stylesheet" href="Style/AdminCSS.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+    
+    <script type="text/javascript">
+	$(document).ready(function()
+	    {
+       
+	    $("#aProducts").on( "click", function() {	 
+	        $('#products').toggle();
+            $('#orders').hide(); 
+            $('#users').hide();
+	         });
+        $("#aUsers").on( "click", function() {	 
+	        $('#users').toggle();
+            $('#orders').hide(); 
+            $('#products').hide();
+	         });
+        $("#aOrders").on( "click", function() {	 
+	        $('#orders').toggle();
+            $('#users').hide(); 
+            $('#products').hide();
+	         });
+	    });
+    </script>
 </head>
 
 <body>
@@ -50,9 +71,10 @@
             <div class="col-md-3 col-sm-3 col-lg-3">
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                    <li role="presentation"><a href="#users" data-toggle="collapse">Usuarios</a></li>
-                    <li role="presentation"><a href="#products" data-toggle="collapse" data-parent="#head">Productos</a></li>
-                    <li role="presentation"><a href="#orders" data-toggle="collapse">Pedidos</a></li>
+                    <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
+                    <li role="presentation"><a href="#products" id="aProducts">Productos</a></li>
+                    <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
+                    <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
                 </ul>
             </div>
 
@@ -60,7 +82,7 @@
                 <div id="head">
                     <h2>Administración</h2>
                 </div>
-                <div id="users" class="collapse">
+                <div id="users">
                     <h3>Usuarios</h3>
 
                     <br>
@@ -69,19 +91,19 @@
                             <div class="panel-body">
                                 <p>Correo electrónico</p>
                                 <p>Nombre</p>
-                                <button class="btn btn-default" type="button" id="botonAdmin">Eliminar Usuario</button>
+                                <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar Usuario</button>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <p>Correo electrónico</p>
                                 <p>Nombre</p>
-                                <button class="btn btn-default" type="button" id="botonAdmin">Eliminar Usuario</button>
+                                <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar Usuario</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="products" class="collapse">
+                <div id="products">
                     <h3>Productos</h3>
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#existingProducts">Productos existentes</a></li>
@@ -97,8 +119,8 @@
                                         <p>Nombre</p>
                                         <p>Precio</p>
                                         <p>Cantidad</p>
-                                        <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
-                                        <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-pencil fa-fw"></i> Modificar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar articulo</button>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -106,8 +128,8 @@
                                         <p>Nombre</p>
                                         <p>Precio</p>
                                         <p>Cantidad</p>
-                                        <button class="btn btn-default" type="button" id="botonAdmin">Modificar articulo</button>
-                                        <button class="btn btn-default" type="button" id="botonAdmin">Eliminar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-pencil fa-fw"></i> Modificar articulo</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar articulo</button>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +171,7 @@
                     </div>
                 </div>
 
-                <div id="orders" class="collapse">
+                <div id="orders">
                     <h3>Pedidos</h3>
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#pendingsOrders">Pedidos pendientes</a></li>
@@ -164,7 +186,7 @@
                                     <div class="panel-body">
                                         <p>Producto 1</p>
                                         <p>Producto 2</p>
-                                        <button class="btn btn-default" type="button" id="botonAdmin">Marcar como preparado</button>
+                                        <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-shopping-bag fa-fw"></i> Marcar como preparado</button>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
