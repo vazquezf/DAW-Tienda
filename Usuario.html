@@ -3,6 +3,7 @@
 
 <head>
     <title>URJComponentes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -199,12 +200,11 @@
                     <!----------------------------Informacion de contenido-------------------------------------------------->
                     <div class="container col-md-12" id="footer-info-articulo">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#caracteristicas">Caracteristicas</a></li>
-                            <li><a data-toggle="tab" href="#opiniones">Datos Personales</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Compras</a></li>
+                            <li class="active"><a data-toggle="tab" href="#datospersonales">Datos personales</a></li>
+                            <li><a data-toggle="tab" href="#compras">Compras</a></li>
 
                             <div class="tab-content">
-                                <div id="caracteristicas" class="tab-pane fade in active">
+                                <div id="datospersonales" class="tab-pane fade in active">
                                     <div class="nav navbar-deault">
                                         <div class="panel-group">
                                             <div class="panel panel-default">
@@ -212,107 +212,33 @@
                                                 <div class="panel-body">
                                                     <p>
                                                         </br>
-                                                        <br>Informacion sobre el uduario que da el mismo</p>
-
-
-
+                                                        <br>Información sobre el usuario que da el mismo:</br>
+                                                        -Dato1</br>
+                                                        -Dato2</br>
+                                                        -Dato3</br>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="opiniones" class="tab-pane fade opniones">
-                                    <div class="panel-group">
-                                        <div class="panel panel-default">
-                                            <div class="panel panel-default ">
-                                                <h2>Opiniones</h2>
-                                                <div class="alert alert-warning">
-                                                    <p><strong>Condiciones de uso:</strong> No se admitirán opiniones que sean preguntas sobre el artículo. Para consultas sobre el artículo, por favor.</p>
-                                                </div>
+                                <div id="compras" class="tab-pane fade in active">
+                                    <div class="nav navbar-deault">
+                                        <div class="panel-group">
+                                            <div class="panel panel-default">
+
                                                 <div class="panel-body">
-                                                    <div class="nav navbar" id="add-opiniones">
-                                                        <div>
-                                                            <button class="btn" data-toggle="collapse" data-target="#formulario-opinion">Escribir opinión</button>
-                                                            <div id="formulario-opinion" class="collapse">
-                                                                <form class="form-horizontal" role="form">
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-sm-2" for="email">Email:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <input type="email" class="form-control" id="email" placeholder="Introducir Email">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-sm-2" for="text">Opinion:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <textarea class="form-control" rows="3"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-sm-2" for="text">Pros:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <textarea class="form-control" rows="3"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-sm-2" for="text">Contras:</label>
-                                                                        <div class="col-sm-10">
-                                                                            <textarea class="form-control" rows="3"></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label class="control-label col-sm-3" for="text">¿Lo recomendarias?:</label>
-                                                                        <div class=" col-sm-9">
-                                                                            <label class="radio-inline">
-                                                                                <input type="radio" id="opcion_si" value="opcion_1">si
-                                                                            </label>
-                                                                            <label class="radio-inline">
-                                                                                <input class="" type="radio" id="opcion_no" value="opcion_2"> no
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <div class="alert alert-warning">
-                                                                            <div class="checkbox">
-                                                                                <label>
-                                                                                    <input type="checkbox" value="">Acepto y entiendo las condiciones de uso para el envío de opiniones.
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <div class="col-sm-offset-2 col-sm-10">
-                                                                            <button type="submit" class="btn btn-default">Insertar Opinion</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-opinion">
-                                                        <div class="well">
-                                                            <h4>Personajillo</h4>
-                                                            <p>Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que...,Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que..., ,Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que...</p>
-                                                            <ul class="nav navbar">
-                                                                <li><span><label>Ventajas: </label>Cualquier cosa</span></li>
-                                                                <li><span><label>Desventajas: </label>Cualquier cosa</span></li>
-                                                                <li><span><label>¿Se lo recomendarias a tu peor amigo?: </label>Si</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                    <p>
+                                                        </br>
+                                                        <br>Lista de compras realizadas por el usuario: </br>
+                                                        -Compra1</br>
+                                                        -Compra2</br>
+                                                        -Compra3</br>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div id="caracteristicas" class="tab-pane fade">
-                                </div>
-                                <div id="caracteristicas" class="tab-pane fade">
-                                </div>
-                                <div id="caracteristicas" class="tab-pane fade">
-                                </div>
-                                <div id="caracteristicas" class="tab-pane fade">
-                                </div>
-                                <div id="caracteristicas" class="tab-pane fade">
                                 </div>
                             </div>
                     </div>
