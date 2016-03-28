@@ -28,7 +28,13 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 ![logo](https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png)
 
 ## Captura de pantalla: ##
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Aministracion.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Index.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Noticias.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Producto.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Usuario.png"> </img>
 
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
