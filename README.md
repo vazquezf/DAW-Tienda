@@ -38,7 +38,7 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 <img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Noticias.png"> </img>
 <img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Producto.png"> </img>
 <img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Usuario.png"> </img>
-<div>
+</div>
 
 ## Link Trello: ##
 https://trello.com/b/C9zpYGFp/daw-entrega-2
