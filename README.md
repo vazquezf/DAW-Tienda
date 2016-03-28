@@ -30,10 +30,10 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 ## Captura de pantalla: ##
 <div align="center">
     <ul>
-        <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Aministracion.png"> </img></li>
-        <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img></li>
-        <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img></li>
-        <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Index.png"> </img></li>
+        <li style="list-style:none"><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Aministracion.png"> </img></li>
+        <li style="list-style:none"><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img></li>
+        <li style="list-style:none"><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img></li>
+        <li style="list-style:none"><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Index.png"> </img></li>
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Noticias.png"> </img></li>
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Producto.png"> </img></li>
         <li><img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Usuario.png"> </img></li>
