@@ -80,7 +80,7 @@ body {}
     background: #eee;
     width: 1px;
     content: "";
-    display: block;
+
     position: absolute;
     height: 34px;
     bottom: 8px;
@@ -113,7 +113,7 @@ body {}
 }
 
 .cabecera form {
-    margin-left: auto;
+    margin-left: ;
     border-width: 0px;
 }
 
@@ -257,7 +257,6 @@ section.Categorias > div > .nav .tree > li a {
 
 .cortar {
     width: 100%;
-    ;
     padding-left: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -278,14 +277,16 @@ section.Categorias > div > .nav .tree > li a {
     background-color: dimgrey;
 }
 
-.caption > .precio {
+.caption > .precio,
+.card-content .precio{
     font-size: 1em;
     color: white;
     background-color: #5473a6;
     padding: 4px;
 }
 
-.caption > .progress {
+.caption > .progress ,
+.card-action > .progress{
     float: right;
     width: 60%;
     cursor: pointer;
@@ -304,6 +305,10 @@ section.Categorias > div > .nav .tree > li a {
     .login-buscador form,
     li {
         display: inline-flex;
+        
+    }
+    .vdivide [class*='separ']:not(:last-child):after{
+        display: none;
     }
     .login-buscador form input {
         margin-right: 10px;
@@ -311,18 +316,21 @@ section.Categorias > div > .nav .tree > li a {
     .login-buscador form button {
         height: 35px;
     }
-    
+
 
     .Productos-Categoria .container,
     .Productos-Categoria .panel-body{
         padding: 0px;
-        
+
     }
-    .thumbnail .caption{
+    .thumbnail .caption,
+    .card .card-action{
         padding: 10px;
     }
     .thumbnail button,
-    .thumbnail a{
+    .thumbnail a,
+    .card button,
+    .card a{
         font-size: 0.8em;
     }
 }
