@@ -34,53 +34,17 @@
                 <div class="row">
                     <h3 class="panel-heading"><span class="label label-info">DESTACADO</span></h3>
                     <div class="panel-body">
-                        <article class="col-md-4 col-sm-4 col-xs-12">
+                        <article *ngFor="#producto of productos" class="col-md-4 col-sm-4 col-xs-12">
                             <div class="thumbnail">
                                 <img class="img-responsive" src="Imagenes/item-1.jpg">
                                 <div class="btn-group  pop-imagenes" role="group">
-                                    <a [routerLink]="['Producto']" class="btn btn-secondary" role="button">Ver</a>
+                                    <a [routerLink]="['Producto',{id:producto.id}]" class="btn btn-secondary" role="button">Ver</a>
                                     <a [routerLink]="['Carrito']" class="btn btn-primary" role="button">Añadir al Carrito</a>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="desc-articulo">Geforce GTX 970</h3>
-                                    <p class="cortar">4 GB DDR5 OC</p>
-                                    <span class="precio">24 €</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="thumbnail">
-                                <img src="Imagenes/item-2.jpg" class="img-responsive">
-                                <div class="btn-group pop-imagenes" role="group">
-                                    <button type="button" class="btn btn-secondary">Ver</button>
-                                    <button type="button" class="btn btn-primary disabled">Añadir al Carrito</button>
-                                </div>
-                                <div class="caption">
-                                    <h3 class="desc-articulo">Thumbnail label</h3>
-                                    <p class="cortar">saddasdasdasdasd sadsadsdsadddddd ddddddddsadasdasd</p>
-                                    <span class="precio">24 €</span>
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="thumbnail">
-                                <img src="Imagenes/item-3.jpg" class="img-responsive">
-                                <div class="btn-group pop-imagenes" role="group">
-                                    <button type="button" class="btn btn-secondary">Ver</button>
-                                    <button type="button" class="btn btn-primary disabled">Añadir al Carrito</button>
-                                </div>
-                                <div class="caption">
-                                    <h3 class="desc-articulo">Thumbnail label</h3>
-                                    <p class="cortar">saddasdasdasdasd sadsadsdsadddddd ddddddddsadasdasd</p>
-                                    <span class="precio">24 €</span>
+                                    <h3 class="desc-articulo">{{producto.titulo}}</h3>
+                                    <p class="cortar">{{producto.shortDescrip}}</p>
+                                    <span class="precio">{{producto.precio}} €</span>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
                                         </div>

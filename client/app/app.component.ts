@@ -9,8 +9,7 @@ import {NoticiasComponent} from './noticias.component';
 import {AdministracionComponent} from './administracion.component';
 import {BuscadorComponent} from './buscador.component';
 import {RegistroComponent} from './registro.component';
-
-
+import {ProductoService} from './producto.service';
 
 @Component({
   selector: 'app',
@@ -19,11 +18,13 @@ import {RegistroComponent} from './registro.component';
     <router-outlet></router-outlet>
     <footer-app></footer-app>
   `,
-  directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
+  directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent],
+
 })
 @RouteConfig([
     {path: '/', name: 'Cuerpo', component: CuerpoComponent, useAsDefault: true},
-    {path: '/Producto', name: 'Producto', component: ProductoComponent},
+    {path: '/Producto/:id', name: 'Producto', component: ProductoComponent},
+    
     {path: '/Carrito', name: 'Carrito', component: CarritoComponent},
     {path: '/Noticias', name: 'Noticias', component: NoticiasComponent},
     {path: '/Administracion', name: 'Administracion', component: AdministracionComponent},
