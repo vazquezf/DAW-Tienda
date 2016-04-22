@@ -27,38 +27,18 @@
 
                     </tr>
                 </thead>
-                <tr>
+                <tr *ngFor="#producto of carrito">
                     <td>
-                        <p>21023</p>
+                        <p>{{producto.id}}</p>
                     </td>
                     <td>
-                        <a href="Producto.html"><img class="CarritoJPG" src="Imagenes/item-1.jpg">nombre de producto</a>
+                        <a [routerLink]="['Producto',{id:producto.id}]"><img class="CarritoJPG" src="Imagenes/item-1.jpg">{{producto.titulo}}</a>
                     </td>
                     <td>
-                        <p>400€</p>
+                        <p>{{producto.precio}}€</p>
                     </td>
                     <td>
-                        <p>1</p>
-                    </td>
-                    <td>
-                        <p>400€</p>
-                    </td>
-                    <td>
-                        <p>Eliminar</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>21023</p>
-                    </td>
-                    <td>
-                        <p><img class="CarritoJPG" src="Imagenes/item-1.jpg">GTX 970 4 GB DDR5</p>
-                    </td>
-                    <td>
-                        <p>400€</p>
-                    </td>
-                    <td>
-                        <p>1</p>
+                        <input  class="form-control" value="1" type="number" min="0" max="20" maxlength="2">
                     </td>
                     <td>
                         <p>400€</p>

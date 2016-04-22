@@ -5,11 +5,13 @@ import {FooterComponent} from './footer.component';
 import {CuerpoComponent} from './cuerpo.component';
 import {CarritoComponent} from './carrito.component';
 import {ProductoComponent} from './producto.component';
+import {ProductoService} from './producto.service';
+
 import {NoticiasComponent} from './noticias.component';
 import {AdministracionComponent} from './administracion.component';
 import {BuscadorComponent} from './buscador.component';
 import {RegistroComponent} from './registro.component';
-import {ProductoService} from './producto.service';
+
 
 @Component({
   selector: 'app',
@@ -24,7 +26,6 @@ import {ProductoService} from './producto.service';
 @RouteConfig([
     {path: '/', name: 'Cuerpo', component: CuerpoComponent, useAsDefault: true},
     {path: '/Producto/:id', name: 'Producto', component: ProductoComponent},
-    
     {path: '/Carrito', name: 'Carrito', component: CarritoComponent},
     {path: '/Noticias', name: 'Noticias', component: NoticiasComponent},
     {path: '/Administracion', name: 'Administracion', component: AdministracionComponent},

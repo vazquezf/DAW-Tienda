@@ -1,22 +1,11 @@
 import {Injectable} from 'angular2/core';
+import {Producto,ProductoService} from './producto.service';
 
-export class Producto {
-  constructor(
-  public id: number, 
-  public titulo: string, 
-  public shortDescrip: string, 
-  public img: string, 
-  public precio: number, 
-  public longDescrip: string, 
-  public destacado: boolean;
-  public novedad: boolean;
-  ) { }
-}
 @Injectable()
-export class ProductoService {
+export class CarritoService {
 
-  private productos = [
-    new Producto(134, 'GTX 760'
+private carrito = [
+   new Producto(134, 'GTX 760'
     ,'Targeta grafica de gamma media pero que permitira jugar a las ultimas tendencias en videojuegos'
     ,''
     ,400
@@ -42,22 +31,10 @@ export class ProductoService {
     
     ];
 
-    getProductos() {
+    getCarrito() {
 
-      return this.productos
+      return this.carrito
    }
+   
 
-    getProducto(id: number | string) {
-      return this.productos.filter(h => h.id === +id)[0];
-    }
-    añadirProducto(){
-        
-        var producto = new Producto(1, 'GTX 760'
-    ,'Targeta grafica de gamma media pero que permitira jugar a las ultimas tendencias en videojuegos'
-    ,''
-    ,400
-    ,'La nueva generación de EVGA GeForce GTX 970 ha llegado con el SSC. Estos modelos mejorados ofrecen una refrigeración mejorada, soporte doble BIOS, nueva configuración de salida de la pantalla y 6 fases de poder para el apoyo overclocking extremo. Estas nuevas tarjetas también vienen dotados de EVGA ACX 2.0+ refrigeración, con aspas optimizadas en el ventilador, doble rodamiento de rulemanes y un motor de extrema baja potencia. La refrigeración EVGA ACX 2.0+ ofrece más flujo de aire, con menos potencia, el desbloqueo de energía adicional para la GPU.');
-    
-        this.productos.push(producto);
-        }
 }
