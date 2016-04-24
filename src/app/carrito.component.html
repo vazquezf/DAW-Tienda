@@ -1,0 +1,59 @@
+<div class="Cuerpo ">
+    <section class="container">
+        <h3 class="panel-heading"><span class="label label-info">Carrito</span></h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <p>cod.</p>
+                        </th>
+                        <th>
+                            <p>Concepto</p>
+                        </th>
+                        <th>
+                            <p>Precio</p>
+                        </th>
+                        <th>
+                            <p>Unds</p>
+                        </th>
+                        <th>
+                            <p>Total</p>
+                        </th>
+                        <th>
+                            <p>Opciones</p>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tr *ngFor="#producto of carrito">
+                    <td>
+                        <p>{{producto.id}}</p>
+                    </td>
+                    <td>
+                        <a [routerLink]="['Producto',{id:producto.id}]"><img class="CarritoJPG" src="Imagenes/item-1.jpg">{{producto.titulo}}</a>
+                    </td>
+                    <td>
+                        <p>{{producto.precio}}€</p>
+                    </td>
+                    <td>
+                        <input  class="form-control" value="1" type="number" min="0" max="20" maxlength="2">
+                    </td>
+                    <td>
+                        <p>400€</p>
+                    </td>
+                    <td>
+                        <p>Eliminar</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="CarritoBtts">
+            <p class="col-md-8 col-sm-7"></p>
+            <a href="#" class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
+            <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Realizar pedido</a>
+        </div>
+
+    </section>
+</div>
