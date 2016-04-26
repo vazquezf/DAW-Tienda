@@ -1,17 +1,20 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {RouteParams, Router} from 'angular2/router';
-import {Producto,ProductoService} from './producto.service';
-import {CarritoService} from './carrito.service';
+import {Component,OnInit} from 'angular2/core';
+import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
+import {ProductoService} from './services/producto.service';
+import {PedidoProducto,PedidoService} from './services/pedido.service';
 @Component({
     templateUrl: 'app/carrito.component.html',
-    directives: [ROUTER_DIRECTIVES];
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class CarritoComponent {
-    
-    carrito: Producto[]=[];
-    constructor( carrito: CarritoService){
-      this.carrito = carrito.getCarrito();
-      }
+
+  pedidos:Array<PedidoProducto>;
+  constructor(private router:Router, private service: PedidoService) {
+    this.service.Pedidos.subscribe(
+      Productos => this.pedidos = Productos,
+      error => console.log(error));
+  }
+
+
 }

@@ -305,7 +305,7 @@ section.Categorias > div > .nav .tree > li a {
     .login-buscador form,
     li {
         display: inline-flex;
-        
+
     }
     .vdivide [class*='separ']:not(:last-child):after{
         display: none;
@@ -344,6 +344,14 @@ section.Categorias > div > .nav .tree > li a {
 
 
 /*-------  Footer -----------*/
+
+
+footer {
+  position: relative;
+
+  height: 150px;
+  padding-top:20px;
+}
 
 footer > .jumbotron {
     background-color: #343434;

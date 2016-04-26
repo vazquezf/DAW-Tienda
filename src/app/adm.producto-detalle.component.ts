@@ -1,19 +1,19 @@
 import {Component}  from 'angular2/core';
 import {RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Producto, ProductoService}   from './producto.service';
+import {Producto,ProductoService}   from './services/producto.service';
 
 @Component({
     template: `
       <div class="container">
           <div class="col-md-3 col-sm-3 col-lg-3">
               <ul class="nav nav-pills nav-stacked">
-                  <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                  <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
-                  <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
-                  <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
-                  <li role="presentation"><a href="#news" id="aNews">Noticias</a></li>
-                  <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
-              </ul>
+                <li role="presentation" class="active" id="menu"><a>Menu</a></li>
+                <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
+                <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
+                <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
+                <li role="presentation"><a [routerLink]="['AdmNoticias']" id="aNews">Noticias</a></li>
+                <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
+            </ul>
           </div>
 
           <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
@@ -33,11 +33,11 @@ import {Producto, ProductoService}   from './producto.service';
                           <div class="panel-group">
                                 <div class="panel panel-default">
                                       <div class="panel-body">
-                                          <h3>{{producto.titulo}}</h3>
-                                          <p>{{producto.shortDescrip}}</p>
-                                          <p>{{producto.img}}</p>
-                                          <p>{{producto.precio}}</p>
-                                          <p>{{producto.longDescrip}}</p>
+                                          <h3>{{producto.Nombre}}</h3>
+                                          <p>{{producto.DescripcionC}}</p>
+                                          <p>Precio: {{producto.Precio}}</p>
+                                          <p>{{producto.DescripcionL}}</p>
+                                          <p>Cantidad: {{producto.Stock}}</p>
                                           <button (click)="editProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-pencil fa-fw"></i> Modificar articulo</button>
                                           <button (click)="removeProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar articulo</button>
                                           <button (click)="gotoProductos()" class="btn btn-default" type="button" id="botonAdmin"> Todos los articulos</button>
@@ -73,7 +73,7 @@ export class AdmProductoDetalleComponent {
     }
 
     editProducto() {
-        this.router.navigate(['AdmEditarProducto', { id: this.producto.id }]);
+        this.router.navigate(['AdmEditarProducto', { id: this.producto.Id }]);
     }
 
     gotoProductos() {

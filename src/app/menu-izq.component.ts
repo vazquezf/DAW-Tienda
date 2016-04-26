@@ -3,7 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
     selector: 'arbolcategorias',
-    templateUrl: 'app/menu-izq.component.html',
+    templateUrl: 'app/menu-izq.html',
     directives: [ROUTER_DIRECTIVES]
 })
 

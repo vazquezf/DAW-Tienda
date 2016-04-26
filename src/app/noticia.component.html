@@ -1,0 +1,49 @@
+<div class="Cuerpo ">
+
+    <!--NOTICIAS--->
+    <div class="container">
+        <section class="noticias">
+            <div class="container">
+                <div class="row">
+                    <h3 class="panel-heading"><span class="label label-info">ÚLTIMA NOTICIA</span></h3>
+                    <div class="panel-body">
+                        <article class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="thumbnail">
+                                <img class="img-responsive" src="Imagenes/intel.jpg">
+
+                                <div class="noticia">
+                                    <h3 class="desc-articulo">Intel está probando un Blockchain construyendo un videojuego de deportes</h3>
+                                    <p class="cortar">La mega empresa de semiconductores y procesadores Intel está entrando en el estudio del Blockchain con una prueba de concepto en el mercado de los deportes de fantasía que dio a conocer en una reunión para el Proyecto Hyperledger. Los usuarios pueden comprar y vender acciones de los equipos deportivos. Dependiendo de la cantidad de puntos el equipo marca en juegos dicta las ofertas de recompra. El que tiene la mayoría de la moneda (Mikels) al final del juego gana. Gracias a la tecnología Blockchain del Bitcoin, se realizará un seguimiento del mercado de acciones en tiempo real. El Proyecto Hyperledger, es la iniciativa Blockchain de código abierto conducido por la Fundación Linux, que incluye a 30 miembros de las principales instituciones de tecnología, los bancos internacionales y las nuevas empresas de la industria. Intel tiene su propio “libro de contabilidad completa” o Blockchain, aunque el representante indicó que el diseño actual está sujeta a cambios y aprobación final. La iniciativa se dice que ha crecido a partir de los esfuerzos de la investigación interna de la empresa, durante los cuales el tiempo se dedicó a experimentar con los algoritmos de consenso, incluyendo Bitcoins.</p>
+
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <h3 class="panel-heading"><span class="label label-info">NOTICIAS ANTERIORES</span></h3>
+                    <div class="panel-body">
+                           <div *ngFor="#noticia of noticias">
+                            <article class="col-md-4 col-sm-4 col-xs-6">
+                                <div class="thumbnail">
+                                    <img class="img-responsive" src="Imagenes/fbiiphone.jpg">
+                                    <div class="caption">
+                                        <p>{{noticia.titulo}}</p>
+                                        <p>{{noticia.descripcion}}</p>
+
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </div>
+
+    <!--FINNoticias-->
+</div>

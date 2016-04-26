@@ -3,7 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
     selector: 'cabecera-app',
-    templateUrl: 'app/header.component.html',
+    templateUrl: 'app/header.html',
     directives: [ROUTER_DIRECTIVES]
 })
 

@@ -3,7 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
     selector: 'footer-app',
-    templateUrl: 'app/footer.component.html',
+    templateUrl: 'app/pie-pag.html',
     directives: [ROUTER_DIRECTIVES]
 })
 

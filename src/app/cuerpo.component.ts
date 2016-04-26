@@ -1,23 +1,29 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
-import {Producto,ProductoService} from './producto.service';
-import {CarritoService} from './carrito.service';
+import {Component,OnInit} from 'angular2/core';
+import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
+import {Producto,ProductoService} from './services/producto.service';
+import {Pedido,PedidoService} from './services/pedido.service';
 
 @Component({
-    directives: [ROUTER_DIRECTIVES],
-    templateUrl: 'app/cuerpo.component.html',
+    templateUrl: 'app/cuerpo-index.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 
-export class CuerpoComponent {
-  productos: Producto[];
+export class CuerpoComponent implements OnInit{
+  Productos = Array<Producto>();
+  producto:Producto;
 
-    constructor(private router:Router, private service: ProductoService) {}
+  constructor( private service: ProductoService,private servicepd: PedidoService) {}
 
-    ngOnInit(){
-      this.service.getProductos().subscribe(
-        productos => this.productos = productos,
-        error => console.log(error)
-      );
-    }
+  ngOnInit(){
+    this.service.Productos.subscribe(
+      Productos => this.Productos = Productos,
+      error => console.log(error)
+    );
+  }
+
+  save(producto:Producto){
+    this.servicepd.setaddPedido(producto);
+  }
+
 
 }

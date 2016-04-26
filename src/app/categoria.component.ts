@@ -3,22 +3,23 @@ import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
 import {Producto, ProductoService}   from './services/producto.service';
 import {PedidoService} from './services/pedido.service';
 @Component({
-    selector: 'infoproducto',
-    templateUrl: 'app/infoProducto.html',
+    selector: 'categoriainfo',
+    templateUrl: 'app/categoria.component.html',
     directives: [ROUTER_DIRECTIVES]
 })
 
-export class InfoProdComponent {
-  producto : Producto;
+export class CategoriaComponent {
+  producto : Array<Producto>;
+  categoria:string;
+
   constructor(routeParams: RouteParams, private service: ProductoService,private servicepd: PedidoService) {
-    let id = routeParams.get('id');
-        service.getProducto(id).subscribe(
+        this.categoria = routeParams.get('categoria');
+        service.getByTipo(this.categoria).subscribe(
         producto => this.producto = producto,
         error => console.log(error)
     );
 }
-save(){
-  this.servicepd.setaddPedido(this.producto);
+save(producto:Producto){
+  this.servicepd.setaddPedido(producto);
 }
-
 }

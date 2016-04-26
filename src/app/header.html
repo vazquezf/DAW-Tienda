@@ -21,9 +21,9 @@
                 <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
                     <div>
                         <ul class="navbar-center  nav navbar-nav vdivide  iconos-navegacion-banner">
-                            <li class="separ col-xs-4"><a [routerLink]="['Registro']"><span class="glyphicon glyphicon-user"></span></a></li>
-                            <li class="separ col-xs-4"><a href="#"><span class="glyphicon glyphicon-envelope"></span></a></li>
-                            <li class="separ col-xs-4"><a href="Carrito.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                            <li class="separ col-xs-4"><a [routerLink]="['Usuarioinfo']"><span class="glyphicon glyphicon-user"></span></a></li>
+                            <li class="separ col-xs-4"><a [routerLink]="['Administracion']"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                            <li class="separ col-xs-4"><a [routerLink]="['Carrito']"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                         </ul>
                     </div>
 
@@ -45,43 +45,27 @@
                         </div>
                         <div class="collapse navbar-collapse" id="Barra-navegacion">
                             <ul class="nav navbar-nav vdivide">
-                                <li class="separ"><a [routerLink]="['Administracion']">Componentes <span class="sr-only">(current)</span></a></li>
-                                <li class="separ"><a href="#">Perifericos</a></li>
                                 <li class="dropdown separ">
                                     <a href="#Categoria.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pc/Portatiles</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Portatiles</a></li>
-                                        <li><a href="#">Ultrabook</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Portatil'}]">Portatiles</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Ultrabook'}]">Ultrabook</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#">TabletPC</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Portatiles Por Marcas</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'TabletPC'}]">TabletPC</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown separ">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SmartPhones</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">SmartPhones</a></li>
-                                        <li><a href="#">Fundas SmartPhones</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'SmartPhones'}]">SmartPhones</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Fundas SmartPhones'}]">Fundas SmartPhones</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#">Mundo iPhone</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Wearables</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Mundo iPhone'}]">Mundo iPhone</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown separ">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tablets/E-Books</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Tablets</a></li>
-                                        <li><a href="#">Fundas Tablets</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">iPad</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">eBooks/Libros</a></li>
-                                    </ul>
-                                </li>
+                                <li class="separ"><a [routerLink]="['Noticias']">Noticias</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right login-buscador vdivide">
+                          <!--  <ul class="nav navbar-nav navbar-right login-buscador vdivide">
                                 <li>
                                     <form class="navbar-form  " role="search">
                                         <div class="form-group ">
@@ -90,7 +74,7 @@
                                         <button type="submit" class="btn btn-default"> Buscar</button>
                                     </form>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                 </nav>

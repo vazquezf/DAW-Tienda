@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, RouteParams, Router} from 'angular2/router';
-import {Producto,ProductoService} from './producto.service';
+import {Producto,ProductoService}   from './services/producto.service';
 
 import {AdmNuevoProductoComponent} from './adm.nuevo.producto.component';
 import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
@@ -9,13 +9,13 @@ import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
     <div class="container">
         <div class="col-md-3 col-sm-3 col-lg-3">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
-                <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
-                <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
-                <li role="presentation"><a href="#news" id="aNews">Noticias</a></li>
-                <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
-            </ul>
+              <li role="presentation" class="active" id="menu"><a>Menu</a></li>
+              <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
+              <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
+              <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
+              <li role="presentation"><a [routerLink]="['AdmNoticias']" id="aNews">Noticias</a></li>
+              <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
+          </ul>
         </div>
 
         <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
@@ -37,9 +37,9 @@ import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
                           <div *ngFor="#producto of productos">
                               <div class="panel panel-default">
                                     <div class="panel-body">
-                                        <a [routerLink]="['AdmProductoDetalle', {id: producto.id}]">{{producto.titulo}}</a>
-                                        <p>{{producto.precio}}</p>
-                                        <p>Cantidad</p>
+                                        <a [routerLink]="['AdmProductoDetalle', {id: producto.Id}]">{{producto.Nombre}}</a>
+                                        <p>Precio: {{producto.Precio}}</p>
+                                        <p>Cantidad: {{producto.Stock}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ export class AdmProductoListComponent implements OnInit {
     constructor(private router:Router, private service: ProductoService) {}
 
     ngOnInit(){
-      this.service.getProductos().subscribe(
+      this.service.Productos.subscribe(
         productos => this.productos = productos,
         error => console.log(error)
       );

@@ -1,0 +1,29 @@
+<section class="categoria">
+    <div class="container">
+        <div class="row">
+            <h3 class="panel-heading"><span class="label label-info">{{categoria}}</span></h3>
+            <div class="panel-body">
+              <div *ngFor="#producto of producto">
+                <article  class="col-md-3 col-sm-3 col-xs-12">
+                    <div   class="thumbnail">
+                        <img class="img-responsive" src="{{producto.Img}}">
+                        <div class="btn-group  pop-imagenes" role="group">
+                            <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
+                            <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
+                        </div>
+                        <div class="caption">
+                            <h3 class="desc-articulo">{{producto.Nombre}}</h3>
+                            <p class="cortar">{{producto.DescripcionC}}</p>
+                            <span class="precio">{{producto.Precio}}</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-{{producto.ProgressBarra}} progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{producto.PortStock}}%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,3 @@
-<div class="Cuerpo ">
     <section class="container">
         <h3 class="panel-heading"><span class="label label-info">Carrito</span></h3>
         <div class="table-responsive">
@@ -27,21 +26,21 @@
 
                     </tr>
                 </thead>
-                <tr *ngFor="#producto of carrito">
+                <tr *ngFor="#producto of pedidos">
                     <td>
-                        <p>{{producto.id}}</p>
+                        <p>{{producto.Producto.Id}}</p>
                     </td>
                     <td>
-                        <a [routerLink]="['Producto',{id:producto.id}]"><img class="CarritoJPG" src="Imagenes/item-1.jpg">{{producto.titulo}}</a>
+                        <a [routerLink]="['ProductoDetail',{id:producto.id}]"><img class="CarritoJPG" src="{{producto.Img}}">{{producto.Producto.Nombre}}</a>
                     </td>
                     <td>
-                        <p>{{producto.precio}}€</p>
+                        <p>{{producto.Producto.DescripcionC}}</p>
                     </td>
                     <td>
-                        <input  class="form-control" value="1" type="number" min="0" max="20" maxlength="2">
+                        <input  class="form-control" value="{{producto.Num}}" type="number" min="0" max="20" maxlength="2">
                     </td>
                     <td>
-                        <p>400€</p>
+                        <p>{{producto.Producto.Precio*producto.Num}} €</p>
                     </td>
                     <td>
                         <p>Eliminar</p>
@@ -56,4 +55,3 @@
         </div>
 
     </section>
-</div>
