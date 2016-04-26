@@ -11,7 +11,7 @@ export class NoticiaComponent implements OnInit  {
 
   noticias: Noticia[];
 
-    constructor(private router:Router, private service: NoticiaService) {}
+    constructor(private service: NoticiaService) {}
 
     ngOnInit(){
       this.service.getNoticias().subscribe(

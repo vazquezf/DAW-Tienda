@@ -11,7 +11,8 @@ import {InfoProdComponent} from './infoProd.component';
 import {CarritoComponent} from './carrito.component';
 import {Usuario} from './services/usuario.service';
 import {NoticiaComponent} from './noticia.component';
-import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
+import {NoticiaService} from './services/noticia.service';
+//import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {AdministracionComponent} from './administracion.component';
 
@@ -20,7 +21,6 @@ import {AdmNuevoProductoComponent} from './adm.nuevo.producto.component';
 import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
 
 
-import {NoticiaService} from './services/noticia.service';
 import {AdmNoticiaListComponent} from './adm.noticia-list.component';
 import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
