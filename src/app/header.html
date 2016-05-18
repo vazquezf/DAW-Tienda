@@ -21,7 +21,8 @@
                 <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
                     <div>
                         <ul class="navbar-center  nav navbar-nav vdivide  iconos-navegacion-banner">
-                            <li class="separ col-xs-4"><a [routerLink]="['Usuarioinfo']"><span class="glyphicon glyphicon-user"></span></a></li>
+                            <li *ngIf=' 2==3' class="separ col-xs-4"><a [routerLink]="['Usuarioinfo']"><span class="glyphicon glyphicon-user"></span></a></li>
+                            <li *ngIf=' 2==2' class="separ col-xs-4"><a [routerLink]="['Registro']"><span class="glyphicon glyphicon-user"></span></a></li>
                             <li class="separ col-xs-4"><a [routerLink]="['Administracion']"><span class="glyphicon glyphicon-envelope"></span></a></li>
                             <li class="separ col-xs-4"><a [routerLink]="['Carrito']"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                         </ul>

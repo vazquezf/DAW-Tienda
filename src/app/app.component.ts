@@ -12,6 +12,7 @@ import {CarritoComponent} from './carrito.component';
 import {Usuario} from './services/usuario.service';
 import {NoticiaComponent} from './noticia.component';
 import {NoticiaService} from './services/noticia.service';
+import {RegistroComponent} from './registro.component';
 //import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {AdministracionComponent} from './administracion.component';
@@ -43,6 +44,7 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
     {path: '/Pedido', name: 'Carrito', component: CarritoComponent},
     {path: '/Usuario', name: 'Usuarioinfo', component: UsuarioComponent},
     {path: '/Noticias', name: 'Noticias', component: NoticiaComponent},
+    {path: '/registro', name: 'Registro', component: RegistroComponent},
 
     {path: '/administracion', name: 'Administracion', component: AdministracionComponent},
 
