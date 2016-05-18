@@ -78,7 +78,7 @@ export class Pedido{
 
 @Injectable()
 export class PedidoService{
-    usuario = new Usuario('Juakin', 'primerApellid', 'segundoApellido', 'Correo@ejemplo.es', 'Manolo', 1);
+    usuario = new Usuario('Juakin', 'primerApellid', 'segundoApellido', 'Correo@ejemplo.es', 'Manolo', false);
     pedido = new Pedido(this.usuario);
 
 
