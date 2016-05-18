@@ -44,8 +44,12 @@ export class Usuario{
     return this.userName;
   }
   get UserLogin():string{
-    return this.UserLogin;
+    return this.userLogin;
   }
+  get EsAdmin():boolean{
+    return this.admin;
+  }
+
   set Nombre(nombre:string){
      this.nombre=nombre;
   }
@@ -61,6 +65,7 @@ export class Usuario{
   set UserLogin(pass:string){
     this.UserLogin=pass;
   }
+
 }
 @Injectable()
 export class UsuarioService{
@@ -69,23 +74,22 @@ export class UsuarioService{
 
   usuario:Usuario;
 
-  getComprobarUsuario(nombre:string,pass:string): number {
-    let encontrado =0;
+  getComprobarUsuario(nombre:string,pass:string):number {
+
+    let encontrado:number =0;
     for(let user of this.users) {
       if (user.UserName==nombre && user.UserLogin==pass) {
         encontrado= user.Id;
       }
     }
-    return withObserver(encontrado);
+    return encontrado;
   }
-  getusuario(id:number): Usuario{
-      let usuario = this.users.filter(h => h.Id === +id)[0]
-      return withObserver(usuario);
+  getusuario(id:number | string){
+      let usuario = this.users.filter(h => h.Id === +id)[0];
+      return usuario;
   }
 
   set loguear(id:number){
     this.usuario = this.getusuario(id);
   }
-
-
 }

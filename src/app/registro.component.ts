@@ -12,22 +12,24 @@ export class RegistroComponent {
     usuario: Usuario;
     nombre:string;
     pass:string;
-
     constructor(
-      private _router:Router,
+      private router:Router,
       private service: UsuarioService){
 
     }
-    
+
     comprobar() {
       let num = this.service.getComprobarUsuario(this.nombre, this.pass);
-      console.log(this.nombre);
-      console.log(this.pass);
       if(num !== 0){
           this.service.loguear=num;
-          console.log('USUARIO LOGUEADO');
+          window.confirm(this.service.usuario.Nombre);
+          if(this.service.usuario.EsAdmin){
+            this.router.navigate(['Administracion']);
+          }else{
+              this.router.navigate(['Usuarioinfo']);
+          }
       }else{
-          console.log('USUARIO NOOOOOOO LOGUEADO');
+          window.console.log('no se encuentra');
       }
     }
 
