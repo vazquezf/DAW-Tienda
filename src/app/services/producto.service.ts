@@ -99,22 +99,22 @@ export class Producto{
     this.tipo=tipo;
   }
   set Nombre(nombre:string){
-     this.nombre;
+     this.nombre= nombre;
   }
   set DescripcionC(descripcion_corta:string){
-     this.descripcion_corta;
+     this.descripcion_corta= descripcion_corta;
   }
   set Img(img_ruta:string){
-     this.img_ruta;
+     this.img_ruta=img_ruta;
   }
   set Precio(precio:number){
-     this.precio;
+     this.precio=precio;
   }
   set Stock(stock:number){
-     this.stock;
+     this.stock=stock;
   }
   set DescripcionL(descripcion_larga:string){
-     this.descripcion_larga;
+     this.descripcion_larga=descripcion_larga;
   }
 
 
