@@ -8,4 +8,23 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 export class RegistroComponent {
 
+    usuario: Usuario;
+    nombre:string;
+    pass:string;
+
+    constructor(
+      private _router:Router,
+      private service: UsuarioService){
+
+    }
+
+    comprobar() {
+      let num = this.service.getComprobarUsuario(nombre,pass);
+      if(num !== 0){
+        
+      }else{
+
+      }
+    }
+
 }
