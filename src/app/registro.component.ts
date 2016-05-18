@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {UsuarioService,Usuario} from './services/usuario.service';
 
 @Component({
     templateUrl: 'app/registro.component.html',
@@ -17,13 +18,16 @@ export class RegistroComponent {
       private service: UsuarioService){
 
     }
-
+    
     comprobar() {
-      let num = this.service.getComprobarUsuario(nombre,pass);
+      let num = this.service.getComprobarUsuario(this.nombre, this.pass);
+      console.log(this.nombre);
+      console.log(this.pass);
       if(num !== 0){
-        
+          this.service.loguear=num;
+          console.log('USUARIO LOGUEADO');
       }else{
-
+          console.log('USUARIO NOOOOOOO LOGUEADO');
       }
     }
 

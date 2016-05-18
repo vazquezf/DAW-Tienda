@@ -13,6 +13,7 @@ import {Usuario} from './services/usuario.service';
 import {NoticiaComponent} from './noticia.component';
 import {NoticiaService} from './services/noticia.service';
 import {RegistroComponent} from './registro.component';
+import {UsuarioService} from './services/usuario.service';
 //import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
 
 import {AdministracionComponent} from './administracion.component';
@@ -34,7 +35,7 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
     <router-outlet></router-outlet>
     <footer><footer-app></footer-app></footer>
   `,
-    providers:  [ProductoService,PedidoService,NoticiaService],
+    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
   directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
 })
 @RouteConfig([
