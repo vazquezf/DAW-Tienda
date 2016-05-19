@@ -18,10 +18,11 @@ import {UsuarioService} from './services/usuario.service';
 
 import {AdministracionComponent} from './administracion.component';
 
+import {AdmUsuarioListComponent} from './adm.usuario-list.component';
+
 import {AdmProductoListComponent} from './adm.producto-list.component';
 import {AdmNuevoProductoComponent} from './adm.nuevo.producto.component';
 import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
-
 
 import {AdmNoticiaListComponent} from './adm.noticia-list.component';
 import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
@@ -48,6 +49,8 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
     {path: '/registro', name: 'Registro', component: RegistroComponent},
 
     {path: '/administracion', name: 'Administracion', component: AdministracionComponent},
+
+    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent},
 
     {path: '/administracion/productos', name: 'AdmProductos', component: AdmProductoListComponent},
     {path: '/administracion/producto/:id', name: 'AdmProductoDetalle', component: AdmProductoDetalleComponent},

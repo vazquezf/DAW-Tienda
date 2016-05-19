@@ -8,7 +8,7 @@ import {Noticia,NoticiaService}   from './services/noticia.service';
           <div class="col-md-3 col-sm-3 col-lg-3">
               <ul class="nav nav-pills nav-stacked">
                 <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
+                <li role="presentation"><a [routerLink]="['AdmUsuarios']" id="aUsers">Usuarios</a></li>
                 <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
                 <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
                 <li role="presentation"><a [routerLink]="['AdmNoticias']" id="aNews">Noticias</a></li>
