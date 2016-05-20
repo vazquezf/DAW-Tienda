@@ -4,6 +4,7 @@ import {MenuIzqComponent} from './menu-izq.component';
 import {CategoriaComponent} from './categoria.component';
 import {Producto,ProductoService}   from './services/producto.service';
 import {PedidoService} from './services/pedido.service';
+import {NavSupComponent} from './nav-sup.component';
 @Component({
   template: `
   <div class="container ">
@@ -11,7 +12,7 @@ import {PedidoService} from './services/pedido.service';
       <categoriainfo class="ruta-navegacion col-md-10"></categoriainfo>
   </div>
 `,
-    directives: [ROUTER_DIRECTIVES,MenuIzqComponent,CategoriaComponent]
+    directives: [ROUTER_DIRECTIVES,MenuIzqComponent,CategoriaComponent,NavSupComponent]
 })
 
 export class ProductoComponent {
