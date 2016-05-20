@@ -1,59 +1,14 @@
 <div class="Cuerpo ">
     <!--ADMINISTRACION-->
-    <div class="container">
-        <div class="col-md-3 col-sm-3 col-lg-3">
+    <div class="col-md-3 col-sm-3 col-lg-3">
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation" class="active" id="menu"><a>Menu</a></li>
-                <li role="presentation"><a href="#users" id="aUsers">Usuarios</a></li>
+                <li role="presentation"><a [routerLink]="['AdmUsuarios']" id="aUsers">Usuarios</a></li>
                 <li role="presentation"><a [routerLink]="['AdmProductos']" id="aProducts">Productos</a></li>
                 <li role="presentation"><a href="#orders" id="aOrders">Pedidos</a></li>
                 <li role="presentation"><a [routerLink]="['AdmNoticias']" id="aNews">Noticias</a></li>
                 <li role="presentation"><a href="/">Volver a la pagina principal</a></li>
             </ul>
-        </div>
-
-        <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
-            <div id="head">
-                <h2>Administración</h2>
-            </div>
-  
-            <div id="orders">
-                <h3>Pedidos</h3>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#pendingsOrders">Pedidos pendientes</a></li>
-                    <li><a data-toggle="tab" href="#preparedOrders">Pedidos preparados</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div id="pendingsOrders" class="tab-pane fade in active">
-                        <br>
-                        <div class="panel-group">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Producto 1</p>
-                                    <p>Producto 2</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-shopping-bag fa-fw"></i> Marcar como preparado</button>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <p>Producto 1</p>
-                                    <p>Producto 2</p>
-                                    <button class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-shopping-bag fa-fw"></i> Marcar como preparado</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="preparedOrders" class="tab-pane fade">
-                        <h2></h2>
-                        <br>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
+          </div>
     <!--FIN  ADMINISTRACION-->
 </div>

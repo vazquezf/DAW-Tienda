@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {Producto} from './services/producto.service';
 import {HeaderComponent} from './header.component';
 import {FooterComponent} from './footer.component';
 import {CuerpoComponent} from './cuerpo.component';
@@ -28,33 +29,42 @@ import {AdmNoticiaListComponent} from './adm.noticia-list.component';
 import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
-import {AdminComponent} from './admin';
 
 @Component({
-  selector: 'app',
+  selector: 'admin',
   template: `
-    <cabecera-app></cabecera-app>
-    <router-outlet></router-outlet>
-    <footer><footer-app></footer-app></footer>
+  <div class="container">
+        <menuAdmin></menuAdmin>
+    <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
+        <div id="head">
+            <h2>Administración</h2>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    </div>
   `,
     providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
-  directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
+  directives: [ROUTER_DIRECTIVES,AdministracionComponent]
 })
 @RouteConfig([
-    {path: '/', name: 'Cuerpo', component: CuerpoComponent, useAsDefault: true},
-    {path: '/producto/:id', name: 'ProductoDetail', component: InfoProdComponent},
-    {path: '/Categoria/:categoria', name: 'Categoria', component: ProductoComponent},
-    {path: '/Pedido', name: 'Carrito', component: CarritoComponent},
-    {path: '/Usuario', name: 'Usuarioinfo', component: UsuarioComponent},
-    {path: '/Noticias', name: 'Noticias', component: NoticiaComponent},
-    {path: '/registro', name: 'Registro', component: RegistroComponent},
-
-    {path: '...', name: 'Administracion', component: AdminComponent},
 
 
+
+    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent},
+
+    {path: '/administracion/productos', name: 'AdmProductos', component: AdmProductoListComponent},
+    {path: '/administracion/producto/:id', name: 'AdmProductoDetalle', component: AdmProductoDetalleComponent},
+    {path: '/administracion/producto/nuevo', name: 'AdmNuevoProducto', component: AdmNuevoProductoComponent},
+    {path: '/administracion/producto/editar/:id', name: 'AdmEditarProducto', component: AdmNuevoProductoComponent},
+
+    {path: '/administracion/noticias', name: 'AdmNoticias', component: AdmNoticiaListComponent,useAsDefault: true},
+    {path: '/administracion/noticia/:id', name: 'AdmNoticiaDetalle', component: AdmNoticiaDetalleComponent},
+    {path: '/administracion/noticia/nueva', name: 'AdmNuevaNoticia', component: AdmNuevaNoticiaComponent},
+    {path: '/administracion/noticia/editar/:id', name: 'AdmEditarNoticia', component: AdmNuevaNoticiaComponent},
 
 ])
-export class AppComponent {
+export class AdminComponent {
+
 
 
 }
