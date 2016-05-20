@@ -63,7 +63,7 @@ export class Usuario{
     this.userName=user;
   }
   set UserLogin(pass:string){
-    this.UserLogin=pass;
+    this.userLogin=pass;
   }
   get Usuario():Usuario{
     return this;
@@ -86,7 +86,6 @@ export class UsuarioService{
   }
 
   getComprobarUsuario(nombre:string,pass:string):number {
-
     let encontrado:number =0;
     for(let user of this.users) {
       if (user.UserName==nombre && user.UserLogin==pass) {
@@ -102,5 +101,9 @@ export class UsuarioService{
 
   set loguear(id:number){
     this.usuario = this.getusuario(id);
+  }
+
+  getUsuarios(){
+    return withObserver(this.users);
   }
 }
