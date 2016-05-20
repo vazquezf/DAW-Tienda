@@ -65,14 +65,25 @@ export class Usuario{
   set UserLogin(pass:string){
     this.userLogin=pass;
   }
-
+  get Usuario():Usuario{
+    return this;
+  }
 }
 @Injectable()
 export class UsuarioService{
   users = [new Usuario('manolo', 'Felipe', 'estac', 'admin', 'admin',true),
   new Usuario('Carlos', 'casf', 'perfsj', 'user', 'user',false)];
 
-  usuario:Usuario;
+  usuario= new Usuario("","","","","",false);
+
+  get usuarioReg(){
+    return withObserver(this.usuario);
+  }
+
+  getProducto(id: number | string) {
+    let user = this.users.filter(h => h.Id === +id)[0]
+    return withObserver(user);
+  }
 
   getComprobarUsuario(nombre:string,pass:string):number {
     let encontrado:number =0;

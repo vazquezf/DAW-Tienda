@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {UsuarioService,Usuario} from './services/usuario.service';
-
+import {NavSupComponent} from './nav-sup.component';
 @Component({
     templateUrl: 'app/registro.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES,NavSupComponent]
 })
 
 export class RegistroComponent {

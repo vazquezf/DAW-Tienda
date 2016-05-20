@@ -15,7 +15,7 @@ import {NoticiaService} from './services/noticia.service';
 import {RegistroComponent} from './registro.component';
 import {UsuarioService} from './services/usuario.service';
 //import {Alert} from 'ng2-bootstrap/ng2-bootstrap';
-
+import {NavSupComponent} from './nav-sup.component';
 import {AdministracionComponent} from './administracion.component';
 
 import {AdmUsuarioListComponent} from './adm.usuario-list.component';
@@ -38,7 +38,7 @@ import {AdminComponent} from './admin';
     <footer><footer-app></footer-app></footer>
   `,
     providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
-  directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent]
+  directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent,NavSupComponent]
 })
 @RouteConfig([
     {path: '/', name: 'Cuerpo', component: CuerpoComponent, useAsDefault: true},
@@ -50,7 +50,6 @@ import {AdminComponent} from './admin';
     {path: '/registro', name: 'Registro', component: RegistroComponent},
 
     {path: '...', name: 'Administracion', component: AdminComponent},
-
 
 
 ])
