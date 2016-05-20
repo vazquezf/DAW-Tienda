@@ -14,11 +14,23 @@ export class CarritoComponent {
   pedidos:Array<PedidoProducto>;
   usuario:Usuario;
   constructor(private router:Router, private service: PedidoService,private auth0:UsuarioService) {
-    this.service.Pedidos.subscribe(
-      Productos => this.pedidos = Productos,
-      error => console.log(error));
+      this.CargarPedidos();
       this.auth0.usuarioReg.subscribe(
         Usuario => this.usuario = Usuario,
         error => console.log(error));
+        window.confirm(String(this.usuario.Nombre));
     }
-  }
+    guardarPedido(){
+      if(this.usuario.TipoUsuario=='usuario' && this.pedidos.length>0){
+        this.auth0.addPedido(this.pedidos);
+        this.service.DelPedido;
+        this.CargarPedidos();
+      }
+    }
+
+    CargarPedidos(){
+      this.service.Pedidos.subscribe(
+        Productos => this.pedidos = Productos,
+        error => console.log(error));
+    }
+}

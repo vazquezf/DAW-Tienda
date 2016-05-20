@@ -33,8 +33,7 @@ export class Pedido{
   private usuario: Usuario;
   private enProceso: boolean;
 
-  constructor(Usuario:Usuario){
-    this.usuario=Usuario;
+  constructor(){
     this.pedido= new Array<PedidoProducto>();
     this.enProceso=true;
   }
@@ -78,13 +77,16 @@ export class Pedido{
 
 @Injectable()
 export class PedidoService{
-    usuario = new Usuario('Juakin', 'primerApellid', 'segundoApellido', 'Correo@ejemplo.es', 'Manolo', false);
-    pedido = new Pedido(this.usuario);
+    pedido = new Pedido();
 
 
   setaddPedido(producto:Producto){
     this.pedido.addProducto=producto;
     return withObserver(producto);
+  }
+
+  DelPedido(){
+    this.pedido = null;
   }
 
   getPedido(id: number | string){

@@ -2,7 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
 import {Producto} from './producto.service';
-
+import {PedidoProducto} from './pedido.service';
 export class Usuario{
   private static num: number =0;
   private id: number;
@@ -11,7 +11,7 @@ export class Usuario{
   private segundoApellido: string;
   private userName: string;
   private userLogin: string;
-  private pedidos: Array<Producto>;
+  private pedidos: Array<Array<PedidoProducto>>;
   private admin: boolean;
 
 
@@ -24,10 +24,15 @@ export class Usuario{
     this.userName = userName;
     this.userLogin = userLogin;
     this.admin = admin;
-    this.pedidos = new Array<Producto>();
+    this.pedidos = new Array<Array<PedidoProducto>>();
 
   }
-
+  set Comprar(pedido:Array<PedidoProducto>){
+    this.pedidos.push(pedido);
+  }
+  get Comprados():Array<Array<PedidoProducto>>{
+    return this.pedidos;
+  }
   get Id():number{
     return this.id;
   }
@@ -46,9 +51,18 @@ export class Usuario{
   get UserLogin():string{
     return this.userLogin;
   }
+  get TipoUsuario():String{
+    if(this.Nombre==''){
+      return 'Anonimo';
+    }else if(this.EsAdmin){
+      return 'admin'
+    }else{
+      return 'usuario'};
+  }
   get EsAdmin():boolean{
     return this.admin;
   }
+
 
   set Nombre(nombre:string){
      this.nombre=nombre;
@@ -106,4 +120,10 @@ export class UsuarioService{
   getUsuarios(){
     return withObserver(this.users);
   }
+
+  addPedido(pedido:Array<PedidoProducto>){
+      let usuario = this.users.filter(h => h.Id === this.usuario.Id)[0];
+      usuario.Comprar= pedido;
+      window.confirm("guardado articulos"+ pedido.length);
+    }
 }

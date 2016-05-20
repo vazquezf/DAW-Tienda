@@ -33,7 +33,7 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 @Component({
   selector: 'admin',
   template: `
-  <div class="container">
+  <div *ngIf="usuario.EsAdmin" class="container">
         <menuAdmin></menuAdmin>
     <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
         <div id="head">
@@ -43,7 +43,6 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
     </div>
     </div>
   `,
-    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
   directives: [ROUTER_DIRECTIVES,AdministracionComponent]
 })
 @RouteConfig([
@@ -64,7 +63,12 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
 ])
 export class AdminComponent {
-
+  usuario:Usuario;
+  constructor(private auth0:UsuarioService) {
+      this.auth0.usuarioReg.subscribe(
+        Usuario => this.usuario = Usuario,
+        error => console.log(error));
+    }
 
 
 }
