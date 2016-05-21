@@ -11,6 +11,7 @@ import {NavSupComponent} from './nav-sup.component';
 
 export class InfoProdComponent {
   producto : Producto;
+  cantidad=1;
   constructor(routeParams: RouteParams, private service: ProductoService,private servicepd: PedidoService) {
     let id = routeParams.get('id');
         service.getProducto(id).subscribe(
@@ -19,7 +20,12 @@ export class InfoProdComponent {
     );
 }
 save(){
-  this.servicepd.setaddPedido(this.producto);
+  if(this.cantidad>0){
+    window.confirm(String(this.cantidad));
+    this.servicepd.setaddPedido(this.producto,this.cantidad);
+  }
+
 }
+
 
 }

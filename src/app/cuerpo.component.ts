@@ -23,7 +23,7 @@ export class CuerpoComponent implements OnInit{
   }
 
   save(producto:Producto){
-    this.servicepd.setaddPedido(producto);
+    this.servicepd.setaddPedido(producto,1);
   }
 
 

@@ -19,11 +19,11 @@
                       </div>
                       <div class="info-articulo-texto col-md-6">
                           <div class="panel panel-default">
-                              <div class="panel-heading titulo-perfil">Usuario</div>
+                              <div class="panel-heading titulo-perfil">{{usuario.Nombre}}</div>
                               <div class="panel-body perfil">
 
-                                                              <li>Id. Usuario: XXXXX</li>
-                                                              <li>Correo: XXXX@XXXX</li>
+                                                              <li>Id. Usuario: {{usuario.Id}}</li>
+                                                              <li>Correo: usuario.Email</li>
 
                                 </div>
                           </div>
@@ -77,10 +77,28 @@
                                                   <ul class="nav  tree">
                                                       <li>
                                                           <ul>
-                                                              <li>Compra1</li>
-                                                              <li>Compra2</li>
-                                                              <li>Compra3</li>
-                                                              <li>Compra4</li>
+                                                            <li *ngFor="#compra of usuario.Comprados">
+                                                              <table>
+                                                              <tr *ngFor="#producto of compra">
+                                                                  <td>
+                                                                      <p>{{producto.Producto.Id}}</p>
+                                                                  </td>
+                                                                  <td>
+                                                                      <a [routerLink]="['ProductoDetail',{id:producto.Producto.Id}]"><img class="CarritoJPG" src="{{producto.Producto.Img}}">{{producto.Producto.Nombre}}</a>
+                                                                  </td>
+                                                                  <td>
+                                                                      <p>{{producto.Producto.DescripcionC}}</p>
+                                                                  </td>
+                                                                  <td>
+                                                                      <input  class="form-control" value="{{producto.Num}}" type="number" disabled>
+                                                                  </td>
+                                                                  <td>
+                                                                      <p>{{producto.Producto.Precio*producto.Num}} €</p>
+                                                                  </td>
+                                                              </tr>
+                                                            </table>
+                                                            </li>
+
                                                           </ul>
                                                       </li>
                                                   </ul>

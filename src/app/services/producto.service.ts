@@ -116,6 +116,9 @@ export class Producto{
   set DescripcionL(descripcion_larga:string){
      this.descripcion_larga=descripcion_larga;
   }
+  editarId(existe:boolean){
+    this.id=this.id+1;
+  }
 
 
 }
@@ -146,6 +149,7 @@ export class ProductoService{
     return withObserver(Producto.getByTipo(tipo));
   }
 
+
   removeProducto(producto: Producto){
       for(let i=0; i<Producto.arrayProductos.length; i++){
           if(Producto.arrayProductos[i].Id === producto.Id){
@@ -167,7 +171,6 @@ export class ProductoService{
         oldProducto.Stock = producto.Stock;
         oldProducto.Tipo = producto.Tipo;
       } else {
-        //producto.Id = this.productos.length+1;
         Producto.arrayProductos.push(producto);
       }
       return withObserver(producto);

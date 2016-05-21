@@ -34,28 +34,27 @@
                         <p>{{producto.Producto.Id}}</p>
                     </td>
                     <td>
-                        <a [routerLink]="['ProductoDetail',{id:producto.id}]"><img class="CarritoJPG" src="{{producto.Img}}">{{producto.Producto.Nombre}}</a>
+                      <a [routerLink]="['ProductoDetail',{id: producto.Producto.Id}]" role="button">{{producto.Producto.Nombre}}</a>
                     </td>
                     <td>
                         <p>{{producto.Producto.DescripcionC}}</p>
                     </td>
                     <td>
-                        <input  class="form-control" value="{{producto.Num}}" type="number" min="0" max="20" maxlength="2">
+                        <input  class="form-control" [(ngModel)]="producto.Num" type="number" min="0" max="20" maxlength="2">
                     </td>
                     <td>
                         <p>{{producto.Producto.Precio*producto.Num}} €</p>
                     </td>
                     <td>
-                        <p>Eliminar</p>
+                        <a (click)="eliminar(producto)" role="button"><p>Eliminar</p></a>
                     </td>
                 </tr>
             </table>
         </div>
         <div id="CarritoBtts">
             <p class="col-md-8 col-sm-7"></p>
-            <a href="#" class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
-
             <div *ngIf="usuario.TipoUsuario!='anonimo'">
+            <a (click)="BorrarPedidos()"  class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
             <a (click)="guardarPedido()" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>Realizar pedido</a>
             </div>
         </div>

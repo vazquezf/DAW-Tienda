@@ -21,6 +21,6 @@ export class CategoriaComponent {
     );
 }
 save(producto:Producto){
-  this.servicepd.setaddPedido(producto);
+  this.servicepd.setaddPedido(producto,1);
 }
 }

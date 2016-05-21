@@ -11,16 +11,18 @@ export class Usuario{
   private segundoApellido: string;
   private userName: string;
   private userLogin: string;
+  private email:string;
   private pedidos: Array<Array<PedidoProducto>>;
   private admin: boolean;
 
 
-  constructor(nombre: string, primerApellido: string, segundoApellido: string, userName: string, userLogin: string,admin : boolean){
+  constructor(nombre: string, primerApellido: string, segundoApellido: string, userName: string, userLogin: string,email:string,admin : boolean){
     Usuario.num = Usuario.num+1;
     this.id= Usuario.num;
     this.nombre = nombre;
     this.primerApellido = primerApellido;
     this.segundoApellido = segundoApellido;
+    this.email = email;
     this.userName = userName;
     this.userLogin = userLogin;
     this.admin = admin;
@@ -39,6 +41,9 @@ export class Usuario{
   get Nombre():string{
     return this.nombre;
   }
+  get Email():string{
+    return this.email;
+  }
   get PrimerApellido():string{
     return this.primerApellido;
   }
@@ -51,6 +56,7 @@ export class Usuario{
   get UserLogin():string{
     return this.userLogin;
   }
+
   get TipoUsuario():String{
     if(this.Nombre==''){
       return 'Anonimo';
@@ -66,6 +72,9 @@ export class Usuario{
 
   set Nombre(nombre:string){
      this.nombre=nombre;
+  }
+  set Email(e:string){
+    this.email=e;
   }
   set PrimerApellido(pa:string){
     this.primerApellido=pa;
@@ -85,10 +94,10 @@ export class Usuario{
 }
 @Injectable()
 export class UsuarioService{
-  users = [new Usuario('manolo', 'Felipe', 'estac', 'admin', 'admin',true),
-  new Usuario('Carlos', 'casf', 'perfsj', 'user', 'user',false)];
+  users = [new Usuario('manolo', 'Felipe', 'estac', 'admin', 'admin','manolof.estac@gmail.com',true),
+  new Usuario('Carlos', 'casf', 'perfsj', 'user', 'user','carlosC.ca@gmail.com',false)];
 
-  usuario= new Usuario("","","","","",false);
+  usuario= new Usuario("","","","","","",false);
 
   get usuarioReg(){
     return withObserver(this.usuario);
@@ -124,6 +133,5 @@ export class UsuarioService{
   addPedido(pedido:Array<PedidoProducto>){
       let usuario = this.users.filter(h => h.Id === this.usuario.Id)[0];
       usuario.Comprar= pedido;
-      window.confirm("guardado articulos"+ pedido.length);
     }
 }

@@ -86,6 +86,7 @@ export class AdmNuevoProductoComponent {
           this.newProducto = false;
         } else {
           this.producto = new Producto('','','',undefined,undefined,'',true,false,'');
+          //this.producto.editarId(Producto.arrayProductos[Producto.arrayProductos.length-1].Id==this.producto.Id);
           this.newProducto = true;
         }
     }

@@ -22,7 +22,9 @@ export class PedidoProducto{
     this.producto=p;
   }
   set Num(num:number){
-    this.num=num;
+      if(num>0){
+        this.num=num;
+      }
   }
 }
 
@@ -38,19 +40,19 @@ export class Pedido{
     this.enProceso=true;
   }
 
-  set addProducto(producto:Producto){
+  setaddProducto(producto:Producto,cantidad:number){
 
     let encontrado:boolean=false;
 
     for(let pedido of this.pedido ){
       if(producto.Id == pedido.Producto.Id){
-        pedido.Num = pedido.Num +1;
+        pedido.Num = pedido.Num +cantidad;
         encontrado=true;
       }
     }
 
       if(!encontrado){
-        let cosa = new PedidoProducto(producto,1);
+        let cosa = new PedidoProducto(producto,cantidad);
         this.pedido.push(cosa);
     }
   }
@@ -64,6 +66,14 @@ export class Pedido{
  get pedidos(){
    return this.pedido;
  }
+ borrarProducto(p:PedidoProducto){
+   for(let i=0 ;i < this.pedido.length;i++ ){
+     if(p.Producto.Id == this.pedido[i].Producto.Id){
+       this.pedido.splice(i,1);
+
+     }
+   }
+}
 
  getNum(id:number):number{
    for(let producto of this.pedido){
@@ -80,13 +90,14 @@ export class PedidoService{
     pedido = new Pedido();
 
 
-  setaddPedido(producto:Producto){
-    this.pedido.addProducto=producto;
+  setaddPedido(producto:Producto,cantidad:number){
+    this.pedido.setaddProducto(producto,cantidad);
     return withObserver(producto);
   }
 
-  DelPedido(){
-    this.pedido = null;
+  eliminarProducto(p:PedidoProducto){
+    window.confirm("eliminar++    +"+p.Producto.Nombre);
+    this.pedido.borrarProducto(p);
   }
 
   getPedido(id: number | string){
@@ -94,7 +105,9 @@ export class PedidoService{
     let producto = this.pedido.getpedido(num);
     return withObserver(producto);
   }
-
+  DelPedidos(){
+    this.pedido.pedidos.splice(0,this.pedido.pedidos.length);
+  }
 
   get Pedidos() {
     return withObserver(this.pedido.pedidos);
