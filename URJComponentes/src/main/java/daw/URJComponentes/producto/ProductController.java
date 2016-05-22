@@ -26,7 +26,7 @@ public class ProductController {
 
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/ai")
 	public String tablon(Model model) {
 
 		model.addAttribute("productos", repository.findAll());
@@ -35,7 +35,7 @@ public class ProductController {
 	}
 
 
-	@RequestMapping("/producto/{id}")
+	@RequestMapping("/ai/producto/{id}")
 	public String verAnuncio(Model model, @PathVariable long id) {
 		
 		Producto producto = repository.findOne(id);
