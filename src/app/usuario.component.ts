@@ -8,10 +8,10 @@ import {PedidoProducto,PedidoService} from './services/pedido.service';
     directives: [ROUTER_DIRECTIVES,NavSupComponent]
 })
 
-export class UsuarioComponent {
+export class UsuarioComponent implements OnInit {
   usuario:Usuario;
   pedidos:Array<Array<PedidoProducto>>;
-  constructor(private serviceUser:UsuarioService){
+  constructor(private router:Router,private serviceUser:UsuarioService){
     this.serviceUser.usuarioReg.subscribe(
       Usuario => this.usuario = Usuario
     );
@@ -22,5 +22,9 @@ export class UsuarioComponent {
 
      }
 
+      ngOnInit(){
+        if(this.serviceUser.usuario.TipoUsuario=='Anonimo'){
+          this.router.navigate(['Registro']);
+      }
+    }
   }
-}

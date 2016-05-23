@@ -12,5 +12,12 @@ import {UsuarioService,Usuario} from './services/usuario.service';
 
 export class HeaderComponent {
 
-  constructor(private service : UsuarioService){}
+  constructor(private router : Router,private service : UsuarioService){}
+  estaRegistrado(){
+    if(this.service.usuario.TipoUsuario=='Anonimo'){
+      this.router.navigate(['Registro']);
+    }else{
+      this.router.navigate(['Usuarioinfo']);
+    }
+  }
 }
