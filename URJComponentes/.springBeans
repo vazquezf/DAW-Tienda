@@ -9,6 +9,7 @@
 	<configs>
 	</configs>
 	<autoconfigs>
+		<config>java:daw.URJComponentes.Application</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

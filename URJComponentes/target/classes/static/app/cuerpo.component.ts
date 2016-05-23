@@ -3,20 +3,22 @@ import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
 import {Producto,ProductoService} from './services/producto.service';
 import {Pedido,PedidoService} from './services/pedido.service';
 import {NavSupComponent} from './nav-sup.component';
+
 @Component({
     templateUrl: 'app/cuerpo-index.html',
-    directives: [ROUTER_DIRECTIVES,NavSupComponent]
+    directives: [ROUTER_DIRECTIVES,NavSupComponent],
 })
 
 export class CuerpoComponent implements OnInit{
-  Productos = Array<Producto>();
+
+  Productos: Producto[]= [];
   producto:Producto;
 
-  constructor( private service: ProductoService,private servicepd: PedidoService) {
+  constructor(private service: ProductoService,private servicepd: PedidoService) {
   }
 
   ngOnInit(){
-    this.service.Productos.subscribe(
+    this.service.getProductos().subscribe(
       Productos => this.Productos = Productos,
       error => console.log(error)
     );

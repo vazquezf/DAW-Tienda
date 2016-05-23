@@ -1,5 +1,5 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "declaration": false,
     "emitDecoratorMetadata": true,
@@ -19,5 +19,6 @@
   "files": [
     "app.ts",
     "typings.d.ts"
+    
   ]
 }

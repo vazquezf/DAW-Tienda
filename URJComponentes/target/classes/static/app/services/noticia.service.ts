@@ -1,5 +1,4 @@
 import {Injectable} from 'angular2/core';
-import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
 
 export class Noticia {
@@ -11,6 +10,8 @@ export class Noticia {
     public descripcion: string) {}
 
 }
+
+const URL = '/noticias';
 
 @Injectable()
 export class NoticiaService {
@@ -24,34 +25,46 @@ export class NoticiaService {
   ];
 
   getNoticias() {
-    return withObserver(this.noticias);
+    return this.http.get(URL)
+      	.map(response => response.json())
+      	.catch(error => this.handleError(error));
   }
 
   getNoticia(id: number | string) {
-    let noticia = this.noticias.filter(h => h.id === +id)[0]
-    return withObserver(new Noticia(noticia.id, noticia.titulo, noticia.imagen, noticia.descripcion));
+	 return this.http.get(URL+id)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
   }
 
   removeNoticia(noticia: Noticia){
-    for(let i=0; i<this.noticias.length; i++){
-        if(this.noticias[i].id === noticia.id){
-          this.noticias.splice(i,1);
-          break;
-        }
-    }
-    return withObserver(undefined);
+    let headers = new Headers({'X-Requested-With': 'XMLHttpRequest'});
+	let options = new RequestOptions({ headers });  
+	return this.http.delete(URL + noticia.id)
+    	.map(response => undefined)
+     	.catch(error => this.handleError(error));
   }
 
   saveNoticia(noticia: Noticia){
-    if(noticia.id){
-      let oldNoticia = this.noticias.filter(h => h.id === noticia.id)[0];
-      oldNoticia.titulo = noticia.titulo;
-      oldNoticia.imagen = noticia.imagen;
-      oldNoticia.descripcion = noticia.descripcion;
-    } else {
-      noticia.id = this.noticias.length+1;
-      this.noticias.push(noticia);
-    }
-    return withObserver(noticia);
+    let body = JSON.stringify(noticia);
+    let headers = new Headers({'Content-Type': 'application/json','X-Requested-With': 'XMLHttpRequest'});
+    let options = new RequestOptions({ headers });
+	return this.http.post(URL, body)
+     	.map(response => response.json())
+     	.catch(error => this.handleError(error));
   }
+  
+    updateBook(noticia: Noticia) {
+
+    let body = JSON.stringify(noticia);
+    let headers = new Headers({'Content-Type': 'application/json','X-Requested-With': 'XMLHttpRequest'});
+    let options = new RequestOptions({ headers });
+	return this.http.put(URL + noticia.id, body)
+    	.map(response => response.json())
+    	.catch(error => this.handleError(error));
+    }
+
+    private handleError(error: any){
+      console.error(error);
+      return Observable.throw("Server error (" + error.status + "): " + error.text())
+    }
 }

@@ -29,6 +29,7 @@ import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
 import {AdminComponent} from './admin';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
   selector: 'app',
@@ -37,7 +38,7 @@ import {AdminComponent} from './admin';
     <router-outlet></router-outlet>
     <footer><footer-app></footer-app></footer>
   `,
-    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
+    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService,HTTP_PROVIDERS],
   directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent,NavSupComponent]
 })
 @RouteConfig([
