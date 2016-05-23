@@ -56,16 +56,16 @@
                                 </li>
                                 <li class="separ"><a [routerLink]="['Noticias']">Noticias</a></li>
                             </ul>
-                          <!--  <ul class="nav navbar-nav navbar-right login-buscador vdivide">
+                            <ul class="nav navbar-nav navbar-right login-buscador vdivide">
                                 <li>
-                                    <form class="navbar-form  " role="search">
+                                    <div class="navbar-form  " role="search">
                                         <div class="form-group ">
-                                            <input type="text" class="form-control search" placeholder="...">
+                                            <input #nombreprod type="text" class="form-control search" placeholder="...">
                                         </div>
-                                        <button type="submit" class="btn btn-default"> Buscar</button>
-                                    </form>
+                                        <button (click)="search(nombreprod.value); nombreprod.value=''" class="btn btn-default"> Buscar</button>
+                                    </div>
                                 </li>
-                            </ul>-->
+                            </ul>
                         </div>
                     </div>
                 </nav>
