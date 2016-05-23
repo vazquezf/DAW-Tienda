@@ -11,7 +11,6 @@ import {UsuarioService,Usuario} from './services/usuario.service';
 
 
 export class HeaderComponent {
-
   constructor(private router : Router,private service : UsuarioService){}
   estaRegistrado(){
     if(this.service.usuario.TipoUsuario=='Anonimo'){
@@ -20,4 +19,9 @@ export class HeaderComponent {
       this.router.navigate(['Usuarioinfo']);
     }
   }
+
+  search(nombre: string) {
+    this.router.navigate(['Buscador', {nombre: nombre}]);
+  }
+
 }

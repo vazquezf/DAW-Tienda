@@ -120,6 +120,16 @@ export class Producto{
     this.id=this.id+1;
   }
 
+  static getByBuscador(nombrep: string): Array<Producto> {
+    var componentes = new Array<Producto>();
+    for(let produ of Producto.arrayProductos) {
+      if(produ.nombre.toLowerCase().indexOf(nombrep.toLowerCase())>-1){
+        componentes.push(produ);
+      }
+    }
+    return componentes;
+  }
+
 
 }
 
@@ -174,6 +184,10 @@ export class ProductoService{
         Producto.arrayProductos.push(producto);
       }
       return withObserver(producto);
+    }
+
+    getByBuscador(nombrep:string) {
+      return withObserver(Producto.getByBuscador(nombrep));
     }
 
 }

@@ -51,6 +51,7 @@ import {AdminComponent} from './admin';
 
     {path: '...', name: 'Administracion', component: AdminComponent},
 
+    {path: '/Buscador/:nombre', name: 'Buscador', component: ProductoComponent},
 
 ])
 export class AppComponent {
