@@ -29,6 +29,8 @@ import {AdmNoticiaListComponent} from './adm.noticia-list.component';
 import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
+import {AdmPedidosListComponent} from './adm.pedidos-list.component';
+
 
 @Component({
   selector: 'admin',
@@ -60,6 +62,8 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
     {path: '/administracion/noticia/:id', name: 'AdmNoticiaDetalle', component: AdmNoticiaDetalleComponent},
     {path: '/administracion/noticia/nueva', name: 'AdmNuevaNoticia', component: AdmNuevaNoticiaComponent},
     {path: '/administracion/noticia/editar/:id', name: 'AdmEditarNoticia', component: AdmNuevaNoticiaComponent},
+
+    {path: '/administracion/pedidos', name: 'AdmPedidos', component: AdmPedidosListComponent},
 
 ])
 export class AdminComponent {
