@@ -25,7 +25,7 @@ export class CuerpoComponent implements OnInit{
   }
 
   save(producto:Producto){
-    this.servicepd.setaddPedido(producto,1);
+      this.servicepd.setaddPedido(producto,1);
   }
   deshabilitar(pr:Producto):boolean{
     if(pr.Stock>0){

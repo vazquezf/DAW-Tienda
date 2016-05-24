@@ -35,7 +35,8 @@
                 <div class="row">
                     <h3 class="panel-heading"><span class="label label-info">DESTACADO</span></h3>
                     <div class="panel-body">
-                      <div *ngFor="#producto of Productos">
+                      <div *ngFor="#producto of Productos; #i = index">
+                        <div *ngIf='i%4==0' class="row"></div>
                         <article  *ngIf="producto.Destacado == true"  class="col-md-3 col-sm-3 col-xs-12">
                             <div   class="thumbnail">
                                 <img class="img-responsive" src="{{producto.Img}}">
