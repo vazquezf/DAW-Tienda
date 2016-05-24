@@ -19,6 +19,7 @@ import {Usuario,UsuarioService}   from './services/usuario.service';
                             <p>Administrador: {{usuario.admin}}</p>
                         </div>
                     </div>
+                    <br>
                     <div *ngIf="!usuario.admin" class="panel panel-info">
                         <div class="panel-heading">{{usuario.userName}}</div>
                         <div class="panel-body">

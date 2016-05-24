@@ -35,13 +35,15 @@
                 <div class="row">
                     <h3 class="panel-heading"><span class="label label-info">DESTACADO</span></h3>
                     <div class="panel-body">
-                      <div *ngFor="#producto of Productos">
+                      <div *ngFor="#producto of Productos; #i = index">
+                        <div *ngIf='i%4==0' class="row"></div>
                         <article  *ngIf="producto.Destacado == true"  class="col-md-3 col-sm-3 col-xs-12">
                             <div   class="thumbnail">
                                 <img class="img-responsive" src="{{producto.Img}}">
                                 <div class="btn-group  pop-imagenes" role="group">
                                     <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
-                                    <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==false'(click)="save(producto)"  class="btn btn-primary" role="button" >Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==true'(click)="save(producto)"  class="btn btn-primary" role="button" disabled>Añadir al Carrito</a>
                                 </div>
                                 <div class="caption">
                                     <h3 class="desc-articulo">{{producto.Nombre}}</h3>
@@ -70,7 +72,8 @@
                                 <img class="img-responsive" src="{{producto.Img}}">
                                 <div class="btn-group  pop-imagenes" role="group">
                                     <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
-                                    <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==false'(click)="save(producto)"  class="btn btn-primary" role="button" >Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==true'(click)="save(producto)"  class="btn btn-primary" role="button" disabled>Añadir al Carrito</a>
                                 </div>
                                 <div class="caption">
                                     <h3 class="desc-articulo">{{producto.Nombre}}</h3>

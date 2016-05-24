@@ -11,15 +11,18 @@ import {PedidoProducto,PedidoService} from './services/pedido.service';
                 <br>
                 <div class="panel-group">
                   <div *ngFor="#usuario of usuarios">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-info">
                         <div class="panel-heading">{{usuario.userName}}</div>
                         <div *ngFor="#ped of usuario.Comprados" class="panel-body">
+                          <ol>
+                            <li>Pedido</li>
                             <div *ngFor="#prod of ped">
-                            <p>{{prod.Producto.Nombre}}</p>
-                            <p>{{prod.Producto.Num}}</p>
+                              <li>{{prod.Num}} x <img class="CarritoJPG" src="{{producto.Producto.Img}}">{{prod.Producto.Nombre}}</li>
                             </div>
+                          </ol>
                         </div>
                     </div>
+                    <p></p>
                   </div>
                 </div>
             </div>
@@ -31,7 +34,7 @@ export class AdmPedidosListComponent implements OnInit {
 
   usuarios:Usuario[];
   pedidos:Array<Array<PedidoProducto>>;
-  
+
   constructor(private router:Router,private serviceUser:UsuarioService){
     this.serviceUser.getUsuarios().subscribe(
       usuarios => this.usuarios = usuarios

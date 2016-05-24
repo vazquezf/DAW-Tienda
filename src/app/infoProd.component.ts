@@ -39,11 +39,17 @@ cargarComentarios(){
 }
 save(){
   if(this.cantidad>0){
-    window.confirm(String(this.cantidad));
     this.servicepd.setaddPedido(this.producto,this.cantidad);
   }
 
 }
+deshabilitar():boolean{
+    if(this.producto.Stock>0){
+      return false;
+    }else{
+      return true;
+    }
+  }
 
 
 }

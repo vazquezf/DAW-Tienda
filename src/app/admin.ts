@@ -51,14 +51,14 @@ import {AdmPedidosListComponent} from './adm.pedidos-list.component';
 
 
 
-    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent},
+    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent, useAsDefault: true},
 
     {path: '/administracion/productos', name: 'AdmProductos', component: AdmProductoListComponent},
     {path: '/administracion/producto/:id', name: 'AdmProductoDetalle', component: AdmProductoDetalleComponent},
     {path: '/administracion/producto/nuevo', name: 'AdmNuevoProducto', component: AdmNuevoProductoComponent},
     {path: '/administracion/producto/editar/:id', name: 'AdmEditarProducto', component: AdmNuevoProductoComponent},
 
-    {path: '/administracion/noticias', name: 'AdmNoticias', component: AdmNoticiaListComponent,useAsDefault: true},
+    {path: '/administracion/noticias', name: 'AdmNoticias', component: AdmNoticiaListComponent},
     {path: '/administracion/noticia/:id', name: 'AdmNoticiaDetalle', component: AdmNoticiaDetalleComponent},
     {path: '/administracion/noticia/nueva', name: 'AdmNuevaNoticia', component: AdmNuevaNoticiaComponent},
     {path: '/administracion/noticia/editar/:id', name: 'AdmEditarNoticia', component: AdmNuevaNoticiaComponent},

@@ -46,7 +46,9 @@ export class Pedido{
 
     for(let pedido of this.pedido ){
       if(producto.Id == pedido.Producto.Id){
-        pedido.Num = pedido.Num +cantidad;
+        if(producto.Stock>=pedido.Num +cantidad){
+          pedido.Num = pedido.Num +cantidad;
+        }
         encontrado=true;
       }
     }
@@ -111,6 +113,10 @@ export class PedidoService{
 
   get Pedidos() {
     return withObserver(this.pedido.pedidos);
+  }
+
+  comprobarLimite(id:number):number{
+    return this.pedido.getNum(id);
   }
 
 }

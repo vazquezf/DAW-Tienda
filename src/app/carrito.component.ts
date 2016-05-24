@@ -23,6 +23,7 @@ export class CarritoComponent {
       if(this.usuario.TipoUsuario=='usuario' && this.pedidos.length>0){
         let comprado=Array<PedidoProducto>();
         for (let producto of this.pedidos){
+          producto.Producto.Stock=producto.Producto.Stock-producto.Num;
           comprado.push(producto);
         }
 
