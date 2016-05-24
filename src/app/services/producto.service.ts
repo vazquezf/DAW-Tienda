@@ -122,8 +122,11 @@ export class Producto{
 
   static getByBuscador(nombrep: string): Array<Producto> {
     var componentes = new Array<Producto>();
+    if(nombrep!==null){
+      nombrep=nombrep.toLowerCase();
+    }
     for(let produ of Producto.arrayProductos) {
-      if(produ.nombre.toLowerCase().indexOf(nombrep.toLowerCase())>-1){
+      if(produ.nombre.toLowerCase().indexOf(nombrep)>-1){
         componentes.push(produ);
       }
     }
