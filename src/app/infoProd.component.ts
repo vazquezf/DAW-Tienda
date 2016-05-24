@@ -21,7 +21,6 @@ export class InfoProdComponent {
 }
 save(){
   if(this.cantidad>0){
-    window.confirm(String(this.cantidad));
     this.servicepd.setaddPedido(this.producto,this.cantidad);
   }
 

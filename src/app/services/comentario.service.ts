@@ -62,7 +62,6 @@ export class Comentario{
 }
 
 
-@Injectable
 export class ComentarioService{
-  
+
 }
