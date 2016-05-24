@@ -21,20 +21,21 @@
                           <div class="panel panel-default">
                               <div class="panel-heading titulo-perfil">{{usuario.Nombre}}</div>
                               <div class="panel-body perfil">
-
-                                                              <li>Id. Usuario: {{usuario.Id}}</li>
-                                                              <li>Correo: usuario.Email</li>
-
+                                  <li>Id.Usuario: {{usuario.Id}}</li>
+                                  <li>Usuario: {{usuario.UserName}}</li>
+                                  <li>Nombre: {{usuario.Nombre}}</li>
+                                  <li>Apellidos: {{usuario.PrimerApellido}} {{usuario.SegundoApellido}}</li>
+                                  <li>Correo: {{usuario.Email}}</li>
                                 </div>
                           </div>
                       </div>
                   </div>
               </section>
 
-                  <div class="container col-md-12" id="footer-info-articulo">
+                  <div class="container col-md-10" id="footer-info-articulo">
                       <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#datospersonales">Datos personales</a></li>
-                          <li><a data-toggle="tab" href="#compras">Compras</a></li>
+                          <li><a data-toggle="tab" href="#datospersonales">Datos personales</a></li>
+                          <li class="active"><a data-toggle="tab" href="#compras">Compras</a></li>
                       </ul>
 
                       <div class="tab-content">

@@ -10,7 +10,7 @@ import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
                 <h3>Productos</h3>
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#existingProducts">Productos existentes</a></li>
-                    <li><a [routerLink]="['AdmNuevoProducto']" data-toggle="tab">Añadir producto</a></li>
+                    <li><a (click)="newProducto()" data-toggle="tab">Añadir producto</a></li>
                 </ul>
 
                 <div class="tab-content">

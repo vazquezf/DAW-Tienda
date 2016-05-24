@@ -13,7 +13,7 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
                 <h3>Noticias</h3>
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#existingNews">Noticias existentes</a></li>
-                    <li><a [routerLink]="['AdmNuevaNoticia']" data-toggle="tab">Añadir noticia</a></li>
+                    <li><a (click)="newNoticia()" data-toggle="tab">Añadir noticia</a></li>
                 </ul>
 
                 <div class="tab-content">
