@@ -170,14 +170,15 @@
                                                         <div class="alert alert-warning">
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input type="checkbox" value="">Acepto y entiendo las condiciones de uso para el envío de opiniones.
+                                                                    <input type="checkbox" [(ngModel)]="condiciones" value="">Acepto y entiendo las condiciones de uso para el envío de opiniones.
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
-                                                            <button type="submit" class="btn btn-default" (click)="guardarComentario()">Insertar Opinion</button>
+                                                            <button *ngIf='!condiciones' type="submit" class="btn btn-default" (click)="guardarComentario()" disabled="">Insertar Opinion</button>
+                                                            <button *ngIf='condiciones' type="submit" class="btn btn-default" (click)="guardarComentario()">Insertar Opinion</button>
                                                         </div>
                                                     </div>
                                                 </form>

@@ -19,6 +19,7 @@ export class InfoProdComponent {
   valorp:string;
   valorn:string;
   recomienda:boolean;
+  condiciones=false;
 
   constructor(routeParams: RouteParams, private service: ProductoService,private servicepd: PedidoService,private ath0:UsuarioService) {
     let id = routeParams.get('id');
@@ -50,6 +51,10 @@ deshabilitar():boolean{
       return true;
     }
   }
+
+acepta(){
+  this.condiciones=!this.condiciones;
+}
 
 
 }
