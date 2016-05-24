@@ -20,10 +20,19 @@ export class CuerpoComponent implements OnInit{
       Productos => this.Productos = Productos,
       error => console.log(error)
     );
+
+
   }
 
   save(producto:Producto){
     this.servicepd.setaddPedido(producto,1);
+  }
+  deshabilitar(pr:Producto):boolean{
+    if(pr.Stock>0){
+      return false;
+    }else{
+      return true;
+    }
   }
 
 

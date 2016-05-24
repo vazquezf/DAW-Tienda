@@ -40,7 +40,7 @@
                         <p>{{producto.Producto.DescripcionC}}</p>
                     </td>
                     <td>
-                        <input  class="form-control" [(ngModel)]="producto.Num" type="number" min="0" max="20" maxlength="2">
+                        <input  class="form-control" [(ngModel)]="producto.Num" type="number" min="0" max="{{producto.Producto.Stock}}" maxlength="2">
                     </td>
                     <td>
                         <p>{{producto.Producto.Precio*producto.Num}} €</p>
@@ -55,7 +55,7 @@
             <p class="col-md-8 col-sm-7"></p>
             <div *ngIf="usuario.TipoUsuario!='anonimo'">
             <a (click)="BorrarPedidos()"  class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
-            <a (click)="guardarPedido()" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>Realizar pedido</a>
+            <a (click)="guardarPedido()" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Realizar pedido</a>
             </div>
         </div>
 
