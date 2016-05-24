@@ -10,9 +10,23 @@ import {PedidoService} from './services/pedido.service';
                 <strong>URJCComponentes</strong>
             </div>
             <div class="col-md-6 col-xs-8 ">
-                <a [routerLink]="['Usuarioinfo']" ><span >{{usuario.Nombre}}</span></a>
-                <a><span>{{HayPedidos}}</span></a>
+              <div class="col-md-12 col-xs-12" >
+                <a   *ngIf="esUsuario">
+                <div class="btn-group">
+                  <button type="button" class="btn dropdown-toggle"
+                          data-toggle="dropdown">{{usuario.Nombre}}
+                    <span class="caret"></span>
+                    <span class="sr-only">{{usuario.Nombre}}</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a [routerLink]="['Usuarioinfo']">Informacion</a></li>
+                    <li><a (click)="desloguear()" role="button">Salir</a></li>
+                  </ul>
+                </div>
+                </a>
+                <a [routerLink]="['Carrito']" ><span>{{HayPedidos}}</span></a>
                 <a><span></span></a><a><span></span></a>
+            </div>
             </div>
         </div>
     `,
@@ -21,7 +35,7 @@ import {PedidoService} from './services/pedido.service';
 
 export class NavSupComponent {
   usuario:Usuario;
-  constructor(private ath0:UsuarioService,private service:PedidoService) {
+  constructor(private ath0:UsuarioService,private service:PedidoService,private router:Router) {
       this.ath0.usuarioReg.subscribe(
         Usuario => this.usuario = Usuario,
         error => console.log(error));
@@ -33,5 +47,14 @@ export class NavSupComponent {
       return 'Tienes Productos en el carrito';
     }
   }
+  get esUsuario():boolean{
+    if(this.usuario.TipoUsuario != 'Anonimo')
+      return true;
+    return false;
+  }
 
+  desloguear(){
+      this.ath0.deloguear();
+      this.router.navigate(['Registro']);
+  }
 }

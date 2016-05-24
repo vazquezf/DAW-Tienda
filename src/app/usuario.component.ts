@@ -16,10 +16,6 @@ export class UsuarioComponent implements OnInit {
       Usuario => this.usuario = Usuario
     );
      this.pedidos=this.usuario.Comprados;
-     for(let pedido of this.pedidos){
-       window.confirm(String(pedido.length));
-     }
-
      }
 
       ngOnInit(){

@@ -10,10 +10,10 @@
                 <div class="logotipo-texto col-md-5 col-sm-5  col-xs-offset-1  "><img src="Imagenes/urjccomponentes-azul.png" class="img-responsive"></div>
                 <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
                     <div>
-                        <ul class="navbar-center  nav navbar-nav vdivide  iconos-navegacion-banner">
-                            <li  class="separ col-xs-4"><a (click)="estaRegistrado()"><span class="glyphicon glyphicon-user"></span></a></li>
-                            <li class="separ col-xs-4"><a [routerLink]="['Administracion']"><span class="glyphicon glyphicon-envelope"></span></a></li>
-                            <li class="separ col-xs-4"><a [routerLink]="['Carrito']"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                        <ul  class="navbar-center  nav navbar-nav   iconos-navegacion-banner">
+                            <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span  *ngIf="loguear"  style="center" class="glyphicon glyphicon-user"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Administracion']"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span class="fa {{cantidad}} fa-5x"></span></a></li>
                         </ul>
                     </div>
 

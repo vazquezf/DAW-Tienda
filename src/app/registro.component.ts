@@ -22,7 +22,6 @@ export class RegistroComponent {
       let num = this.service.getComprobarUsuario(this.nombre, this.pass);
       if(num !== 0){
           this.service.loguear=num;
-          window.confirm(this.service.usuario.Nombre);
           if(this.service.usuario.EsAdmin){
             this.router.navigate(['Administracion']);
           }else{

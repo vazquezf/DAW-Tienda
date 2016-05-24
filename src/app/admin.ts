@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component,OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Producto} from './services/producto.service';
 import {HeaderComponent} from './header.component';
@@ -66,13 +66,17 @@ import {AdmPedidosListComponent} from './adm.pedidos-list.component';
     {path: '/administracion/pedidos', name: 'AdmPedidos', component: AdmPedidosListComponent},
 
 ])
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   usuario:Usuario;
-  constructor(private auth0:UsuarioService) {
+  constructor(private auth0:UsuarioService, private router:Router) {
       this.auth0.usuarioReg.subscribe(
         Usuario => this.usuario = Usuario,
         error => console.log(error));
     }
-
+    ngOnInit(){
+      if(!this.auth0.usuario.EsAdmin){
+        window.confirm("Registrate como Administrador");
+        this.router.navigate(['Registro']);
+    }
 
 }

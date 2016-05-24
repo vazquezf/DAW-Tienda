@@ -125,7 +125,10 @@ export class UsuarioService{
   set loguear(id:number){
     this.usuario = this.getusuario(id);
   }
-
+  deloguear(){
+    let usuario = new  Usuario("","","","","","",false);
+    this.usuario = usuario;
+  }
   getUsuarios(){
     return withObserver(this.users);
   }
