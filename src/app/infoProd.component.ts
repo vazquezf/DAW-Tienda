@@ -25,6 +25,13 @@ save(){
   }
 
 }
+deshabilitar():boolean{
+    if(this.producto.Stock>0){
+      return false;
+    }else{
+      return true;
+    }
+  }
 
 
 }
