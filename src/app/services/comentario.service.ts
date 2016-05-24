@@ -9,16 +9,16 @@ export class Comentario{
   private valoracion_neg:string;
   private recomendacion:boolean;
   private id:number;
-  private idUsuario:number;
+  private nombreUsuario:string;
 
-  constructor( opinion:string, valoracion_pos:string, valoracion_neg:string, recomendacion:boolean, id:number,idUsuario:number){
+  constructor( opinion:string, valoracion_pos:string, valoracion_neg:string, recomendacion:boolean,nombreUsuario:string){
     Comentario.count = Comentario.count +1;
     this.id=Comentario.count;
     this.opinion = opinion;
     this.valoracion_pos=valoracion_pos;
     this.valoracion_neg=valoracion_neg;
     this.recomendacion = recomendacion;
-    this.idUsuario = idUsuario;
+    this.nombreUsuario = nombreUsuario;
   }
 
 
@@ -37,8 +37,8 @@ export class Comentario{
   get Recomendacion():boolean{
     return this. recomendacion;
   }
-  get IdUsuario():number{
-    return this.idUsuario;
+  get NombreUsuario():string{
+    return this.nombreUsuario;
   }
   set Id(id:number){
     this.id=id;
@@ -55,14 +55,8 @@ export class Comentario{
   set Recomendacion(re:boolean){
     this. recomendacion=re;
   }
-  set IdUsuario(idu:number){
-    this.idUsuario=idu;
+  set NombreUsuario(nus:string){
+    this.nombreUsuario=nus;
   }
 
-}
-
-
-@Injectable
-export class ComentarioService{
-  
 }

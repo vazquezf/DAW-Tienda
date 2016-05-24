@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {withObserver} from './utils';
+import {Comentario} from './comentario.service';
 
 export class Producto{
   private static productos: Array<Producto> = new Array<Producto>();
@@ -16,6 +17,7 @@ export class Producto{
   private destacado: boolean;
   private novedad: boolean;
   private tipo: string;
+  private comentario:Array<Comentario>;
 
   constructor( nombre: string,descripcion_corta:string, img_ruta:string,precio:number, stock:number,descripcion_larga:string,destacado: boolean,novedad: boolean, tipo:string){
     this.id=Producto.productos.length+1;
@@ -28,6 +30,7 @@ export class Producto{
     this.destacado=destacado;
     this.novedad=novedad;
     this.tipo = tipo;
+    this.comentario = new Array<Comentario>();
     Producto.productos.push(this);
 
   }
@@ -35,7 +38,9 @@ export class Producto{
   static get arrayProductos() : Array<Producto>{
     return Producto.productos;
   }
-
+  get Comentarios():Array<Comentario>{
+    return this.comentario;
+  }
   get Id() : number{
     return this.id;
   }
@@ -95,6 +100,10 @@ export class Producto{
   get Producto():Producto{
     return this;
   }
+
+  set Comentario(com:Comentario){
+    this.comentario.push(com);
+  }
   set Tipo(tipo:string){
     this.tipo=tipo;
   }
@@ -153,7 +162,14 @@ export class ProductoService{
     let producto = Producto.arrayProductos.filter(h => h.Id === +id)[0]
     return withObserver(producto);
   }
-
+  addComentario(id:number,c:Comentario){
+    let producto = Producto.arrayProductos.filter(h => h.Id === +id)[0]
+    producto.Comentario=c;
+  }
+  getComentarios(id:number):Array<Comentario>{
+    let producto = Producto.arrayProductos.filter(h => h.Id === +id)[0]
+    return producto.Comentarios;
+  }
   get Productos() {
     return withObserver(Producto.arrayProductos);
   }
