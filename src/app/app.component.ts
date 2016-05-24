@@ -9,6 +9,7 @@ import {ProductoService} from './services/producto.service';
 import {PedidoService} from './services/pedido.service';
 import {InfoProdComponent} from './infoProd.component';
 import {CarritoComponent} from './carrito.component';
+import {ComentarioService} from './services/comentario.service';
 import {Usuario} from './services/usuario.service';
 import {NoticiaComponent} from './noticia.component';
 import {NoticiaService} from './services/noticia.service';
@@ -37,7 +38,7 @@ import {AdminComponent} from './admin';
     <router-outlet></router-outlet>
     <footer><footer-app></footer-app></footer>
   `,
-    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService],
+    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService,ComentarioService],
   directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent,NavSupComponent]
 })
 @RouteConfig([
