@@ -18,8 +18,10 @@ export class InfoProdComponent {
   opinion:string;
   valorp:string;
   valorn:string;
-  recomienda:boolean;
+  recomienda:string;
   condiciones=false;
+  alerta:string;
+  alertaUsuario:string;
 
   constructor(routeParams: RouteParams, private service: ProductoService,private servicepd: PedidoService,private ath0:UsuarioService) {
     let id = routeParams.get('id');
@@ -30,9 +32,32 @@ export class InfoProdComponent {
     this.cargarComentarios();
 }
 guardarComentario(){
-  let comentario = new Comentario(this.opinion,this.valorp,this.valorn,this.recomienda,this.ath0.usuario.Nombre);
-  this.service.addComentario(this.producto.Id,comentario);
-  this.cargarComentarios();
+  if(this.opinion && this.recomienda && this.ath0.usuario.TipoUsuario!='Anonimo'){
+    let comentario = new Comentario(this.opinion,this.valorp,this.valorn,this.recomienda,this.ath0.usuario.Nombre);
+    this.service.addComentario(this.producto.Id,comentario);
+    this.cargarComentarios();
+    this.resetformulario();
+  }
+  if(!this.recomienda){
+    this.alerta="Error:¿Lo recomendarias?";
+  }else{this.alerta="";}
+  if(this.ath0.usuario.TipoUsuario=='Anonimo'){
+    this.alertaUsuario ="Error:No logueado";
+  }else{this.alertaUsuario ="";}
+
+
+}
+getBorraradio():string{
+  if(this.recomienda){
+    return  'checked';
+  }return  '';
+}
+
+resetformulario(){
+  this.opinion=null;
+  this.valorp=null;
+  this.valorn=null;
+  this.condiciones=false;
 }
 cargarComentarios(){
   this.comentarios=this.service.getComentarios(this.producto.Id);

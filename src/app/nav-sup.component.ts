@@ -11,6 +11,7 @@ import {PedidoService} from './services/pedido.service';
             </div>
             <div class="col-md-6 col-xs-8 ">
               <div class="col-md-12 col-xs-12" >
+                <a [routerLink]="['Carrito']" ><span>{{HayPedidos}}</span></a>
                 <a   *ngIf="esUsuario">
                 <div class="btn-group">
                   <button type="button" class="btn dropdown-toggle"
@@ -24,8 +25,6 @@ import {PedidoService} from './services/pedido.service';
                   </ul>
                 </div>
                 </a>
-                <a [routerLink]="['Carrito']" ><span>{{HayPedidos}}</span></a>
-                <a><span></span></a><a><span></span></a>
             </div>
             </div>
         </div>

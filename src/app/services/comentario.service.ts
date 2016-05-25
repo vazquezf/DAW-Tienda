@@ -7,11 +7,11 @@ export class Comentario{
   private opinion:string;
   private valoracion_pos:string;
   private valoracion_neg:string;
-  private recomendacion:boolean;
+  private recomendacion:string;
   private id:number;
   private nombreUsuario:string;
 
-  constructor( opinion:string, valoracion_pos:string, valoracion_neg:string, recomendacion:boolean,nombreUsuario:string){
+  constructor( opinion:string, valoracion_pos:string, valoracion_neg:string, recomendacion:string,nombreUsuario:string){
     Comentario.count = Comentario.count +1;
     this.id=Comentario.count;
     this.opinion = opinion;
@@ -34,9 +34,10 @@ export class Comentario{
   get ValoracionNeg():string{
     return this.valoracion_neg;
   }
-  get Recomendacion():boolean{
+  get Recomendacion():string{
     return this. recomendacion;
   }
+
   get NombreUsuario():string{
     return this.nombreUsuario;
   }
@@ -52,7 +53,7 @@ export class Comentario{
   set ValoracionNeg(vn:string){
     this.valoracion_neg=vn;
   }
-  set Recomendacion(re:boolean){
+  set Recomendacion(re:string){
     this. recomendacion=re;
   }
   set NombreUsuario(nus:string){
