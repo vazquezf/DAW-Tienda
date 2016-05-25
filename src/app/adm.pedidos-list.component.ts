@@ -11,14 +11,16 @@ import {PedidoProducto,PedidoService} from './services/pedido.service';
                 <br>
                 <div class="panel-group">
                   <div *ngFor="#usuario of usuarios">
-                    <div class="panel panel-info">
+                    <div *ngIf="!usuario.admin" class="panel panel-info">
                         <div class="panel-heading">{{usuario.userName}}</div>
                         <div *ngFor="#ped of usuario.Comprados" class="panel-body">
                           <ol>
                             <li>Pedido</li>
+                            <ul>
                             <div *ngFor="#prod of ped">
-                              <li>{{prod.Num}} x <img class="CarritoJPG" src="{{producto.Producto.Img}}">{{prod.Producto.Nombre}}</li>
+                              <li>{{prod.Num}} x <img class="CarritoJPG" src="{{prod.Producto.Img}}">{{prod.Producto.Nombre}}</li>
                             </div>
+                            <ul>
                           </ol>
                         </div>
                     </div>

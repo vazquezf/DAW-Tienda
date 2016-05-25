@@ -1,6 +1,7 @@
 import {Component}  from 'angular2/core';
 import {RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Producto,ProductoService}   from './services/producto.service';
+import {Comentario} from './services/comentario.service';
 
 @Component({
     template: `
@@ -25,6 +26,18 @@ import {Producto,ProductoService}   from './services/producto.service';
                                           <button (click)="editProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-pencil fa-fw"></i> Modificar articulo</button>
                                           <button (click)="removeProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar articulo</button>
                                           <button (click)="gotoProductos()" class="btn btn-default" type="button" id="botonAdmin"> Todos los articulos</button>
+                                          <hr>
+
+                                          <div *ngFor="#comentario of comentarios">
+                                            <p>Usuario: {{comentario.NombreUsuario}}</p>
+                                            <p>ID: {{comentario.Id}}</p>
+                                            <p>Opinion: {{comentario.Opinion}}</p>
+                                            <p>Vloracion Positiva: {{comentario.ValoracionPos}}</p>
+                                            <p>Valoracion Negativa: {{comentario.ValoracionNeg}}</p>
+                                            <p>Recomendacion: {{comentario.Recomendacion}}</p>
+                                            <button (click)="removeComentario(comentario.Id)" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar comentario</button>
+                                            <br>
+                                          </div>
                                       </div>
                               </div>
                           </div>
@@ -35,6 +48,7 @@ import {Producto,ProductoService}   from './services/producto.service';
 export class AdmProductoDetalleComponent {
 
     producto: Producto;
+    comentarios: Array<Comentario>;
 
     constructor(private router: Router, routeParams: RouteParams, private service: ProductoService) {
         let id = routeParams.get('id');
@@ -42,6 +56,10 @@ export class AdmProductoDetalleComponent {
             producto => this.producto = producto,
             error => console.error(error)
         );
+        this.cargarComentarios();
+
+        this.comentarios=this.service.getComentarios(this.producto.Id);
+
     }
 
     removeProducto() {
@@ -60,5 +78,20 @@ export class AdmProductoDetalleComponent {
 
     gotoProductos() {
         this.router.navigate(['AdmProductos']);
+    }
+
+    removeComentario(id: number) {
+      let okResponse = window.confirm("¿Quieres borrar este comentario?");
+      if (okResponse) {
+          this.service.removeComentario(this.producto, id).subscribe(
+              _ => this.router.navigate(['AdmProductoDetalle', {id: this.producto.Id}]),
+              error => console.error(error)
+          )
+      }
+    }
+
+    cargarComentarios(){
+      this.comentarios=this.service.getComentarios(this.producto.Id);
+
     }
 }

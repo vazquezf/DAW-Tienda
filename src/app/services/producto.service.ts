@@ -209,4 +209,18 @@ export class ProductoService{
       return withObserver(Producto.getByBuscador(nombrep));
     }
 
+    removeComentario(producto: Producto, id: number){
+        for(let i=0; i<Producto.arrayProductos.length; i++){
+            if(Producto.arrayProductos[i].Id === producto.Id){
+              for(let j=0; j<Producto.arrayProductos[i].Comentarios.length; j++){
+                if(Producto.arrayProductos[i].Comentarios[j].Id === id){
+                  Producto.arrayProductos[i].Comentarios.splice(j,1);
+                  break;
+                }
+              }
+            }
+        }
+        return withObserver(undefined);
+      }
+
 }

@@ -33,7 +33,8 @@ export class InfoProdComponent {
 }
 guardarComentario(){
   if(this.opinion && this.recomienda && this.ath0.usuario.TipoUsuario!='Anonimo'){
-    let comentario = new Comentario(this.opinion,this.valorp,this.valorn,this.recomienda,this.ath0.usuario.Nombre);
+    let nombre = this.ath0.usuario.Nombre;
+    let comentario = new Comentario(this.opinion,this.valorp,this.valorn,this.recomienda, nombre);
     this.service.addComentario(this.producto.Id,comentario);
     this.cargarComentarios();
     this.resetformulario();
