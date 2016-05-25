@@ -20,7 +20,7 @@ import {PedidoProducto,PedidoService} from './services/pedido.service';
                             <div *ngFor="#prod of ped">
                               <li>{{prod.Num}} x <img class="CarritoJPG" src="{{prod.Producto.Img}}">{{prod.Producto.Nombre}}</li>
                             </div>
-                            <ul>
+                            </ul>
                           </ol>
                         </div>
                     </div>
