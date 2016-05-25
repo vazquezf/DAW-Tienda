@@ -1,0 +1,89 @@
+<nav-sup></nav-sup>
+<div class="row">
+<div class="container col-md-10 col-md-offset-2">
+          <section class="Cuerpo-central col-md-10">
+              <section class="ruta-navegacion col-md-12">
+                  <div class="col-md-10">
+                      <ol class="breadcrumb">
+                          <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                          <li><a href="#">Pc / Perfil</a></li>
+                      </ol>
+                  </div>
+              </section>
+              <section class=" container infomacion-articulo-general col-md-12">
+                  <div class="container info-articulo col-md-12" id="Poducto">
+                      <div class="info-articulo-imagen col-md-4">
+                          <div class="thumbnail">
+                              <img class="img-responsive" id="imagen-info" src="Imagenes/perfil.png">
+                          </div>
+                      </div>
+                      <div class="info-articulo-texto col-md-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading titulo-perfil">{{usuario.Nombre}}</div>
+                              <div class="panel-body perfil">
+                                  <li>Id.Usuario: {{usuario.Id}}</li>
+                                  <li>Usuario: {{usuario.UserName}}</li>
+                                  <li>Nombre: {{usuario.Nombre}}</li>
+                                  <li>Apellidos: {{usuario.PrimerApellido}} {{usuario.SegundoApellido}}</li>
+                                  <li>Correo: {{usuario.Email}}</li>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+
+                  <div class="container col-md-10" id="footer-info-articulo">
+                      <ul class="nav nav-tabs">
+                          <li class="active"><a data-toggle="tab" href="#compras">Compras</a></li>
+                      </ul>
+
+                      <div class="tab-content">
+                          <div id="compras" class="tab-pane fade in active">
+                              <div class="nav navbar-deault">
+                                  <div class="panel-group">
+                                      <div class="panel panel-default">
+                                          <h4>Lista de artículos comprados por el usuario</h4>
+
+                                          <ul class="nav nav-list">
+                                              <li>
+                                                  <ul class="nav  tree">
+                                                      <li>
+                                                          <ul>
+                                                            <li *ngFor="#compra of usuario.Comprados">
+                                                              <table>
+                                                              <tr *ngFor="#producto of compra">
+                                                                  <td>
+                                                                      <p>{{producto.Producto.Id}}</p>
+                                                                  </td>
+                                                                  <td>
+                                                                      <a [routerLink]="['ProductoDetail',{id:producto.Producto.Id}]"><img class="CarritoJPG" src="{{producto.Producto.Img}}">{{producto.Producto.Nombre}}</a>
+                                                                  </td>
+                                                                  <td>
+                                                                      <p>{{producto.Producto.DescripcionC}}</p>
+                                                                  </td>
+                                                                  <td>
+                                                                      <input  class="form-control" value="{{producto.Num}}" type="number" disabled>
+                                                                  </td>
+                                                                  <td>
+                                                                      <p>{{producto.Producto.Precio*producto.Num}} €</p>
+                                                                  </td>
+                                                              </tr>
+                                                            </table>
+                                                            </li>
+                                                          </ul>
+                                                      </li>
+                                                  </ul>
+                                              </li>
+                                          </ul>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </section>
+
+      </div>
+</div>

@@ -1,0 +1,63 @@
+
+    <nav-sup></nav-sup>
+    <div>
+    <section class="container">
+        <h3 class="panel-heading"><span class="label label-info">Carrito</span></h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>
+                            <p>cod.</p>
+                        </th>
+                        <th>
+                            <p>Concepto</p>
+                        </th>
+                        <th>
+                            <p>Precio</p>
+                        </th>
+                        <th>
+                            <p>Unds</p>
+                        </th>
+                        <th>
+                            <p>Total</p>
+                        </th>
+                        <th>
+                            <p>Opciones</p>
+                        </th>
+
+                    </tr>
+                </thead>
+                <tr *ngFor="#producto of pedidos">
+                    <td>
+                        <p>{{producto.Producto.Id}}</p>
+                    </td>
+                    <td>
+                      <a [routerLink]="['ProductoDetail',{id: producto.Producto.Id}]" role="button">{{producto.Producto.Nombre}}</a>
+                    </td>
+                    <td>
+                        <p>{{producto.Producto.DescripcionC}}</p>
+                    </td>
+                    <td>
+                        <input  class="form-control" [(ngModel)]="producto.Num" type="number" min="0" max="{{producto.Producto.Stock}}" maxlength="2">
+                    </td>
+                    <td>
+                        <p>{{producto.Producto.Precio*producto.Num}} €</p>
+                    </td>
+                    <td>
+                        <a (click)="eliminar(producto)" role="button"><p>Eliminar</p></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="CarritoBtts">
+            <p class="col-md-8 col-sm-7"></p>
+            <div *ngIf="usuario.TipoUsuario!='anonimo'">
+            <a (click)="BorrarPedidos()"  class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
+            <a (click)="guardarPedido()" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Realizar pedido</a>
+            </div>
+        </div>
+
+    </section>
+</div>

@@ -1,0 +1,74 @@
+<div class="cabecera">
+        <div class="jumbotron">
+            <div class="row">
+
+            </div>
+            <div class="row imagenes-cabecera ">
+
+                <div class="col-md-1 logotipo  col-sm-2 col-md-offset-1 ">
+                    <img src="Imagenes/packman-AZUL.png" class="img-responsive" alt=""></div>
+                <div class="logotipo-texto col-md-5 col-sm-5  col-xs-offset-1  "><img src="Imagenes/urjccomponentes-azul.png" class="img-responsive"></div>
+                <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
+                    <div>
+                        <ul  class="navbar-center  nav navbar-nav   iconos-navegacion-banner">
+                            <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span  *ngIf="loguear"  style="center" class="glyphicon glyphicon-user"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Administracion']"><span class="fa fa-key fa-5x"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span class="fa {{cantidad}} fa-5x"></span></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menus-bucador-loggin "  data-spy="affix" data-offset-top="200">
+
+                <nav class="navbar navbar-default " >
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Barra-navegacion" aria-expanded="false">
+                                <span class="sr-only">Barra navegacion</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a [routerLink]="['Cuerpo']" class="navbar-brand" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="Barra-navegacion">
+                            <ul class="nav navbar-nav vdivide">
+                                <li class="dropdown separ">
+                                    <a href="#Categoria.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pc/Portatiles</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Portatil'}]">Portatiles</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Ultrabook'}]">Ultrabook</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'TabletPC'}]">TabletPC</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown separ">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SmartPhones</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a [routerLink]="['Categoria',{categoria: 'SmartPhones'}]">SmartPhones</a></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Fundas SmartPhones'}]">Fundas SmartPhones</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a [routerLink]="['Categoria',{categoria: 'Mundo iPhone'}]">Mundo iPhone</a></li>
+                                    </ul>
+                                </li>
+                                <li class="separ"><a [routerLink]="['Noticias']">Noticias</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right login-buscador vdivide">
+                                <li>
+                                    <div class="navbar-form  " role="search">
+                                        <div class="form-group ">
+                                            <input #nombreprod type="text" class="form-control search" placeholder="...">
+                                        </div>
+                                        <button (click)="search(nombreprod.value); nombreprod.value=''" class="btn btn-default"> Buscar</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </div>
