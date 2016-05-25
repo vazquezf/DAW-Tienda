@@ -27,7 +27,7 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
 ## Diagrama navegación fase 2: ##
 ![logo](https://github.com/vazquezf/DAW-Tienda/blob/master/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png)
 ## Diagrama navegación Front-End Fase 3: ##
-![logo](https://github.com/vazquezf/DAW-Tienda/blob/master/Diagrama%20de%20navegaci%C3%B3n/Diagrama_Frontend_Fase3.png)
+![logo](https://github.com/vazquezf/DAW-Tienda/blob/master/Diagrama%20de%20navegaci%C3%B3n/Diagrama_Frontend_Fase3.PNG)
 ## Captura de pantalla: ##
 <div align="center">
 <img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Administracion.png"></img>
