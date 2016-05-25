@@ -25,21 +25,21 @@ La temática de la web será la de una tienda on-line estilo PcComponentes donde
     > Cuenta en GitHub: igna91
     >
 ## Diagrama navegación fase 2: ##
-![logo](https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png)
+![logo](https://github.com/vazquezf/DAW-Tienda/blob/master/Diagrama%20de%20navegaci%C3%B3n/Diagrama.png)
 ## Diagrama navegación Front-End Fase 3: ##
-![logo](https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Diagrama%20de%20navegaci%C3%B3n/Diagrama_Frontend_Fase3.png)
+![logo](https://github.com/vazquezf/DAW-Tienda/blob/master/Diagrama%20de%20navegaci%C3%B3n/Diagrama_Frontend_Fase3.png)
 ## Captura de pantalla: ##
 <div align="center">
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Administracion.png"></img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Administracion.png"></img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Carrito.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Categoria.png"> </img>
 </div>
 <div align="center">
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Index.png"> </img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Noticias.png"> </img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Producto.png"> </img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Usuario.png"> </img>
-<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/PPaginaPrincipal/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Registro.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Index.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Noticias.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Producto.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Usuario.png"> </img>
+<img width="200px" src="https://github.com/vazquezf/DAW-Tienda/blob/master/Captura%20de%20pantalla%20de%20las%20paginas%20principales/Registro.png"> </img>
 </div>
 
 ## Link Trello: ##
