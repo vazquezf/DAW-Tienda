@@ -6,7 +6,6 @@ import {CuerpoComponent} from './cuerpo.component';
 import {ProductoComponent} from './producto.component';
 import {UsuarioComponent} from './usuario.component';
 import {ProductoService} from './services/producto.service';
-import {PedidoService} from './services/pedido.service';
 import {InfoProdComponent} from './infoProd.component';
 import {CarritoComponent} from './carrito.component';
 import {Usuario} from './services/usuario.service';
@@ -29,6 +28,7 @@ import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
 import {AdminComponent} from './admin';
+
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 @Component({
@@ -38,7 +38,7 @@ import {HTTP_PROVIDERS, Http} from 'angular2/http';
     <router-outlet></router-outlet>
     <footer><footer-app></footer-app></footer>
   `,
-    providers:  [ProductoService,PedidoService,NoticiaService,UsuarioService,HTTP_PROVIDERS],
+    providers:  [ProductoService,NoticiaService,UsuarioService,HTTP_PROVIDERS],
   directives: [ROUTER_DIRECTIVES,HeaderComponent,FooterComponent,NavSupComponent]
 })
 @RouteConfig([
@@ -52,6 +52,7 @@ import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
     {path: '...', name: 'Administracion', component: AdminComponent},
 
+    {path: '/Buscador/:nombre', name: 'Buscador', component: ProductoComponent},
 
 ])
 export class AppComponent {

@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES,Router} from 'angular2/router';
 import {UsuarioService,Usuario} from './services/usuario.service';
-
+/*import {PedidoService} from './services/pedido.service';*/
 
 @Component({
     selector: 'cabecera-app',
@@ -11,6 +11,25 @@ import {UsuarioService,Usuario} from './services/usuario.service';
 
 
 export class HeaderComponent {
+  constructor(private router : Router,private service : UsuarioService/*, private servicepd:PedidoService*/){}
 
-  constructor(private service : UsuarioService){}
+  get estaRegistrado():string{
+    if(!this.service.isLogged){
+      return'Registro';
+    }else{
+      return 'Usuarioinfo';
+    }
+  }
+
+  get loguear():boolean{
+    return (!this.service.isLogged);
+  }
+
+  search(nombre: string) {
+    this.router.navigate(['Buscador', {nombre: nombre}]);
+  }
+/*  get cantidad(){
+    return (this.servicepd.pedido.pedidos.length>0) ? 'fa-cart-arrow-down' : 'fa-shopping-cart';
+  }
+*/
 }

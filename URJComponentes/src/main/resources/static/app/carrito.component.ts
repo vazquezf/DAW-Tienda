@@ -20,9 +20,10 @@ export class CarritoComponent {
         error => console.log(error));
     }
     guardarPedido(){
-      if(this.usuario.TipoUsuario=='usuario' && this.pedidos.length>0){
+      if(this.usuario.TipoUsuario=='usuario' && this.pedidos.length>0 && window.confirm("¿Continuar con el pedido?")){
         let comprado=Array<PedidoProducto>();
         for (let producto of this.pedidos){
+          producto.Producto.Stock=producto.Producto.Stock-producto.Num;
           comprado.push(producto);
         }
 

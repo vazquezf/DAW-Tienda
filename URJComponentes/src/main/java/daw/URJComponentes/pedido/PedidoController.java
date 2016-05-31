@@ -1,4 +1,4 @@
-package daw.URJComponentes.producto;
+package daw.URJComponentes.pedido;
 
 import java.util.Collection;
 
@@ -14,27 +14,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import daw.URJComponentes.comentarios.Comentario;
-
 @RestController
-@RequestMapping("/productos")
-public class ProductoController {
+@RequestMapping("/pedidos")
+public class PedidoController {
 
-	private static final Logger log = LoggerFactory.getLogger(ProductoController.class);
+	private static final Logger log = LoggerFactory.getLogger(PedidoController.class);
 
 	@Autowired
-	private ProductoRepository productoRepository;
+	private PedidoRepository productoRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public Collection<Producto> getProducts() {
+	public Collection<Pedido> getPedidos() {
 		return productoRepository.findAll();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Producto> getProduct(@PathVariable long id) {
+	public ResponseEntity<Pedido> getPedido(@PathVariable long id) {
 
 
-		Producto anuncio = productoRepository.findOne(id);		
+		Pedido anuncio = productoRepository.findOne(id);		
 		if (anuncio != null) {
 			return new ResponseEntity<>(anuncio, HttpStatus.OK);
 		} else {
@@ -44,7 +42,7 @@ public class ProductoController {
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Producto newProduct(@RequestBody Producto anuncio) {
+	public Pedido newPedido(@RequestBody Pedido anuncio) {
 
 		productoRepository.save(anuncio);
 
@@ -52,9 +50,9 @@ public class ProductoController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Producto> updateProduct(@PathVariable long id, @RequestBody Producto updatedBook) {
+	public ResponseEntity<Pedido> updatePedido(@PathVariable long id, @RequestBody Pedido updatedBook) {
 
-		Producto anuncio = productoRepository.findOne(id);
+		Pedido anuncio = productoRepository.findOne(id);
 		if (anuncio != null) {
 
 			updatedBook.setId(id);
@@ -67,7 +65,7 @@ public class ProductoController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Producto> deleteProduct(@PathVariable long id) {
+	public ResponseEntity<Pedido> deletePedido(@PathVariable long id) {
 
 		if (productoRepository.exists(id)) {
 			productoRepository.delete(id);
@@ -77,13 +75,4 @@ public class ProductoController {
 		}
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	@ResponseStatus(HttpStatus.CREATED)
-	public Comentario newComentario(@RequestBody Comentario anuncio,@PathVariable long id) {
-		log.info("he llegado");
-		Producto producto = productoRepository.findOne(id);
-		producto.getComentarios().add(anuncio);
-		productoRepository.save(producto);
-		return anuncio;
-	}
 }

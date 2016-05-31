@@ -1,19 +1,28 @@
 package daw.URJComponentes.producto;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import daw.URJComponentes.comentarios.Comentario;
 
 @Entity
 public class Producto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private  long id ;
-
+	private long id = -1;
 	private String nombre;
-	private String descripcion_corta;
+
+	@Column(length = 50000)
+	private String description_corta;
 	private String img_ruta;
 	private float precio;
 	private int stock;
@@ -21,17 +30,18 @@ public class Producto {
 	private boolean destacado;
 	private boolean novedad;
 	private String tipo;
-	private static long contador = 0;
+	private int cantidad = 0;
 	
-	protected Producto() {}
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Comentario> comentarios= new ArrayList<>();
+	
+	public Producto() {}
 
-	public Producto(String nombre, String descripcion_corta, String img_ruta, float precio, int stock,
+	public Producto(String nombre, String description, String img_ruta, float precio, int stock,
 			String descripcion_larga, boolean destacado, boolean novedad, String tipo) {
 		super();
-		Producto.contador ++;
-		this.id = Producto.contador;
 		this.nombre = nombre;
-		this.descripcion_corta = descripcion_corta;
+		this.description_corta = description;
 		this.img_ruta = img_ruta;
 		this.precio = precio;
 		this.stock = stock;
@@ -39,6 +49,23 @@ public class Producto {
 		this.destacado = destacado;
 		this.novedad = novedad;
 		this.tipo = tipo;
+
+		}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String title) {
+		this.nombre = title;
+	}
+
+	public String getDescription_corta() {
+		return description_corta;
+	}
+
+	public void setDescription_corta(String description) {
+		this.description_corta = description;
 	}
 
 	public long getId() {
@@ -49,22 +76,6 @@ public class Producto {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getDescripcion_corta() {
-		return descripcion_corta;
-	}
-
-	public void setDescripcion_corta(String descripcion_corta) {
-		this.descripcion_corta = descripcion_corta;
-	}
-
 	public String getImg_ruta() {
 		return img_ruta;
 	}
@@ -72,7 +83,6 @@ public class Producto {
 	public void setImg_ruta(String img_ruta) {
 		this.img_ruta = img_ruta;
 	}
-
 	public float getPrecio() {
 		return precio;
 	}
@@ -120,7 +130,24 @@ public class Producto {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
 
-	
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
 
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", name=" + nombre + ", description_corta=" + description_corta + "]";
+	}
 }

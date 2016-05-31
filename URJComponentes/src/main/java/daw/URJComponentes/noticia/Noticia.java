@@ -1,5 +1,6 @@
 package daw.URJComponentes.noticia;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,19 +11,17 @@ public class Noticia {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private  long id ;
+	private  long id = -1 ;
 	
 	private String titulo;
     private String imagen;
+	@Column(length = 50000)
     private String descripcion;
-    private static long contador = 0;
     
     protected Noticia(){}
     
-	public Noticia(long id, String titulo, String imagen, String descripcion) {
+	public Noticia(String titulo, String imagen, String descripcion) {
 		super();
-		Noticia.contador++;
-		this.id = Noticia.contador;
 		this.titulo = titulo;
 		this.imagen = imagen;
 		this.descripcion = descripcion;

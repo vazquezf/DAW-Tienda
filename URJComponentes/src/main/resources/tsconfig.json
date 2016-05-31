@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
     "emitDecoratorMetadata": true,
@@ -12,12 +11,8 @@
     "outDir": "../dist/",
     "rootDir": ".",
     "sourceMap": true,
-    "target": "es5",
-    "inlineSources": true
+    "sourceRoot": "/",
+    "target": "es5"
   },
-
-  "files": [
-    "app.ts",
-    "typings.d.ts"
-  ]
+  "compileOnSave": false
 }
