@@ -9,10 +9,10 @@ import {UsuarioService,Usuario} from './services/usuario.service';
             <div class="col-md-2 col-xs-2">
                 <strong>URJCComponentes</strong>
             </div>
-            <div class="col-md-6 col-xs-8 ">
-              <div class="col-md-12 col-xs-12" >
+            <div  class="col-md-6 col-xs-8 ">
+              <div *ngIf="isLogged" class="col-md-12 col-xs-12" >
                 <a [routerLink]="['Carrito']" ><span>{{HayPedidos}}</span></a>
-                <a   *ngIf="esUsuario">
+                <a>
                 <div class="btn-group">
                   <button type="button" class="btn dropdown-toggle"
                           data-toggle="dropdown">{{usuario}}
@@ -34,8 +34,11 @@ import {UsuarioService,Usuario} from './services/usuario.service';
 
 export class NavSupComponent {
   usuario:string;
+  isLogged: boolean;
   constructor(private ath0:UsuarioService,/*private service:PedidoService,*/private router:Router) {
-      this.usuario=this.ath0.user.name
+    this.isLogged = ath0.isLogged;
+    this.usuario=this.ath0.user.name;
+
   }
 
   get HayPedidos():string{
@@ -44,14 +47,19 @@ export class NavSupComponent {
 
   }
   get esUsuario():boolean{
-    if(this.ath0.isLogged){
+    if(this.isLogged){
+      this.usuario=this.ath0.user.name;
       return true;
     }
     return false;
   }
 
   desloguear(){
-      this.ath0.logOut();
+      this.ath0.logOut().subscribe(
+			response => console.log("Usuario logOut"),
+			error => console.log("Error when trying to log out: "+error)
+		);
+      this.isLogged= this.ath0.isLogged;
       this.router.navigate(['Registro']);
   }
 }

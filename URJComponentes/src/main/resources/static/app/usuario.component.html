@@ -1,5 +1,5 @@
 <nav-sup></nav-sup>
-<div class="row">
+<div *ngIf="usuario" class="row">
 <div class="container col-md-10 col-md-offset-2">
           <section class="Cuerpo-central col-md-10">
               <section class="ruta-navegacion col-md-12">
@@ -19,13 +19,13 @@
                       </div>
                       <div class="info-articulo-texto col-md-6">
                           <div class="panel panel-default">
-                              <div class="panel-heading titulo-perfil">{{usuario.Nombre}}</div>
+                              <div class="panel-heading titulo-perfil">{{usuario.name}}</div>
                               <div class="panel-body perfil">
-                                  <li>Id.Usuario: {{usuario.Id}}</li>
-                                  <li>Usuario: {{usuario.UserName}}</li>
-                                  <li>Nombre: {{usuario.Nombre}}</li>
-                                  <li>Apellidos: {{usuario.PrimerApellido}} {{usuario.SegundoApellido}}</li>
-                                  <li>Correo: {{usuario.Email}}</li>
+                                  <li>Id.Usuario: {{usuario.id}}</li>
+                                  <li>Usuario: {{usuario.userName}}</li>
+                                  <li>Nombre: {{usuario.name}}</li>
+                                  <li>Apellidos: {{usuario.primerApellido}} {{usuario.segundoApellido}}</li>
+                                  <li>Correo: {{usuario.email}}</li>
                                 </div>
                           </div>
                       </div>

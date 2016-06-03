@@ -12,6 +12,7 @@ export interface Usuario{
    userName: string;
    passwordHash: string;
    email:string;
+   pedidos: Pedido[];
    roles: string[];
 }
 
@@ -48,6 +49,7 @@ export class UsuarioService {
 	private processLogInResponse(response){
 		this.isLogged = true;
 		this.user = response.json();
+		console.log(response.json());
 		this.isAdmin = this.user.roles.indexOf("ROLE_ADMIN") !== -1;
 	}
 
@@ -80,6 +82,9 @@ export class UsuarioService {
 			}
 		);
 	}
+  pedir(producto:Pedido){
+
+  }
 }
 
 function utf8_to_b64(str) {

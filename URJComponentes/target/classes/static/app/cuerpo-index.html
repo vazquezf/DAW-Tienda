@@ -35,18 +35,20 @@
                 <div class="row">
                     <h3 class="panel-heading"><span class="label label-info">DESTACADO</span></h3>
                     <div class="panel-body">
-                      <div *ngFor="#producto of Productos">
-                        <article  *ngIf="producto.Destacado == true"  class="col-md-3 col-sm-3 col-xs-12">
+                      <div *ngFor="#producto of products; #i = index">
+                        <div *ngIf='i%4==0' class="row"></div>
+                        <article  *ngIf="producto.destacado == true"  class="col-md-3 col-sm-3 col-xs-12">
                             <div   class="thumbnail">
-                                <img class="img-responsive" src="{{producto.Img}}">
+                                <img class="img-responsive" src="{{producto.img_ruta}}">
                                 <div class="btn-group  pop-imagenes" role="group">
-                                    <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
-                                    <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
+                                    <a [routerLink]="['ProductoDetail',{id: producto.id}]" class="btn btn-secondary" role="button">Ver</a>
+                                    <a *ngIf='deshabilitar(producto)==false'(click)="save(producto)"  class="btn btn-primary" role="button" >Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==true'(click)="save(producto)"  class="btn btn-primary" role="button" disabled>Añadir al Carrito</a>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="desc-articulo">{{producto.Nombre}}</h3>
-                                    <p class="cortar">{{producto.DescripcionC}}</p>
-                                    <span class="precio">{{producto.Precio}}</span>
+                                    <h3 class="desc-articulo">{{producto.nombre}}</h3>
+                                    <p class="cortar">{{producto.description_corta}}</p>
+                                    <span class="precio">{{producto.precio}}</span>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-{{producto.ProgressBarra}} progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{producto.PortStock}}%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
                                         </div>
@@ -64,18 +66,19 @@
                 <div class="row">
                     <h3 class="panel-heading"><span class="label label-info">NOVEDADES</span></h3>
                     <div class="panel-body">
-                      <div *ngFor="#producto of Productos">
-                        <article  *ngIf="producto.Novedad == true"  class="col-md-3 col-sm-3 col-xs-12">
+                      <div *ngFor="#producto of products">
+                        <article  *ngIf="producto.novedad == true"  class="col-md-3 col-sm-3 col-xs-12">
                             <div   class="thumbnail">
-                                <img class="img-responsive" src="{{producto.Img}}">
+                                <img class="img-responsive" src="{{producto.img_ruta}}">
                                 <div class="btn-group  pop-imagenes" role="group">
-                                    <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
-                                    <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
+                                    <a [routerLink]="['ProductoDetail',{id: producto.id}]" class="btn btn-secondary" role="button">Ver</a>
+                                    <a *ngIf='deshabilitar(producto)==false'(click)="save(producto)"  class="btn btn-primary" role="button" >Añadir al Carrito</a>
+                                    <a *ngIf='deshabilitar(producto)==true'(click)="save(producto)"  class="btn btn-primary" role="button" disabled>Añadir al Carrito</a>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="desc-articulo">{{producto.Nombre}}</h3>
-                                    <p class="cortar">{{producto.DescripcionC}}</p>
-                                    <span class="precio">{{producto.Precio}}</span>
+                                    <h3 class="desc-articulo">{{producto.nombre}}</h3>
+                                    <p class="cortar">{{producto.description_corta}}</p>
+                                    <span class="precio">{{producto.precio}}</span>
                                     <div class="progress">
                                         <div class="progress-bar progress-bar-{{producto.ProgressBarra}} progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{producto.PortStock}}%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
                                         </div>

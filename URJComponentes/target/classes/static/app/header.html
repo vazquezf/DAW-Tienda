@@ -10,11 +10,10 @@
                 <div class="logotipo-texto col-md-5 col-sm-5  col-xs-offset-1  "><img src="Imagenes/urjccomponentes-azul.png" class="img-responsive"></div>
                 <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
                     <div>
-                        <ul class="navbar-center  nav navbar-nav vdivide  iconos-navegacion-banner">
-                            <li *ngIf=' 2==3' class="separ col-xs-4"><a [routerLink]="['Usuarioinfo']"><span class="glyphicon glyphicon-user"></span></a></li>
-                            <li *ngIf=' 2==2' class="separ col-xs-4"><a [routerLink]="['Registro']"><span class="glyphicon glyphicon-user"></span></a></li>
-                            <li class="separ col-xs-4"><a [routerLink]="['Administracion']"><span class="glyphicon glyphicon-envelope"></span></a></li>
-                            <li class="separ col-xs-4"><a [routerLink]="['Carrito']"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                        <ul  class="navbar-center  nav navbar-nav   iconos-navegacion-banner">
+                            <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span  *ngIf="loguear"  style="center" class="glyphicon glyphicon-user"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Administracion']"><span class="fa fa-key fa-5x"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span *ngIf="n" class="fa {{cantidad}} fa-5x"></span></a></li>
                         </ul>
                     </div>
 
@@ -56,16 +55,16 @@
                                 </li>
                                 <li class="separ"><a [routerLink]="['Noticias']">Noticias</a></li>
                             </ul>
-                          <!--  <ul class="nav navbar-nav navbar-right login-buscador vdivide">
+                            <ul class="nav navbar-nav navbar-right login-buscador vdivide">
                                 <li>
-                                    <form class="navbar-form  " role="search">
+                                    <div class="navbar-form  " role="search">
                                         <div class="form-group ">
-                                            <input type="text" class="form-control search" placeholder="...">
+                                            <input #nombreprod type="text" class="form-control search" placeholder="...">
                                         </div>
-                                        <button type="submit" class="btn btn-default"> Buscar</button>
-                                    </form>
+                                        <button (click)="search(nombreprod.value); nombreprod.value=''" class="btn btn-default"> Buscar</button>
+                                    </div>
                                 </li>
-                            </ul>-->
+                            </ul>
                         </div>
                     </div>
                 </nav>

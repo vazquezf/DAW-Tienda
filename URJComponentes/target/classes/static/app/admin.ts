@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component,OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Producto} from './services/producto.service';
 import {HeaderComponent} from './header.component';
@@ -29,6 +29,8 @@ import {AdmNoticiaListComponent} from './adm.noticia-list.component';
 import {AdmNuevaNoticiaComponent} from './adm.nueva.noticia.component';
 import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
+import {AdmPedidosListComponent} from './adm.pedidos-list.component';
+
 
 @Component({
   selector: 'admin',
@@ -49,26 +51,32 @@ import {AdmNoticiaDetalleComponent} from './adm.noticia-detalle.component';
 
 
 
-    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent},
+    {path: '/administracion/usuarios', name: 'AdmUsuarios', component: AdmUsuarioListComponent, useAsDefault: true},
 
     {path: '/administracion/productos', name: 'AdmProductos', component: AdmProductoListComponent},
     {path: '/administracion/producto/:id', name: 'AdmProductoDetalle', component: AdmProductoDetalleComponent},
     {path: '/administracion/producto/nuevo', name: 'AdmNuevoProducto', component: AdmNuevoProductoComponent},
     {path: '/administracion/producto/editar/:id', name: 'AdmEditarProducto', component: AdmNuevoProductoComponent},
 
-    {path: '/administracion/noticias', name: 'AdmNoticias', component: AdmNoticiaListComponent,useAsDefault: true},
+    {path: '/administracion/noticias', name: 'AdmNoticias', component: AdmNoticiaListComponent},
     {path: '/administracion/noticia/:id', name: 'AdmNoticiaDetalle', component: AdmNoticiaDetalleComponent},
     {path: '/administracion/noticia/nueva', name: 'AdmNuevaNoticia', component: AdmNuevaNoticiaComponent},
     {path: '/administracion/noticia/editar/:id', name: 'AdmEditarNoticia', component: AdmNuevaNoticiaComponent},
 
+    {path: '/administracion/pedidos', name: 'AdmPedidos', component: AdmPedidosListComponent},
+
 ])
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   usuario:Usuario;
-  constructor(private auth0:UsuarioService) {
+  constructor(private auth0:UsuarioService, private router:Router) {
       this.auth0.usuarioReg.subscribe(
         Usuario => this.usuario = Usuario,
         error => console.log(error));
     }
-
+    ngOnInit(){
+      if(!this.auth0.usuario.EsAdmin){
+        window.confirm("Registrate como Administrador");
+        this.router.navigate(['Registro']);
+    }
 
 }

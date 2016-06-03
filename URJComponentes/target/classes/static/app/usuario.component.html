@@ -1,9 +1,9 @@
 <nav-sup></nav-sup>
-<div class="row">
+<div *ngIf="usuario" class="row">
 <div class="container col-md-10 col-md-offset-2">
           <section class="Cuerpo-central col-md-10">
               <section class="ruta-navegacion col-md-12">
-                  <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-10">
                       <ol class="breadcrumb">
                           <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
                           <li><a href="#">Pc / Perfil</a></li>
@@ -19,52 +19,25 @@
                       </div>
                       <div class="info-articulo-texto col-md-6">
                           <div class="panel panel-default">
-                              <div class="panel-heading titulo-perfil">{{usuario.Nombre}}</div>
+                              <div class="panel-heading titulo-perfil">{{usuario.name}}</div>
                               <div class="panel-body perfil">
-
-                                                              <li>Id. Usuario: {{usuario.Id}}</li>
-                                                              <li>Correo: usuario.Email</li>
-
+                                  <li>Id.Usuario: {{usuario.id}}</li>
+                                  <li>Usuario: {{usuario.userName}}</li>
+                                  <li>Nombre: {{usuario.name}}</li>
+                                  <li>Apellidos: {{usuario.primerApellido}} {{usuario.segundoApellido}}</li>
+                                  <li>Correo: {{usuario.email}}</li>
                                 </div>
                           </div>
                       </div>
                   </div>
               </section>
 
-                  <div class="container col-md-12" id="footer-info-articulo">
+                  <div class="container col-md-10" id="footer-info-articulo">
                       <ul class="nav nav-tabs">
-                          <li class="active"><a data-toggle="tab" href="#datospersonales">Datos personales</a></li>
-                          <li><a data-toggle="tab" href="#compras">Compras</a></li>
+                          <li class="active"><a data-toggle="tab" href="#compras">Compras</a></li>
                       </ul>
 
                       <div class="tab-content">
-                          <div id="datospersonales" class="tab-pane fade">
-                              <div class="nav navbar-deault">
-                                  <div class="panel-group">
-                                      <div class="panel panel-default">
-                                          <h4>Datos dados por el usuario</h4>
-
-                                          <ul class="nav nav-list">
-                                              <li>
-
-                                                  <ul class="nav  tree">
-                                                      <li>
-                                                          <ul>
-                                                              <li>dato1</li>
-                                                              <li>dato2</li>
-                                                              <li>dato3</li>
-                                                              <li>dato4</li>
-                                                          </ul>
-                                                      </li>
-                                                  </ul>
-                                              </li>
-                                          </ul>
-
-
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
                           <div id="compras" class="tab-pane fade in active">
                               <div class="nav navbar-deault">
                                   <div class="panel-group">
@@ -73,7 +46,6 @@
 
                                           <ul class="nav nav-list">
                                               <li>
-
                                                   <ul class="nav  tree">
                                                       <li>
                                                           <ul>
@@ -98,13 +70,11 @@
                                                               </tr>
                                                             </table>
                                                             </li>
-
                                                           </ul>
                                                       </li>
                                                   </ul>
                                               </li>
                                           </ul>
-
 
                                       </div>
                                   </div>

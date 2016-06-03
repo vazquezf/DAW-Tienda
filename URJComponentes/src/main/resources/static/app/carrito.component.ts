@@ -1,7 +1,7 @@
 import {Component,OnInit} from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
-import {ProductoService} from './services/producto.service';
-import {PedidoProducto,PedidoService} from './services/pedido.service';
+import {ProductoService,Producto} from './services/producto.service';
+import {Pedido} from './services/pedido.service';
 import {UsuarioService,Usuario} from './services/usuario.service';
 import {NavSupComponent} from './nav-sup.component';
 @Component({
@@ -11,47 +11,23 @@ import {NavSupComponent} from './nav-sup.component';
 
 export class CarritoComponent {
 
-  pedidos:Array<PedidoProducto>;
+  pedido: Producto[];
   usuario:Usuario;
-  constructor(private router:Router, private service: PedidoService,private auth0:UsuarioService) {
+  constructor(private router:Router,private auth0:UsuarioService) {
+      this.usuario = this.auth0.user;
       this.CargarPedidos();
-      this.auth0.usuarioReg.subscribe(
-        Usuario => this.usuario = Usuario,
-        error => console.log(error));
     }
     guardarPedido(){
-      if(this.usuario.TipoUsuario=='usuario' && this.pedidos.length>0 && window.confirm("¿Continuar con el pedido?")){
-        let comprado=Array<PedidoProducto>();
-        for (let producto of this.pedidos){
-          producto.Producto.Stock=producto.Producto.Stock-producto.Num;
-          comprado.push(producto);
-        }
 
-        this.auth0.addPedido(comprado);
-        this.BorrarPedidos()
-        this.CargarPedidos();
-      }
     }
 
     BorrarPedidos(){
-      this.service.DelPedidos();
     }
 
     CargarPedidos(){
-      this.service.Pedidos.subscribe(
-        Productos => this.pedidos = Productos,
-        error => console.log(error));
-    }
-    eliminar(p:PedidoProducto){
-      if(p.Num == 1){
-            this.service.eliminarProducto(p);
-            this.CargarPedidos();
-            }
-      if(p.Num >1){
-        p.Num=p.Num-1;
-      }
-
-
+      this.pedido = this.usuario.pedidos[this.usuario.pedidos.length-1].productos;
+}
+    eliminar(p:Pedido){
 
     }
 

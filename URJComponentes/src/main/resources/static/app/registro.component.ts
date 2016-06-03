@@ -29,7 +29,7 @@ export class RegistroComponent {
 
 	  logOut(){
 		this.service.logOut().subscribe(
-			response => {},
+			response => console.log("Usuario logOut"),
 			error => console.log("Error when trying to log out: "+error)
 		);
 	  }

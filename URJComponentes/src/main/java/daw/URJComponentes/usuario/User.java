@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import daw.URJComponentes.pedido.Pedido;
+import daw.URJComponentes.producto.Producto;
 
 /**
  * This is the entity to store in database user information. It contains the
@@ -51,6 +52,8 @@ public class User {
 	private String userName ;
 	private String email ;
 	
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<Pedido> pedidos = new ArrayList<>();
 	
 	@JsonIgnore
 	private String passwordHash;
@@ -58,19 +61,20 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
-
+	
+	
 	public User(String name, String primerApellido, String segundoApellido, String userName, String email,
 			String password,String... roles) {
 		super();
 		this.name = name;
 		this.primerApellido = primerApellido;
 		this.segundoApellido = segundoApellido;
-		
 		this.userName = userName;
 		this.email = email;
 
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+		
 	}
 
 	public User() {
@@ -138,6 +142,14 @@ public class User {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 }

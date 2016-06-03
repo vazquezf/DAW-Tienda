@@ -13,7 +13,7 @@
                         <ul  class="navbar-center  nav navbar-nav   iconos-navegacion-banner">
                             <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span  *ngIf="loguear"  style="center" class="glyphicon glyphicon-user"></span></a></li>
                             <li class=" col-md-4"><a [routerLink]="['Administracion']"><span class="fa fa-key fa-5x"></span></a></li>
-                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span class="fa {{cantidad}} fa-5x"></span></a></li>
+                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span *ngIf="n" class="fa {{cantidad}} fa-5x"></span></a></li>
                         </ul>
                     </div>
 

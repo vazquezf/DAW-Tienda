@@ -10,27 +10,28 @@ import {NavSupComponent} from './nav-sup.component';
 export class RegistroComponent {
 
     usuario: Usuario;
-    nombre:string;
+    nombre: string;
     pass:string;
     constructor(
       private router:Router,
       private service: UsuarioService){
 
     }
+	logIn(event: any){
 
-    comprobar() {
-      let num = this.service.getComprobarUsuario(this.nombre, this.pass);
-      if(num !== 0){
-          this.service.loguear=num;
-          window.confirm(this.service.usuario.Nombre);
-          if(this.service.usuario.EsAdmin){
-            this.router.navigate(['Administracion']);
-          }else{
-              this.router.navigate(['Usuarioinfo']);
-          }
-      }else{
-          window.console.log('no se encuentra');
-      }
-    }
+	  event.preventDefault();
+
+	  this.service.logIn(this.nombre, this.pass).subscribe(
+	      user => this.usuario=user,
+	      error => alert("Invalid user or password")
+      );
+  	}
+
+	  logOut(){
+		this.service.logOut().subscribe(
+			response => console.log("Usuario logOut"),
+			error => console.log("Error when trying to log out: "+error)
+		);
+	  }
 
 }

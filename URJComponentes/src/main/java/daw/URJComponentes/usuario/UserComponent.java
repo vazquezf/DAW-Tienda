@@ -2,8 +2,17 @@ package daw.URJComponentes.usuario;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.WebApplicationContext;
+
+import daw.URJComponentes.comentarios.Comentario;
+import daw.URJComponentes.producto.Producto;
 
 /**
  * This class is designed to manage the information for the user while he is

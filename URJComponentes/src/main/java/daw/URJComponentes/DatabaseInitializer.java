@@ -1,5 +1,8 @@
 package daw.URJComponentes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import daw.URJComponentes.comentarios.Comentario;
 import daw.URJComponentes.noticia.Noticia;
 import daw.URJComponentes.noticia.NoticiaRepository;
+import daw.URJComponentes.pedido.Pedido;
 import daw.URJComponentes.producto.Producto;
 import daw.URJComponentes.producto.ProductoRepository;
 import daw.URJComponentes.usuario.User;
@@ -41,9 +45,10 @@ public class DatabaseInitializer implements CommandLineRunner {
 		noticiaRepository.save(new Noticia("SUEÑOS DE ACERO Y ", "Imagenes/fbiiphone.jpg", "Los personajes que protagonizan este relato sobreviven en una sociedad en decadencia a la que, no obstante, lograrán devolver la posibilidad de un futuro. Año 2484. En un mundo dominado por las grandes corporaciones, solo un hombre, Jordi Thompson, detective privado deslenguado y vividor, pero de gran talento y sentido d..."));
 		noticiaRepository.save(new Noticia("SUEÑOS DE ACERO Y NEON", "Imagenes/fbiiphone.jpg", "Los personajes que protagonizan este relato sobreviven en una sociedad en decadencia a la que, no obstante, lograrán devolver la posibilidad de un futuro. Año 2484. En un mundo dominado por las grandes corporaciones, solo un hombre, Jordi Thompson, detective privado deslenguado y vividor, pero de gran talento y sentido d..."));
 		
-		userRepository.save(new User("manolo", "Felipe", "estac", "admin","manolof.estac@gmail.com","admin", "ROLE_USER", "ROLE_ADMIN"));
+		
 		userRepository.save(new User("juan", "algo", "garcia", "user","jaun.estac@gmail.com", "user", "ROLE_USER"));
-
+		userRepository.save(new User("manolo", "Felipe", "estac", "admin","manolof.estac@gmail.com","admin", "ROLE_USER", "ROLE_ADMIN"));
+		
 		// Sample users
 
 }

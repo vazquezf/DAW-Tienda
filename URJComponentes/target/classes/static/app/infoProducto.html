@@ -1,11 +1,11 @@
 <nav-sup></nav-sup>
-<div class="row">
+<div *ngIf="producto" class="row">
   <div class="col-md-9 col-md-offset-2 col-sm-9 col-sm-offset-2">
     <section class="ruta-navegacion col-md-12">
         <div class="col-md-8 ">
             <ol class="breadcrumb">
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="#">Pc / Portatiles / {{producto.Nombre}}</a></li>
+                <li><a href="#">Pc / Portatiles / {{producto.nombre}}</a></li>
             </ol>
         </div>
     </section>
@@ -48,9 +48,9 @@
             </div>
             <div class="info-articulo-texto col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading titulo-producto">{{producto.Nombre}}</div>
+                    <div class="panel-heading titulo-producto">{{producto.nombre}}</div>
                     <div class="panel-body descripcion">
-                        {{producto.DescripcionC}}
+                        {{producto.description_corta}}
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <div class="progress">
@@ -61,7 +61,7 @@
                             <li class="list-group-item ">
                                 <form class="form-inline " role="form">
                                     <div class="form-group col-md-2 col-sm-2">
-                                        <span  class="precio">{{producto.Precio}} €</span>
+                                        <span  class="precio">{{producto.precio}} €</span>
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6">
                                         <label>Cantidad:</label>
@@ -69,8 +69,8 @@
                                     </div>
                                     <div class="col-md-2 col-sm-2">
 
-                                        <button (click)="save()" class="btn btn-default " role="button"><span class="fa fa-shopping-basket"></span> Añadir </button>
-
+                                        <button  *ngIf='deshabilitar(producto)==false' (click)="save()" class="btn btn-default " role="button"><span class="fa fa-shopping-basket"></span> Añadir </button>
+                                        <button  *ngIf='deshabilitar(producto)==true' (click)="save()" class="btn btn-default " role="button" disabled><span class="fa fa-shopping-basket"></span> Añadir </button>
                                     </div>
                                 </form>
                             </li>
@@ -96,24 +96,7 @@
                             <div class="panel panel-default">
                                 <h2>Caracteristicas</h2>
                                 <div class="panel-body">
-                                    <p>{{producto.DescripcionL}}</p>
-
-                                    <ul class="nav nav-list">
-                                        <li>
-                                            <label class="tree-toggler nav-header"><span><h3>Especificaciones</h3></span></label>
-                                            <ul class="nav  tree">
-                                                <li>
-                                                    <ul>
-                                                        <li>dato1</li>
-                                                        <li>dato2</li>
-                                                        <li>dato3</li>
-                                                        <li>dato4</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
+                                    <p>{{producto.descripcion_larga}}</p>
                                 </div>
                             </div>
                         </div>
@@ -130,56 +113,51 @@
                                 <div class="panel-body">
                                     <div class="nav navbar" id="add-opiniones">
                                         <div>
-                                            <button class="btn" data-toggle="collapse" data-target="#formulario-opinion">Escribir opinión</button>
+                                            <button class="btn" data-toggle="collapse" data-target="#formulario-opinion">Escribir opinión  <span class="glyphicon glyphicon-comment"></span></button>
                                             <div id="formulario-opinion" class="collapse">
-                                                <form class="form-horizontal" role="form">
-                                                    <!--<div class="form-group">
-                                                        <label class="control-label col-sm-2" for="email">Email:</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="email" class="form-control" id="email" placeholder="Introducir Email">
-                                                        </div>
-                                                    </div>-->
+                                                <form class="form-horizontal" role="form" data-toggle="validator">
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-2" for="text">Opinion:</label>
                                                         <div class="col-sm-10">
-                                                            <textarea class="form-control" rows="3"></textarea>
+                                                            <textarea class="form-control" rows="3" [(ngModel)]="opinion" required></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-2" for="text">Pros:</label>
                                                         <div class="col-sm-10">
-                                                            <textarea class="form-control" rows="3"></textarea>
+                                                            <textarea class="form-control" rows="3" [(ngModel)]="valorp" ></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-2" for="text">Contras:</label>
                                                         <div class="col-sm-10">
-                                                            <textarea class="form-control" rows="3"></textarea>
+                                                            <textarea class="form-control" rows="3"[(ngModel)]="valorn"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-3" for="text">¿Lo recomendarias?:</label>
                                                         <div class=" col-sm-9">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" id="opcion_si" value="opcion_1">si
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input class="" type="radio" id="opcion_no" value="opcion_2"> no
-                                                            </label>
+                                                          <form required>
+                                                          <label class="radio-inline"><input type="radio" (click)="recomienda='si'" name="optradio" > Si</label>
+                                                          <label class="radio-inline"><input type="radio" (click)="recomienda='no'" name="optradio" >No</label>
+                                                        </form>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="alert alert-warning">
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input type="checkbox" value="">Acepto y entiendo las condiciones de uso para el envío de opiniones.
+                                                                    <input type="checkbox" [(ngModel)]="condiciones" value="">Acepto y entiendo las condiciones de uso para el envío de opiniones.
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div *ngIf="alerta" class="alert alert-danger" role="alert">{{alerta}}</div>
+                                                    <div *ngIf="alertaUsuario" class="alert alert-danger" role="alert">{{alertaUsuario}}</div>
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-2 col-sm-10">
-                                                            <button type="submit" class="btn btn-default">Insertar Opinion</button>
+                                                            <button  type="submit" *ngIf='!condiciones' type="submit" class="btn btn-default" (click)="guardarComentario()" disabled="">Insertar Opinion</button>
+                                                            <button type="submit" *ngIf='condiciones' type="submit" class="btn btn-default" (click)="guardarComentario()">Insertar Opinion</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -187,13 +165,13 @@
                                         </div>
                                     </div>
                                     <div class="user-opinion">
-                                        <div class="well">
-                                            <h4>Personajillo</h4>
-                                            <p>Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que...,Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que..., ,Un dia muy aburrido me se me ocurrio que..., Un dia muy aburrido me se me ocurrio que...</p>
+                                        <div class="well" *ngFor="#comentario of producto.comentarios">
+                                            <h4>{{comentario.nombreUsuario}}</h4>
+                                            <p>{{comentario.opinion}}</p>
                                             <ul class="nav navbar">
-                                                <li><span><label>Ventajas: </label>Cualquier cosa</span></li>
-                                                <li><span><label>Desventajas: </label>Cualquier cosa</span></li>
-                                                <li><span><label>¿Se lo recomendarias a tu peor amigo?: </label>Si</span></li>
+                                                <li><span><label>Ventajas: </label>{{comentario.valoracion_pos}}</span></li>
+                                                <li><span><label>Desventajas: </label>{{comentario.valoracion_neg}}</span></li>
+                                                <li><span><label>¿Se lo recomendarias a tu peor amigo?: </label>{{comentario.recomendacion}}</span></li>
                                             </ul>
                                         </div>
                                     </div>
