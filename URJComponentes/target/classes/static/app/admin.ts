@@ -35,7 +35,7 @@ import {AdmPedidosListComponent} from './adm.pedidos-list.component';
 @Component({
   selector: 'admin',
   template: `
-  <div *ngIf="usuario.EsAdmin" class="container">
+  <div *ngIf="admin" class="container">
         <menuAdmin></menuAdmin>
     <div class="col-md-9 col-sm-9 col-lg-9" id="inicio">
         <div id="head">
@@ -67,16 +67,16 @@ import {AdmPedidosListComponent} from './adm.pedidos-list.component';
 
 ])
 export class AdminComponent implements OnInit {
-  usuario:Usuario;
+  admin:boolean;
   constructor(private auth0:UsuarioService, private router:Router) {
-      this.auth0.usuarioReg.subscribe(
-        Usuario => this.usuario = Usuario,
-        error => console.log(error));
-    }
+      this.admin= this.auth0.isAdmin;
+  }
+
     ngOnInit(){
-      if(!this.auth0.usuario.EsAdmin){
+      if(!this.auth0.isAdmin){
         window.confirm("Registrate como Administrador");
         this.router.navigate(['Registro']);
     }
 
+}
 }

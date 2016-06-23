@@ -58,14 +58,14 @@ export class AdmProductoDetalleComponent {
         );
         this.cargarComentarios();
 
-        this.comentarios=this.service.getComentarios(this.producto.Id);
+        this.comentarios=this.producto.comentarios;
 
     }
 
     removeProducto() {
         let okResponse = window.confirm("¿Quieres borrar este producto?");
         if (okResponse) {
-            this.service.removeProducto(this.producto).subscribe(
+            this.service.removeProduct(this.producto).subscribe(
                 _ => this.router.navigate(['AdmProductos']),
                 error => console.error(error)
             )
@@ -73,7 +73,7 @@ export class AdmProductoDetalleComponent {
     }
 
     editProducto() {
-        this.router.navigate(['AdmEditarProducto', { id: this.producto.Id }]);
+        this.router.navigate(['AdmEditarProducto', { id: this.producto.id }]);
     }
 
     gotoProductos() {
@@ -81,17 +81,17 @@ export class AdmProductoDetalleComponent {
     }
 
     removeComentario(id: number) {
-      let okResponse = window.confirm("¿Quieres borrar este comentario?");
+    /*  let okResponse = window.confirm("¿Quieres borrar este comentario?");
       if (okResponse) {
           this.service.removeComentario(this.producto, id).subscribe(
               _ => this.router.navigate(['AdmProductoDetalle', {id: this.producto.Id}]),
               error => console.error(error)
           )
-      }
+      }*/
     }
 
     cargarComentarios(){
-      this.comentarios=this.service.getComentarios(this.producto.Id);
+      this.comentarios=this.producto.comentarios;
 
     }
 }

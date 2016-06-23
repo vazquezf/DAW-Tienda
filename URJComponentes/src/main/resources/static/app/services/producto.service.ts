@@ -11,12 +11,12 @@ export interface Producto {
     img_ruta: string;
     precio:number;
   	stock:number;
- 	descripcion_larga:string;
-	destacado: boolean;
-	novedad: boolean;
- 	tipo: string;
- 	comentarios: Comentario[];
- 	cantidad: number;
+   	descripcion_larga:string;
+  	destacado: boolean;
+  	novedad: boolean;
+   	tipo: string;
+   	comentarios: Comentario[];
+   	cantidad: number;
 }
 
 const URL = 'productos/';

@@ -129,10 +129,7 @@ export class AdmNuevoProductoComponent {
     destacado: boolean;
     novedad: boolean;
     tipo: string;
-    constructor(
-      private _router:Router,
-      routeParams:RouteParams,
-      private service: ProductoService){
+    constructor(private _router:Router, routeParams:RouteParams, private service: ProductoService){
 
         let id = routeParams.get('id');
         if(id){
@@ -142,8 +139,10 @@ export class AdmNuevoProductoComponent {
           );
           this.newProducto = false;
         } else {
-          //this.producto = new Producto(this.nombre,this.descripcion_corta,this.img_ruta,this.precio,this.stock,this.descripcion_larga,true,false,'');
-          //this.producto.editarId(Producto.arrayProductos[Producto.arrayProductos.length-1].Id==this.producto.Id);
+          this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
+             img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
+              descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
+              comentarios:null, cantidad:0};
           this.newProducto = true;
         }
     }
@@ -155,8 +154,10 @@ export class AdmNuevoProductoComponent {
     guardar() {
       if(this.newProducto){
 
-        this.producto = new Producto(this.nombre,this.descripcion_corta,this.img_ruta,this.precio,this.stock,this.descripcion_larga,true,false,'');
-        this.producto.editarId(Producto.arrayProductos[Producto.arrayProductos.length-1].Id==this.producto.Id);
+        this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
+           img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
+            descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
+            comentarios:null, cantidad:0};
       }else{
       this.service.saveProducto(this.producto);
     }

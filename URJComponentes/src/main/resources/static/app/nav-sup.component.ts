@@ -37,8 +37,9 @@ export class NavSupComponent {
   isLogged: boolean;
   constructor(private ath0:UsuarioService,/*private service:PedidoService,*/private router:Router) {
     this.isLogged = ath0.isLogged;
-    this.usuario=this.ath0.user.name;
-
+    if(this.isLogged){
+      this.usuario=this.ath0.user.name;
+    }
   }
 
   get HayPedidos():string{

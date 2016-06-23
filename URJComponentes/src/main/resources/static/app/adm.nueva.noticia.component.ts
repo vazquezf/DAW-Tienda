@@ -67,7 +67,7 @@ export class AdmNuevaNoticiaComponent {
           );
           this.newNoticia = false;
         } else {
-          this.noticia = new Noticia(undefined,'','','');
+          this.noticia = {titulo:'',imagen:'',descripcion:''};
           this.newNoticia = true;
         }
     }

@@ -20,9 +20,9 @@ import {AdmProductoDetalleComponent} from './adm.producto-detalle.component';
                           <div *ngFor="#producto of productos">
                               <div class="panel panel-default">
                                     <div class="panel-body">
-                                        <a [routerLink]="['AdmProductoDetalle', {id: producto.Id}]">{{producto.Nombre}}</a>
-                                        <p>Precio: {{producto.Precio}}</p>
-                                        <p>Cantidad: {{producto.Stock}}</p>
+                                        <a [routerLink]="['AdmProductoDetalle', {id: producto.id}]">{{producto.nombre}}</a>
+                                        <p>Precio: {{producto.precio}}</p>
+                                        <p>Cantidad: {{producto.stock}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ export class AdmProductoListComponent implements OnInit {
     constructor(private router:Router, private service: ProductoService) {}
 
     ngOnInit(){
-      this.service.Productos.subscribe(
+      this.service.getProductos().subscribe(
         productos => this.productos = productos,
         error => console.log(error)
       );

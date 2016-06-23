@@ -2,6 +2,7 @@ import { Injectable, OnInit } from 'angular2/core';
 import { Http, RequestOptions, Headers } from 'angular2/http';
 import 'rxjs/Rx';
 import {Pedido} from './pedido.service';
+import {Observable} from 'rxjs/Observable';
 
 export interface Usuario{
 
@@ -15,6 +16,7 @@ export interface Usuario{
    pedidos: Pedido[];
    roles: string[];
 }
+const URL = 'user/';
 
 @Injectable()
 export class UsuarioService {
@@ -49,7 +51,7 @@ export class UsuarioService {
 	private processLogInResponse(response){
 		this.isLogged = true;
 		this.user = response.json();
-		console.log(response.json();
+		console.log(response.json());
 		this.isAdmin = this.user.roles.indexOf("ROLE_ADMIN") !== -1;
 	}
 
@@ -82,6 +84,18 @@ export class UsuarioService {
 			}
 		);
 	}
+  pedir(producto:Pedido){
+  }
+  getUsers() {
+    return this.http.get(URL)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+  private handleError(error: any){
+    console.error(error);
+    return Observable.throw("Server error (" + error.status + "): " + error.text())
+  }
 }
 
 function utf8_to_b64(str) {
