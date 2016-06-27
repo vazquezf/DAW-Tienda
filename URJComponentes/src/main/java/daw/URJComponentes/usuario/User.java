@@ -71,10 +71,10 @@ public class User {
 		this.segundoApellido = segundoApellido;
 		this.userName = userName;
 		this.email = email;
-
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
-		
+		this.pedidos.add(new Pedido());
+
 	}
 
 	public User() {
@@ -151,5 +151,11 @@ public class User {
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
-
+	
+	public void addNewPedido(){
+		this.pedidos.add(new Pedido());
+	}
+	public Pedido lastPedido(){
+			return this.pedidos.get(this.pedidos.size() -1);
+	}
 }

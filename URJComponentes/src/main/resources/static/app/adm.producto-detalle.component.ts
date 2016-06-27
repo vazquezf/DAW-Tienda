@@ -17,25 +17,25 @@ import {Comentario} from './services/comentario.service';
                           <br>
                           <div class="panel-group">
                                 <div class="panel panel-default">
-                                      <div class="panel-body">
-                                          <h3>{{producto.Nombre}}</h3>
-                                          <p>{{producto.DescripcionC}}</p>
-                                          <p>Precio: {{producto.Precio}}</p>
-                                          <p>{{producto.DescripcionL}}</p>
-                                          <p>Cantidad: {{producto.Stock}}</p>
+                                      <div *ngIf="producto" class="panel-body">
+                                          <h3>{{producto.nombre}}</h3>
+                                          <p>{{producto.description_corta}}</p>
+                                          <p>Precio: {{producto.precio}}</p>
+                                          <p>{{producto.descripcion_larga}}</p>
+                                          <p>Cantidad: {{producto.stock}}</p>
                                           <button (click)="editProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-pencil fa-fw"></i> Modificar articulo</button>
                                           <button (click)="removeProducto()" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar articulo</button>
                                           <button (click)="gotoProductos()" class="btn btn-default" type="button" id="botonAdmin"> Todos los articulos</button>
                                           <hr>
 
-                                          <div *ngFor="#comentario of comentarios">
-                                            <p>Usuario: {{comentario.NombreUsuario}}</p>
-                                            <p>ID: {{comentario.Id}}</p>
-                                            <p>Opinion: {{comentario.Opinion}}</p>
-                                            <p>Vloracion Positiva: {{comentario.ValoracionPos}}</p>
-                                            <p>Valoracion Negativa: {{comentario.ValoracionNeg}}</p>
-                                            <p>Recomendacion: {{comentario.Recomendacion}}</p>
-                                            <button (click)="removeComentario(comentario.Id)" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar comentario</button>
+                                          <div *ngFor="#comentario of producto.comentarios">
+                                            <p>Usuario: {{comentario.nombreUsuario}}</p>
+                                            <p>ID: {{comentario.id}}</p>
+                                            <p>Opinion: {{comentario.opinion}}</p>
+                                            <p>Vloracion Positiva: {{comentario.valoracionPos}}</p>
+                                            <p>Valoracion Negativa: {{comentario.valoracionNeg}}</p>
+                                            <p>Recomendacion: {{comentario.recomendacion}}</p>
+                                            <button (click)="removeComentario(comentario.id)" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar comentario</button>
                                             <br>
                                           </div>
                                       </div>
@@ -48,7 +48,6 @@ import {Comentario} from './services/comentario.service';
 export class AdmProductoDetalleComponent {
 
     producto: Producto;
-    comentarios: Array<Comentario>;
 
     constructor(private router: Router, routeParams: RouteParams, private service: ProductoService) {
         let id = routeParams.get('id');
@@ -56,10 +55,6 @@ export class AdmProductoDetalleComponent {
             producto => this.producto = producto,
             error => console.error(error)
         );
-        this.cargarComentarios();
-
-        this.comentarios=this.producto.comentarios;
-
     }
 
     removeProducto() {
@@ -90,8 +85,4 @@ export class AdmProductoDetalleComponent {
       }*/
     }
 
-    cargarComentarios(){
-      this.comentarios=this.producto.comentarios;
-
-    }
 }

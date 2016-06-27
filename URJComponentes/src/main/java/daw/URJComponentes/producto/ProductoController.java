@@ -45,9 +45,7 @@ public class ProductoController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Producto newProduct(@RequestBody Producto anuncio) {
-
 		productoRepository.save(anuncio);
-
 		return anuncio;
 	}
 
@@ -85,5 +83,15 @@ public class ProductoController {
 		producto.getComentarios().add(anuncio);
 		productoRepository.save(producto);
 		return anuncio;
+	}
+	
+	@RequestMapping(value = "/buscador/{nombre}", method = RequestMethod.GET)
+	public Collection<Producto> getProductByName(@PathVariable String nombre) {
+		return productoRepository.findByNombre(nombre);
+	}
+	
+	@RequestMapping(value = "/buscadorTipo/{tipo}", method = RequestMethod.GET)
+	public Collection<Producto> getProductByTipo(@PathVariable String tipo) {
+		return productoRepository.findByTipo(tipo);
 	}
 }

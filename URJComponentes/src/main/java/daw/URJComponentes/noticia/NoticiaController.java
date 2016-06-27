@@ -45,6 +45,7 @@ public class NoticiaController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Noticia newNoticia(@RequestBody Noticia anuncio) {
+		log.info("yuju");
 
 		noticiaRepository.save(anuncio);
 

@@ -3,6 +3,7 @@ import { Http, RequestOptions, Headers } from 'angular2/http';
 import 'rxjs/Rx';
 import {Pedido} from './pedido.service';
 import {Observable} from 'rxjs/Observable';
+import {Producto} from './producto.service';
 
 export interface Usuario{
 
@@ -56,7 +57,6 @@ export class UsuarioService {
 	}
 
 	logIn(user: string, pass: string) {
-
 		let userPass = user + ":" + pass;
 
 		let headers = new Headers({
@@ -84,8 +84,33 @@ export class UsuarioService {
 			}
 		);
 	}
-  pedir(producto:Pedido){
+  pedir(producto:Producto){
+
+    let body = JSON.stringify(producto);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.post(URL+this.user.id, body, options)
+      .map(response =>response.json())
+      .catch(error => this.handleError(error));
+
   }
+
+  refresh(producto){
+    console.log(producto);
+  if (this.user.pedidos.length>0){
+  this.user.pedidos[this.user.pedidos.length-1].productos.push(producto);
+  }
+}
+  hacerPedido(){
+    return this.http.get(URL+this.user.id)
+      .map(response =>response.json())
+      .catch(error => this.handleError(error));
+
+  }
+
   getUsers() {
     return this.http.get(URL)
       .map(response => response.json())

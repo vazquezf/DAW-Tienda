@@ -24,6 +24,10 @@ export class CuerpoComponent implements OnInit{
 
   save(producto:Producto){
     producto.cantidad = 1;
+    this.auth0.pedir(producto).subscribe(
+      product=>this.auth0.refresh(product),
+      error => console.log(error)
+    );
   }
   deshabilitar(pr:Producto):boolean{
     if(pr.stock>0){

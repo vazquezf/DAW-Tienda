@@ -37,7 +37,16 @@ export class ProductoService {
 	      .map(response => response.json())
 	      .catch(error => this.handleError(error));
   }
-
+  getProductoByNombre(nombre: string) {
+	    return this.http.get(URL+"buscador/"+nombre)
+	      .map(response => response.json())
+	      .catch(error => this.handleError(error));
+  }
+  getByTipo(tipo: string) {
+      return this.http.get(URL+"buscadorTipo/"+tipo)
+        .map(response => response.json())
+        .catch(error => this.handleError(error));
+  }
   saveProducto(product: Producto) {
 
     let body = JSON.stringify(product);

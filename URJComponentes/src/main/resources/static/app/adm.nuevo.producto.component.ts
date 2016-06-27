@@ -4,7 +4,7 @@ import {Producto,ProductoService}   from './services/producto.service';
 
 @Component({
     template: `
-            <div id="products">
+            <div *ngIf="producto" id="products">
                 <h3>Productos</h3>
                 <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" [routerLink]="['AdmProductos']">Productos existentes</a></li>
@@ -18,10 +18,10 @@ import {Producto,ProductoService}   from './services/producto.service';
 
                                 <p>
                                     <label>Nombre del producto:</label>
-                                    <input [(ngModel)]="producto.Nombre" type="text" name="name" required="required">
+                                    <input [(ngModel)]="producto.nombre" type="text" name="name" required="required">
                                 </p>
-                                <div *ngIf="producto.Id">
-                                    <label>Id: </label>{{producto.Id}}</div>
+                                <div *ngIf="producto.id">
+                                    <label>Id: </label>{{producto.id}}</div>
                                 <div>
                                 <p>
                                     <label>Imagen:</label>
@@ -29,33 +29,40 @@ import {Producto,ProductoService}   from './services/producto.service';
                                 </p>
                                 <p>
                                     <label>Imagen:</label>
-                                    <input [(ngModel)]="producto.Img" type="text" name="img" required="required">
+                                    <input [(ngModel)]="producto.img_ruta" type="text" name="img" required="required">
                                 </p>
                                 <label>Descripción breve:</label>
                                 <p>
-                                    <textarea [(ngModel)]="producto.DescripcionC" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.description_corta" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Precio:</label>
-                                    <input [(ngModel)]="producto.Precio" type="number" name="price" required="required">
+                                    <input [(ngModel)]="producto.precio" type="number" name="price" required="required">
                                 </p>
                                 <label>Descripción:</label>
                                 <p>
-                                    <textarea [(ngModel)]="producto.DescripcionL" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.descripcion_larga" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Cantidad:</label>
-                                    <input [(ngModel)]="producto.Stock" type="number" name="quantity">
+                                    <input [(ngModel)]="producto.stock" type="number" name="quantity">
                                 </p>
                                 <p>
                                     <label>Categoria:</label>
-                                    <select>
+                                    <select [(ngModel)]="producto.tipo">
                                         <option value="Ultrabook">Ultrabook</option>
                                         <option value="Portatil">Portatil</option>
                                         <option value="Smartphone">Smartphone</option>
                                         <option value="TabletPC">TabletPC</option>
                                     </select>
                                 </p>
+                                <p>
+                                  <input type="checkbox" [(ngModel)]="producto.novedad"/>
+                                  Novedad
+                                  <input type="checkbox" [(ngModel)]="producto.destacado"/>
+                                  Destacado
+                                </p>
+
                                 <button (click)="cancelar()" class="btn btn-default" name="cancelar" value="Cancelar" id="botonAdmin"><i class="fa fa-times fa-fw"></i> Cancelar</button>
                                 <button (click)="guardar()" class="btn btn-default" name="enviar" value="Enviar" id="botonAdmin"><i class="fa fa-floppy-o fa-fw"></i> Guardar</button>
 
@@ -67,10 +74,10 @@ import {Producto,ProductoService}   from './services/producto.service';
 
                                 <p>
                                     <label>Nombre del producto:</label>
-                                    <input [(ngModel)]="nombre" type="text" name="name" required="required">
+                                    <input [(ngModel)]="producto.nombre" type="text" name="name" required="required">
                                 </p>
-                                <div *ngIf="id">
-                                    <label>Id: </label>{{producto.Id}}</div>
+                                <div *ngIf="producto.id">
+                                    <label>Id: </label>{{producto.id}}</div>
                                 <div>
                                 <p>
                                     <label>Imagen:</label>
@@ -78,32 +85,38 @@ import {Producto,ProductoService}   from './services/producto.service';
                                 </p>
                                 <p>
                                     <label>Imagen:</label>
-                                    <input [(ngModel)]="img_ruta" type="text" name="img" required="required">
+                                    <input [(ngModel)]="producto.img_ruta" type="text" name="img" required="required">
                                 </p>
                                 <label>Descripción breve:</label>
                                 <p>
-                                    <textarea [(ngModel)]="descripcion_corta" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.descripcion_corta" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Precio:</label>
-                                    <input [(ngModel)]="precio" type="number" name="price" required="required">
+                                    <input [(ngModel)]="producto.precio" type="number" name="price" required="required">
                                 </p>
                                 <label>Descripción:</label>
                                 <p>
-                                    <textarea [(ngModel)]="descripcion_larga" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.descripcion_larga" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Cantidad:</label>
-                                    <input [(ngModel)]="stock" type="number" name="quantity">
+                                    <input [(ngModel)]="producto.stock" type="number" name="quantity">
                                 </p>
                                 <p>
                                     <label>Categoria:</label>
-                                    <select>
+                                    <select [(ngModel)]="producto.tipo">
                                         <option value="Ultrabook">Ultrabook</option>
                                         <option value="Portatil">Portatil</option>
                                         <option value="Smartphone">Smartphone</option>
                                         <option value="TabletPC">TabletPC</option>
                                     </select>
+                                </p>
+                                <p>
+                                  <input type="checkbox" [(ngModel)]="producto.novedad"/>
+                                  Novedad
+                                  <input type="checkbox" [(ngModel)]="producto.destacado"/>
+                                  Destacado
                                 </p>
                                 <button (click)="cancelar()" class="btn btn-default" name="cancelar" value="Cancelar" id="botonAdmin"><i class="fa fa-times fa-fw"></i> Cancelar</button>
                                 <button (click)="guardar()" class="btn btn-default" name="enviar" value="Enviar" id="botonAdmin"><i class="fa fa-floppy-o fa-fw"></i> Guardar</button>
@@ -120,15 +133,7 @@ export class AdmNuevoProductoComponent {
 
   newProducto: boolean;
     producto: Producto;
-    nombre: string;
-    descripcion_corta:string;
-    img_ruta:string;
-    precio:number;
-    stock:number;
-    descripcion_larga:string;
-    destacado: boolean;
-    novedad: boolean;
-    tipo: string;
+
     constructor(private _router:Router, routeParams:RouteParams, private service: ProductoService){
 
         let id = routeParams.get('id');
@@ -139,10 +144,10 @@ export class AdmNuevoProductoComponent {
           );
           this.newProducto = false;
         } else {
-          this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
-             img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
-              descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
-              comentarios:null, cantidad:0};
+          this.producto = {nombre:"", description_corta:"",
+             img_ruta:"", precio:0, stock:0,
+              descripcion_larga:"", novedad:false, destacado:false,tipo:"",
+              comentarios:null, cantidad:1};
           this.newProducto = true;
         }
     }
@@ -152,15 +157,10 @@ export class AdmNuevoProductoComponent {
     }
 
     guardar() {
-      if(this.newProducto){
-
-        this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
-           img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
-            descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
-            comentarios:null, cantidad:0};
-      }else{
-      this.service.saveProducto(this.producto);
-    }
+      this.service.saveProducto(this.producto).subscribe(
+          producto=> console.log("producto"+ producto.nombre+ "guardado"),
+          error => console.log(error)
+      );
       window.history.back();
     }
 

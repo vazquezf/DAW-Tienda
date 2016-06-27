@@ -36,8 +36,10 @@ public class DatabaseInitializer implements CommandLineRunner {
 		// Sample books
 		Producto producto = new Producto("GTX 760","Targeta grafica de gamma baja pero que permitira jugar a las ultimas tendencias en videojuegos","Imagenes/item-1.jpg",250,5,"La nueva generación de EVGA GeForce GTX 970 ha llegado con el SSC.",true,false,"Portatil");
 		producto.getComentarios().add(new Comentario("Cool", "bien","mal","si","Javi"));
+	
+		
 		productoRepository.save(producto);
-		productoRepository.save(new Producto("GTX TITAN","Targeta grafica de gamma media pero que permitira jugar a las ultimas tendencias en videojuegos","Imagenes/item-2.jpg",250,5,"La nueva generación de EVGA GeForce GTX 970 ha llegado con el SSC.",true,true,"Portatil"));
+		productoRepository.save(new Producto("GTX TITAN","Targeta grafica de gamma media pero que permitira jugar a las ultimas tendencias en videojuegos","Imagenes/item-2.jpg",250,5,"La nueva generación de EVGA GeForce GTX 970 ha llegado con el SSC.",true,true,"Ultrabook"));
 		productoRepository.save(new Producto("GTX 1080","Targeta grafica de gamma alta pero que permitira jugar a las ultimas tendencias en videojuegos","Imagenes/item-3.jpg",250,5,"La nueva generación de EVGA GeForce GTX 970 ha llegado con el SSC.",false,true,"Portatil"));
 		
 		noticiaRepository.save(new Noticia("SUEÑOS DE  Y NEON", "Imagenes/fbiiphone.jpg", "Los personajes que protagonizan este relato sobreviven en una sociedad en decadencia a la que, no obstante, lograrán devolver la posibilidad de un futuro. Año 2484. En un mundo dominado por las grandes corporaciones, solo un hombre, Jordi Thompson, detective privado deslenguado y vividor, pero de gran talento y sentido d..."));
@@ -46,7 +48,9 @@ public class DatabaseInitializer implements CommandLineRunner {
 		noticiaRepository.save(new Noticia("SUEÑOS DE ACERO Y NEON", "Imagenes/fbiiphone.jpg", "Los personajes que protagonizan este relato sobreviven en una sociedad en decadencia a la que, no obstante, lograrán devolver la posibilidad de un futuro. Año 2484. En un mundo dominado por las grandes corporaciones, solo un hombre, Jordi Thompson, detective privado deslenguado y vividor, pero de gran talento y sentido d..."));
 		
 		
-		userRepository.save(new User("juan", "algo", "garcia", "user","jaun.estac@gmail.com", "user", "ROLE_USER"));
+		User user = new User("juan", "algo", "garcia", "user","jaun.estac@gmail.com", "user", "ROLE_USER");
+		user.getPedidos().get(0).addProduct(productoRepository.findOne((long) 1));
+		userRepository.save(user);
 		userRepository.save(new User("manolo", "Felipe", "estac", "admin","manolof.estac@gmail.com","admin", "ROLE_USER", "ROLE_ADMIN"));
 		
 		// Sample users

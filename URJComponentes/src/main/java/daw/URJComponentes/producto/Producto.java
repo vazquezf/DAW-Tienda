@@ -31,7 +31,7 @@ public class Producto {
 	private boolean destacado;
 	private boolean novedad;
 	private String tipo;
-	private int cantidad = 0;
+	private int cantidad = 1;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Comentario> comentarios= new ArrayList<>();

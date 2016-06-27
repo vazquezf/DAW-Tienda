@@ -1,6 +1,7 @@
 package daw.URJComponentes.usuario;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import daw.URJComponentes.comentarios.Comentario;
 import daw.URJComponentes.pedido.Pedido;
 import daw.URJComponentes.producto.Producto;
+import daw.URJComponentes.producto.ProductoRepository;
 
 @RestController
 @RequestMapping("/user")
@@ -27,6 +29,9 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private ProductoRepository productoRepository;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<User> getProducts() {
 		log.info("ahi va le pedido");
@@ -35,11 +40,26 @@ public class UserController {
 	}
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Pedido newPedido(@RequestBody Pedido anuncio,@PathVariable long id) {
-		log.info("ahi va le pedido");
+	public Producto newPedido(@RequestBody Producto anuncio,@PathVariable long id) {
+
 		User user = userRepository.findOne(id);
-		user.getPedidos().add(anuncio);
+		List<Producto> lProductos = productoRepository.findByNombre(anuncio.getNombre());
+		log.info(lProductos.get(0).getNombre());
+		for (int i=0;i<anuncio.getCantidad();i++){	
+			user.lastPedido().addProduct(lProductos.get(i));
+		}
 		userRepository.save(user);
 		return anuncio;
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.CREATED)
+	public User Pedir(@PathVariable long id) {
+
+		User user = userRepository.findOne(id);
+		user.addNewPedido();
+		userRepository.save(user);
+		return user;
+	}
+	
 }

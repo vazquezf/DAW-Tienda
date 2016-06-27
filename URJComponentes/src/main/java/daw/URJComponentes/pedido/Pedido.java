@@ -3,6 +3,7 @@ package daw.URJComponentes.pedido;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Pedido {
 	@OneToMany(fetch = FetchType.EAGER)
 	private List<Producto> productos = new ArrayList<>();
 	
-	protected Pedido() {
+	public Pedido() {
 	}
 	
 	public Pedido(List<Producto> productos) {
@@ -47,5 +48,7 @@ public class Pedido {
 		this.productos = productos;
 	}
 	
-	
+	public void addProduct(Producto producto){
+		this.productos.add(producto);
+	}
 }

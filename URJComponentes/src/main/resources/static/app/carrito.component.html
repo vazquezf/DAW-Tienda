@@ -37,7 +37,7 @@
                       <a [routerLink]="['ProductoDetail',{id: producto.id}]" role="button">{{producto.nombre}}</a>
                     </td>
                     <td>
-                        <p>{{producto.descripcion_corta}}</p>
+                        <p>{{producto.precio}}</p>
                     </td>
                     <td>
                         <input  class="form-control" [(ngModel)]="producto.cantidad" type="number" min="1" max="{{producto.stock}}" maxlength="2">
@@ -53,7 +53,7 @@
         </div>
         <div id="CarritoBtts">
             <p class="col-md-8 col-sm-7"></p>
-            <div *ngIf="usuario.isLogged">
+            <div *ngIf="isLogged">
             <a (click)="BorrarPedidos()"  class="btn btn-danger" role="button"><span class="glyphicon glyphicon-remove"></span> Vaciar carrito</a>
             <a (click)="guardarPedido()" class="btn btn-success" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Realizar pedido</a>
             </div>

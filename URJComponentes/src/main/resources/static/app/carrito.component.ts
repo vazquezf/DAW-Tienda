@@ -12,20 +12,29 @@ import {NavSupComponent} from './nav-sup.component';
 export class CarritoComponent {
 
   pedido: Producto[];
+  isLogged: boolean;
   usuario:Usuario;
   constructor(private router:Router,private auth0:UsuarioService) {
       this.usuario = this.auth0.user;
+      this.isLogged = this.auth0.isLogged;
       this.CargarPedidos();
     }
     guardarPedido(){
-
+      this.auth0.hacerPedido().susbcribe(
+        user=>this.usuario = user,
+        error => console.log(error)
+      );
+      this.CargarPedidos();
     }
 
     BorrarPedidos(){
     }
 
     CargarPedidos(){
+
+      if (this.usuario.pedidos.length > 0){
       this.pedido = this.usuario.pedidos[this.usuario.pedidos.length-1].productos;
+      }
 }
     eliminar(p:Pedido){
 

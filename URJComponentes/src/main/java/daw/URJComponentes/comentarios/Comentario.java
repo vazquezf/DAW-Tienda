@@ -24,7 +24,6 @@ public class Comentario {
 
 	public Comentario(String opinion, String valoracion_pos, String valoracion_neg, String recomendacion,
 			String nombreUsuario) {
-		super();
 		this.opinion = opinion;
 		this.valoracion_pos = valoracion_pos;
 		this.valoracion_neg = valoracion_neg;
