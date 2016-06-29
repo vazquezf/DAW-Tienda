@@ -93,20 +93,52 @@ export class UsuarioService {
     });
     let options = new RequestOptions({ headers });
     return this.http.post(URL+this.user.id, body, options)
-      .map(response =>response.json())
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
       .catch(error => this.handleError(error));
 
   }
 
-  refresh(producto){
-    console.log(producto);
-  if (this.user.pedidos.length>0){
-  this.user.pedidos[this.user.pedidos.length-1].productos.push(producto);
-  }
+  refresh(user){
+    console.log(user);
+
 }
   hacerPedido(){
-    return this.http.get(URL+this.user.id)
-      .map(response =>response.json())
+    return this.http.post(URL+this.user.id+"/pedir")
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+  }
+
+  borrarPedido(){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+
+    return this.http.delete(URL+this.user.id,Option)
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+
+  }
+  borrarUna(cod){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+
+    return this.http.delete(URL+this.user.id+"/"+cod,Option)
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
       .catch(error => this.handleError(error));
 
   }

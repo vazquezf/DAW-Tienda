@@ -10,24 +10,37 @@ import {NavSupComponent} from './nav-sup.component';
 })
 
 export class CarritoComponent {
-
   pedido: Producto[];
+  isLogged: boolean;
   usuario:Usuario;
   constructor(private router:Router,private auth0:UsuarioService) {
-      this.usuario = this.auth0.user;
-      this.CargarPedidos();
+      this.isLogged = this.auth0.isLogged;
     }
+    ngOnInit(){
+      this.pedido=  this.auth0.user.pedidos[this.auth0.user.pedidos.length-1].productos
+      }
+  /*  get pedido():Producto[]{
+    	return ( this.auth0.user.pedidos[this.auth0.user.pedidos.length-1].productos);
+    }*/
     guardarPedido(){
-
+      this.auth0.hacerPedido().subscribe(
+        user=>this.pedido=null,
+        error => console.log(error)
+      );
     }
 
     BorrarPedidos(){
+    this.auth0.borrarPedido().subscribe(
+        user=>this.pedido=null,
+        error => console.log(error)
+      );
     }
 
-    CargarPedidos(){
-      this.pedido = this.usuario.pedidos[this.usuario.pedidos.length-1].productos;
-}
-    eliminar(p:Pedido){
+    eliminar(index){
+      this.auth0.borrarUna(index).subscribe(
+        user=>this.pedido=user.pedidos[this.usuario.pedidos.length-1].productos,
+        error => console.log(error)
+      );
 
     }
 

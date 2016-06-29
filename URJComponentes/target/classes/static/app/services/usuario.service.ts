@@ -3,6 +3,7 @@ import { Http, RequestOptions, Headers } from 'angular2/http';
 import 'rxjs/Rx';
 import {Pedido} from './pedido.service';
 import {Observable} from 'rxjs/Observable';
+import {Producto} from './producto.service';
 
 export interface Usuario{
 
@@ -56,7 +57,6 @@ export class UsuarioService {
 	}
 
 	logIn(user: string, pass: string) {
-
 		let userPass = user + ":" + pass;
 
 		let headers = new Headers({
@@ -84,8 +84,65 @@ export class UsuarioService {
 			}
 		);
 	}
-  pedir(producto:Pedido){
+  pedir(producto:Producto){
+
+    let body = JSON.stringify(producto);
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    });
+    let options = new RequestOptions({ headers });
+    return this.http.post(URL+this.user.id, body, options)
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+
   }
+
+  refresh(user){
+    console.log(user);
+
+}
+  hacerPedido(){
+    return this.http.post(URL+this.user.id+"/pedir")
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+  }
+
+  borrarPedido(){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+
+    return this.http.delete(URL+this.user.id,Option)
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+
+  }
+  borrarUna(cod){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+  	});
+  	let options = new RequestOptions({ headers });
+
+    return this.http.delete(URL+this.user.id+"/"+cod,Option)
+      .map(response =>{
+				this.processLogInResponse(response);
+				return this.user;
+			})
+      .catch(error => this.handleError(error));
+
+  }
+
   getUsers() {
     return this.http.get(URL)
       .map(response => response.json())

@@ -32,34 +32,58 @@ public class UserController {
 	@Autowired
 	private ProductoRepository productoRepository;
 	
+	@Autowired
+	private UserComponent userComponent;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Collection<User> getProducts() {
-		log.info("ahi va le pedido");
+		log.info("ahi va los users");
 
 		return userRepository.findAll();
 	}
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Producto newPedido(@RequestBody Producto anuncio,@PathVariable long id) {
+	public User newPedido(@RequestBody Producto anuncio,@PathVariable long id) {
 
-		User user = userRepository.findOne(id);
+		User user = userComponent.getLoggedUser();
 		List<Producto> lProductos = productoRepository.findByNombre(anuncio.getNombre());
 		log.info(lProductos.get(0).getNombre());
-		for (int i=0;i<anuncio.getCantidad();i++){	
-			user.lastPedido().addProduct(lProductos.get(i));
-		}
+		Pedido pedido = user.lastPedido();
+		System.out.println(user.getPedidos().get(user.getPedidos().size()-1).getId());
+		pedido.addProduct(lProductos.get(0));
+		user.lastPedido().setProductos(pedido.getProductos());
 		userRepository.save(user);
-		return anuncio;
-	}
+		return user;
+		}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/pedir", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User Pedir(@PathVariable long id) {
 
-		User user = userRepository.findOne(id);
+		User user = userComponent.getLoggedUser();
 		user.addNewPedido();
 		userRepository.save(user);
 		return user;
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<User> Borrar(@PathVariable long id) {
+
+		User user = userComponent.getLoggedUser();
+		user.deletePedido();
+		log.info("borrando pedido");
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
+	@RequestMapping(value = "/{id}/{cod}", method = RequestMethod.DELETE)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<User> BorrarUno(@PathVariable long id,@PathVariable int cod) {
+
+		User user = userComponent.getLoggedUser();
+		user.deleteOne(cod);
+		log.info("borrando pedido"+cod);
+		userRepository.save(user);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+	}
 }

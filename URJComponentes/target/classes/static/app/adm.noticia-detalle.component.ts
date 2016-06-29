@@ -14,7 +14,7 @@ import {Noticia,NoticiaService}   from './services/noticia.service';
                   <div class="tab-content">
                       <div id="existingNews" class="tab-pane fade in active">
                           <br>
-                          <div class="panel-group">
+                          <div *ngIf="noticia" class="panel-group">
                                 <div class="panel panel-default">
                                       <div class="panel-body">
                                           <h3>{{noticia.titulo}}</h3>

@@ -28,14 +28,14 @@ import {Comentario} from './services/comentario.service';
                                           <button (click)="gotoProductos()" class="btn btn-default" type="button" id="botonAdmin"> Todos los articulos</button>
                                           <hr>
 
-                                          <div *ngFor="#comentario of producto.comentarios">
+                                          <div *ngFor="#comentario of producto.comentarios;#i = index">
                                             <p>Usuario: {{comentario.nombreUsuario}}</p>
                                             <p>ID: {{comentario.id}}</p>
                                             <p>Opinion: {{comentario.opinion}}</p>
                                             <p>Vloracion Positiva: {{comentario.valoracionPos}}</p>
                                             <p>Valoracion Negativa: {{comentario.valoracionNeg}}</p>
                                             <p>Recomendacion: {{comentario.recomendacion}}</p>
-                                            <button (click)="removeComentario(comentario.id)" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar comentario</button>
+                                            <button (click)="removeComentario(i)" class="btn btn-default" type="button" id="botonAdmin"><i class="fa fa-trash fa-fw"></i> Eliminar comentario</button>
                                             <br>
                                           </div>
                                       </div>
@@ -76,13 +76,13 @@ export class AdmProductoDetalleComponent {
     }
 
     removeComentario(id: number) {
-    /*  let okResponse = window.confirm("¿Quieres borrar este comentario?");
+      let okResponse = window.confirm("¿Quieres borrar este comentario?");
       if (okResponse) {
           this.service.removeComentario(this.producto, id).subscribe(
-              _ => this.router.navigate(['AdmProductoDetalle', {id: this.producto.Id}]),
+              product => this.producto = product,
               error => console.error(error)
           )
-      }*/
+      }
     }
 
 }

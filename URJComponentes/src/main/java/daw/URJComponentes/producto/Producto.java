@@ -146,6 +146,9 @@ public class Producto {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
+	public void deleteComentario(int index){
+		this.comentarios.remove(index);
+	}
 
 	@Override
 	public String toString() {

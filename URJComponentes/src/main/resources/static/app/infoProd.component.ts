@@ -22,7 +22,7 @@ export class InfoProdComponent {
   alerta:string;
   alertaUsuario:string;
 
-  constructor(routeParams: RouteParams, private service: ProductoService,/*private servicepd: PedidoService,*/private ath0:UsuarioService) {
+  constructor(routeParams: RouteParams, private service: ProductoService,private ath0:UsuarioService) {
     let id = routeParams.get('id');
         this.service.getProducto(id).subscribe(
         producto => this.producto = producto,
@@ -69,7 +69,7 @@ save(){
 */
 }
 deshabilitar():boolean{
-    if(this.producto.stock>0){
+    if(this.producto.stock>0 && this.ath0.isLogged){
       return false;
     }else{
       return true;

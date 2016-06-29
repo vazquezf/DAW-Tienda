@@ -1,10 +1,13 @@
 import {Component} from 'angular2/core';
 import {RouteParams, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Producto,ProductoService}   from './services/producto.service';
-
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
+import {MultipartItem} from "./multipart-upload/multipart-item";
+import {MultipartUploader} from "./multipart-upload/multipart-uploader";
+import {TimerWrapper} from 'angular2/src/facade/async';
 @Component({
     template: `
-            <div id="products">
+            <div *ngIf="producto" id="products">
                 <h3>Productos</h3>
                 <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" [routerLink]="['AdmProductos']">Productos existentes</a></li>
@@ -14,97 +17,55 @@ import {Producto,ProductoService}   from './services/producto.service';
                     <div id="addproduct" class="tab-pane fade  in active">
                         <h3>Nuevo producto</h3>
                         <br>
-                        <div id="formAddProducto" *ngIf="!newProducto">
+                        <div id="formAddProducto" >
 
                                 <p>
                                     <label>Nombre del producto:</label>
-                                    <input [(ngModel)]="producto.Nombre" type="text" name="name" required="required">
+                                    <input [(ngModel)]="producto.nombre" type="text" name="name" required="required">
                                 </p>
-                                <div *ngIf="producto.Id">
-                                    <label>Id: </label>{{producto.Id}}</div>
+                                <div *ngIf="producto.id">
+                                    <label>Id: </label>{{producto.id}}</div>
                                 <div>
                                 <p>
-                                    <label>Imagen:</label>
-                                    <input type="file">
+                                  <label for="exampleInputFile">Imagen:</label>
+
+                                  <input type="file" (change)="selectFile($event)">
+
+                                  <button type="submit" class="btn btn-default" (click)="upload()">Submit</button>
                                 </p>
-                                <p>
-                                    <label>Imagen:</label>
-                                    <input [(ngModel)]="producto.Img" type="text" name="img" required="required">
-                                </p>
+
                                 <label>Descripción breve:</label>
                                 <p>
-                                    <textarea [(ngModel)]="producto.DescripcionC" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.description_corta" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Precio:</label>
-                                    <input [(ngModel)]="producto.Precio" type="number" name="price" required="required">
+                                    <input [(ngModel)]="producto.precio" type="number" name="price" required="required">
                                 </p>
                                 <label>Descripción:</label>
                                 <p>
-                                    <textarea [(ngModel)]="producto.DescripcionL" rows="5" cols="100" required="required"></textarea>
+                                    <textarea [(ngModel)]="producto.descripcion_larga" rows="5" cols="100" required="required"></textarea>
                                 </p>
                                 <p>
                                     <label>Cantidad:</label>
-                                    <input [(ngModel)]="producto.Stock" type="number" name="quantity">
+                                    <input [(ngModel)]="producto.stock" type="number" name="quantity">
                                 </p>
                                 <p>
                                     <label>Categoria:</label>
-                                    <select>
+                                    <select [(ngModel)]="producto.tipo">
                                         <option value="Ultrabook">Ultrabook</option>
                                         <option value="Portatil">Portatil</option>
                                         <option value="Smartphone">Smartphone</option>
                                         <option value="TabletPC">TabletPC</option>
                                     </select>
                                 </p>
-                                <button (click)="cancelar()" class="btn btn-default" name="cancelar" value="Cancelar" id="botonAdmin"><i class="fa fa-times fa-fw"></i> Cancelar</button>
-                                <button (click)="guardar()" class="btn btn-default" name="enviar" value="Enviar" id="botonAdmin"><i class="fa fa-floppy-o fa-fw"></i> Guardar</button>
+                                <p>
+                                  <input type="checkbox" [(ngModel)]="producto.novedad"/>
+                                  Novedad
+                                  <input type="checkbox" [(ngModel)]="producto.destacado"/>
+                                  Destacado
+                                </p>
 
-                        </div>
-                    </div>
-
-
-                        <div id="formAddProducto" *ngIf="newProducto">
-
-                                <p>
-                                    <label>Nombre del producto:</label>
-                                    <input [(ngModel)]="nombre" type="text" name="name" required="required">
-                                </p>
-                                <div *ngIf="id">
-                                    <label>Id: </label>{{producto.Id}}</div>
-                                <div>
-                                <p>
-                                    <label>Imagen:</label>
-                                    <input type="file">
-                                </p>
-                                <p>
-                                    <label>Imagen:</label>
-                                    <input [(ngModel)]="img_ruta" type="text" name="img" required="required">
-                                </p>
-                                <label>Descripción breve:</label>
-                                <p>
-                                    <textarea [(ngModel)]="descripcion_corta" rows="5" cols="100" required="required"></textarea>
-                                </p>
-                                <p>
-                                    <label>Precio:</label>
-                                    <input [(ngModel)]="precio" type="number" name="price" required="required">
-                                </p>
-                                <label>Descripción:</label>
-                                <p>
-                                    <textarea [(ngModel)]="descripcion_larga" rows="5" cols="100" required="required"></textarea>
-                                </p>
-                                <p>
-                                    <label>Cantidad:</label>
-                                    <input [(ngModel)]="stock" type="number" name="quantity">
-                                </p>
-                                <p>
-                                    <label>Categoria:</label>
-                                    <select>
-                                        <option value="Ultrabook">Ultrabook</option>
-                                        <option value="Portatil">Portatil</option>
-                                        <option value="Smartphone">Smartphone</option>
-                                        <option value="TabletPC">TabletPC</option>
-                                    </select>
-                                </p>
                                 <button (click)="cancelar()" class="btn btn-default" name="cancelar" value="Cancelar" id="botonAdmin"><i class="fa fa-times fa-fw"></i> Cancelar</button>
                                 <button (click)="guardar()" class="btn btn-default" name="enviar" value="Enviar" id="botonAdmin"><i class="fa fa-floppy-o fa-fw"></i> Guardar</button>
 
@@ -120,16 +81,12 @@ export class AdmNuevoProductoComponent {
 
   newProducto: boolean;
     producto: Producto;
-    nombre: string;
-    descripcion_corta:string;
-    img_ruta:string;
-    precio:number;
-    stock:number;
-    descripcion_larga:string;
-    destacado: boolean;
-    novedad: boolean;
-    tipo: string;
-    constructor(private _router:Router, routeParams:RouteParams, private service: ProductoService){
+
+    private description: string = " ";
+  	private file: File;
+
+  	private images: String[] = [];
+    constructor(private _router:Router, routeParams:RouteParams, private service: ProductoService,private http: Http){
 
         let id = routeParams.get('id');
         if(id){
@@ -139,29 +96,75 @@ export class AdmNuevoProductoComponent {
           );
           this.newProducto = false;
         } else {
-          this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
-             img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
-              descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
-              comentarios:null, cantidad:0};
+          this.producto = {nombre:"", description_corta:"",
+             img_ruta:"", precio:0, stock:0,
+              descripcion_larga:"", novedad:false, destacado:false,tipo:"",
+              comentarios:null, cantidad:1};
           this.newProducto = true;
         }
     }
-
+    ngOnInit(){
+  this.loadImages();
+  }
     cancelar() {
       window.history.back();
     }
 
     guardar() {
-      if(this.newProducto){
-
-        this.producto = {nombre:this.nombre, description_corta: this.descripcion_corta,
-           img_ruta:this.img_ruta, precio:this.precio, stock:this.stock,
-            descripcion_larga:this.descripcion_larga, novedad:true, destacado:false,tipo:"",
-            comentarios:null, cantidad:0};
-      }else{
-      this.service.saveProducto(this.producto);
-    }
+      this.service.saveProducto(this.producto).subscribe(
+          producto=> console.log("producto"+ producto.nombre+ "guardado"),
+          error => console.log(error)
+      );
       window.history.back();
     }
+
+    loadImages(){
+
+  		this.http.get("/images").subscribe(
+  			response => this.images = response.json()
+  		);
+  	}
+
+  	selectFile($event) {
+  		this.file = $event.target.files[0];
+  		console.debug("Selected file: " + this.file.name + " type:" + this.file.size + " size:" + this.file.size);
+  	}
+
+	upload() {
+
+		console.debug("Uploading file...");
+
+		if (this.file == null || this.description == null){
+			console.error("You have to select a file and set a description.");
+			return;
+		}
+
+		let formData = new FormData();
+
+		formData.append("description", this.description);
+		formData.append("file",  this.file);
+
+		let multipartItem = new MultipartItem(new MultipartUploader({url: '/image/upload'}));
+
+		multipartItem.formData = formData;
+
+		multipartItem.callback = (data, status, headers) => {
+
+			if (status == 200){
+				console.debug("File has been uploaded");
+				this.loadImages()
+			} else {
+				console.error("Error uploading file");
+			}
+		};
+		multipartItem.upload();
+    TimerWrapper.setTimeout(() => {
+      console.log(this.images.length);
+      if (this.images.length>0){
+      this.producto.img_ruta="/images/" + this.images[this.images.length-1].fileName;
+    }
+  }, 1000);
+
+	}
 
 }

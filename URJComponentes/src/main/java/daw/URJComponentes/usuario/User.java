@@ -156,6 +156,16 @@ public class User {
 		this.pedidos.add(new Pedido());
 	}
 	public Pedido lastPedido(){
-			return this.pedidos.get(this.pedidos.size() -1);
+		System.out.println(this.pedidos.size());
+		
+		return this.pedidos.get(this.pedidos.size() -1);
+			
+	}
+	
+	public void deletePedido(){
+		this.pedidos.get(this.pedidos.size()-1).getProductos().clear();
+	}
+	public void deleteOne(int cod){
+		this.pedidos.get(this.pedidos.size()-1).getProductos().remove(cod);
 	}
 }

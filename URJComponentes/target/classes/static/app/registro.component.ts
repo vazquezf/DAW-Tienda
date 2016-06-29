@@ -22,7 +22,9 @@ export class RegistroComponent {
 	  event.preventDefault();
 
 	  this.service.logIn(this.nombre, this.pass).subscribe(
-	      user => this.usuario=user,
+	      user => {this.usuario=user;
+          this.router.navigate(['Usuarioinfo']);
+          },
 	      error => alert("Invalid user or password")
       );
   	}

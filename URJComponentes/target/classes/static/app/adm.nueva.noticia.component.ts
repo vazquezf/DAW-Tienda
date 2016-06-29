@@ -5,7 +5,7 @@ import {Noticia,NoticiaService}   from './services/noticia.service';
 @Component({
     template: `
 
-            <div id="news">
+            <div *ngIf="noticia" id="news">
                 <h3>Noticias</h3>
                 <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" [routerLink]="['AdmNoticias']">Noticias existentes</a></li>
@@ -77,7 +77,11 @@ export class AdmNuevaNoticiaComponent {
     }
 
     guardar() {
-      this.service.saveNoticia(this.noticia);
+      console.log(this.noticia.descripcion);
+      this.service.saveNoticia(this.noticia).subscribe(
+          noticia=> console.log("noticia"+ noticia.titulo+ "guardada"),
+          error => console.log(error)
+      );
       window.history.back();
     }
 

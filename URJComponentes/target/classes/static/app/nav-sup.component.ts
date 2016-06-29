@@ -1,7 +1,7 @@
 import {Component,OnInit} from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteParams,Router} from 'angular2/router';
 import {UsuarioService,Usuario} from './services/usuario.service';
-/*import {PedidoService} from './services/pedido.service';*/
+import {Pedido} from './services/pedido.service';
 @Component({
     selector: 'nav-sup',
     template:`
@@ -35,7 +35,7 @@ import {UsuarioService,Usuario} from './services/usuario.service';
 export class NavSupComponent {
   usuario:string;
   isLogged: boolean;
-  constructor(private ath0:UsuarioService,/*private service:PedidoService,*/private router:Router) {
+  constructor(private ath0:UsuarioService,private router:Router) {
     this.isLogged = ath0.isLogged;
     if(this.isLogged){
       this.usuario=this.ath0.user.name;
@@ -43,10 +43,11 @@ export class NavSupComponent {
   }
 
   get HayPedidos():string{
-    /*if(this.service.pedido.pedidos.length>0){*/
+    if(this.ath0.user.pedidos[this.ath0.user.pedidos.length-1].productos.length>0){
       return 'Tienes Productos en el carrito';
 
   }
+}
   get esUsuario():boolean{
     if(this.isLogged){
       this.usuario=this.ath0.user.name;

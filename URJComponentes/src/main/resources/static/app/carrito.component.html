@@ -29,7 +29,7 @@
 
                     </tr>
                 </thead>
-                <tr *ngFor="#producto of pedido">
+                <tr *ngFor="#producto of pedido;  #i = index">
                     <td>
                         <p>{{producto.id}}</p>
                     </td>
@@ -46,7 +46,7 @@
                         <p>{{producto.precio*producto.cantidad}} €</p>
                     </td>
                     <td>
-                        <a (click)="eliminar(producto)" role="button"><p>Eliminar</p></a>
+                        <a (click)="eliminar(i)" role="button"><p>Eliminar</p></a>
                     </td>
                 </tr>
             </table>

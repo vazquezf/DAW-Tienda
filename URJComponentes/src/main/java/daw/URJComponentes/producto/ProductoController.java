@@ -75,6 +75,20 @@ public class ProductoController {
 		}
 	}
 	
+	@RequestMapping(value = "/{id}/{n}", method = RequestMethod.DELETE)
+	public ResponseEntity<Producto> deleteComment(@PathVariable long id,@PathVariable int n) {
+
+		Producto anuncio = productoRepository.findOne(id);
+		if (anuncio != null) {
+			System.err.println(n);
+			anuncio.deleteComentario(n);
+			productoRepository.save(anuncio);
+			return new ResponseEntity<>(anuncio, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Comentario newComentario(@RequestBody Comentario anuncio,@PathVariable long id) {

@@ -7,15 +7,15 @@
               <div *ngFor="#producto of producto">
                 <article  class="col-md-3 col-sm-3 col-xs-12">
                     <div   class="thumbnail">
-                        <img class="img-responsive" src="{{producto.Img}}">
+                        <img class="img-responsive" src="{{producto.img_ruta}}">
                         <div class="btn-group  pop-imagenes" role="group">
-                            <a [routerLink]="['ProductoDetail',{id: producto.Id}]" class="btn btn-secondary" role="button">Ver</a>
+                            <a [routerLink]="['ProductoDetail',{id: producto.id}]" class="btn btn-secondary" role="button">Ver</a>
                             <a (click)="save(producto)"  class="btn btn-primary" role="button">Añadir al Carrito</a>
                         </div>
                         <div class="caption">
-                            <h3 class="desc-articulo">{{producto.Nombre}}</h3>
-                            <p class="cortar">{{producto.DescripcionC}}</p>
-                            <span class="precio">{{producto.Precio}}</span>
+                            <h3 class="desc-articulo">{{producto.nombre}}</h3>
+                            <p class="cortar">{{producto.descripcion_corta}}</p>
+                            <span class="precio">{{producto.precio}}</span>
                             <div class="progress">
                                 <div class="progress-bar progress-bar-{{producto.ProgressBarra}} progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{producto.PortStock}}%" data-toggle="tooltip" data-placement="bottom" title="Disponibilidad">
                                 </div>

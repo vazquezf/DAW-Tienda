@@ -12,11 +12,6 @@
               </section>
               <section class=" container infomacion-articulo-general col-md-12">
                   <div class="container info-articulo col-md-12" id="Poducto">
-                      <div class="info-articulo-imagen col-md-4">
-                          <div class="thumbnail">
-                              <img class="img-responsive" id="imagen-info" src="Imagenes/perfil.png">
-                          </div>
-                      </div>
                       <div class="info-articulo-texto col-md-6">
                           <div class="panel panel-default">
                               <div class="panel-heading titulo-perfil">{{usuario.name}}</div>
@@ -49,23 +44,18 @@
                                                   <ul class="nav  tree">
                                                       <li>
                                                           <ul>
-                                                            <li *ngFor="#compra of usuario.Comprados">
+                                                            <li *ngFor="#compra of usuario.pedidos;#i = index">Pedido {{i+1}}
                                                               <table>
-                                                              <tr *ngFor="#producto of compra">
+                                                              <tr *ngFor="#producto of compra.productos">
                                                                   <td>
-                                                                      <p>{{producto.Producto.Id}}</p>
+                                                                      <a [routerLink]="['ProductoDetail',{id:producto.id}]"><img class="CarritoJPG" src="{{producto.img_ruta}}">{{producto.nombre}}</a>
+                                                                  </td>
+
+                                                                  <td>
+                                                                      <p>Cantidad: {{producto.cantidad}}</p>
                                                                   </td>
                                                                   <td>
-                                                                      <a [routerLink]="['ProductoDetail',{id:producto.Producto.Id}]"><img class="CarritoJPG" src="{{producto.Producto.Img}}">{{producto.Producto.Nombre}}</a>
-                                                                  </td>
-                                                                  <td>
-                                                                      <p>{{producto.Producto.DescripcionC}}</p>
-                                                                  </td>
-                                                                  <td>
-                                                                      <input  class="form-control" value="{{producto.Num}}" type="number" disabled>
-                                                                  </td>
-                                                                  <td>
-                                                                      <p>{{producto.Producto.Precio*producto.Num}} €</p>
+                                                                      <p>Precio: {{producto.precio*producto.cantidad}} €</p>
                                                                   </td>
                                                               </tr>
                                                             </table>

@@ -11,9 +11,9 @@
                 <div class="col-md-3 col-md-offset-1 col-xs-offset-4 col-xs-6 col-sm-offset-1 col-sm-4">
                     <div>
                         <ul  class="navbar-center  nav navbar-nav   iconos-navegacion-banner">
-                            <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span  *ngIf="loguear"  style="center" class="glyphicon glyphicon-user"></span></a></li>
-                            <li class=" col-md-4"><a [routerLink]="['Administracion']"><span class="fa fa-key fa-5x"></span></a></li>
-                            <li class=" col-md-4"><a [routerLink]="['Carrito']"><span *ngIf="n" class="fa {{cantidad}} fa-5x"></span></a></li>
+                            <li   class=" col-md-4"><a [routerLink]="[estaRegistrado]"><span style="center" class="glyphicon glyphicon-user"></span></a></li>
+                            <li *ngIf="isAdmin" class=" col-md-4"><a [routerLink]="['Administracion']"><span class="fa fa-key fa-5x"></span></a></li>
+                            <li *ngIf="loguear" class=" col-md-4"><a [routerLink]="['Carrito']"><span class="fa {{cantidad}} fa-5x"></span></a></li>
                         </ul>
                     </div>
 
